@@ -1,0 +1,940 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>API 文档</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container-fluid"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#字典数据">字典数据</a></div><div class="collapse-content"><ul><li><a href="#字典数据-获取企业系统类型字典值-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取企业系统类型字典值</a></li><li><a href="#字典数据-获取企业类型下拉框字典值-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取企业类型下拉框字典值</a></li><li><a href="#字典数据-获取企业信息审核状态字典值-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取企业信息审核状态字典值</a></li><li><a href="#字典数据-获取业务审核状态字典值-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取业务审核状态字典值</a></li><li><a href="#字典数据-获取融资审核状态字典值-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取融资审核状态字典值</a></li><li><a href="#字典数据-获取支付方式字典值-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取支付方式字典值</a></li><li><a href="#字典数据-获取性别字典值-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取性别字典值</a></li><li><a href="#字典数据-获取用户角色类型字典值-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取用户角色类型字典值</a></li><li><a href="#字典数据-获取运输方式字典值-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取运输方式字典值</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#上传文件">上传文件</a></div><div class="collapse-content"><ul><li><a href="#上传文件-上传文件-阿里云-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>上传文件-阿里云获取上传策略</a></li><li><a href="#上传文件-上传文件-阿里云-post"><span class="badge post"><i class="fa fa-plus"></i></span>上传文件-阿里云上传文件(注意严格按照给出示例参数的请求顺序)</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#上游企业-用户注册">上游企业-用户注册</a></div><div class="collapse-content"><ul><li><a href="#上游企业-用户注册-用户注册-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>新用户检查手机号是否存在</a></li><li><a href="#上游企业-用户注册-获取注册短信验证码-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取注册短信验证码</a></li><li><a href="#上游企业-用户注册-验证用户名是否存在-post"><span class="badge post"><i class="fa fa-plus"></i></span>验证用户名是否存在</a></li><li><a href="#上游企业-用户注册-获取图片验证码-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取图片验证码</a></li><li><a href="#上游企业-用户注册-验证图片验证码-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>校验获取图片验证码</a></li><li><a href="#上游企业-用户注册-上游企业用户注册-post"><span class="badge post"><i class="fa fa-plus"></i></span>上游企业用户注册</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#上游企业-用户登录">上游企业-用户登录</a></div><div class="collapse-content"><ul><li><a href="#上游企业-用户登录-登录-post"><span class="badge post"><i class="fa fa-plus"></i></span>登录</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#上游企业用户中心-账户管理">上游企业用户中心-账户管理</a></div><div class="collapse-content"><ul><li><a href="#上游企业用户中心-账户管理-更换手机号-给老手机发送验证码-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>更换手机号-给老手机发送验证码</a></li><li><a href="#上游企业用户中心-账户管理-更换手机号-验证老手机号验证码-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>更换手机号-验证老手机号验证码</a></li><li><a href="#上游企业用户中心-账户管理-更换手机号-给新手机号发送验证码-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>更换手机号-给新手机号发送验证码</a></li><li><a href="#上游企业用户中心-账户管理-更换手机号-修改手机号-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>更换手机号-修改为新手机号</a></li><li><a href="#上游企业用户中心-账户管理-修改登录密码-给当前用户手机发送短信验证码-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>修改登录密码-给当前用户手机发送短信验证码</a></li><li><a href="#上游企业用户中心-账户管理-修改登录密码-验证原密码是否正确-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>修改登录密码-验证原密码是否正确</a></li><li><a href="#上游企业用户中心-账户管理-修改登录密码-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>修改登录密码</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#上游企业用户中心-用户信息">上游企业用户中心-用户信息</a></div><div class="collapse-content"><ul><li><a href="#上游企业用户中心-用户信息-获取用户个人信息-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取用户个人信息</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#上游企业用户中心-员工管理">上游企业用户中心-员工管理</a></div><div class="collapse-content"><ul><li><a href="#上游企业用户中心-员工管理-获取该企业员工列表-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取该企业员工列表</a></li><li><a href="#上游企业用户中心-员工管理-创建该企业员工-post"><span class="badge post"><i class="fa fa-plus"></i></span>创建该企业员工</a></li><li><a href="#上游企业用户中心-员工管理-获取该企业的某个员工详情-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取该企业的某个员工详情</a></li><li><a href="#上游企业用户中心-员工管理-编辑该企业的员工信息-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>编辑该企业的员工信息</a></li><li><a href="#上游企业用户中心-员工管理-重置该企业的员工密码-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>重置该企业的员工密码</a></li><li><a href="#上游企业用户中心-员工管理-停用该企业的员工账号-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>员工停用账号</a></li><li><a href="#上游企业用户中心-员工管理-启用该企业的员工账号-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>启用该企业的员工账号</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#上游企业用户中心-企业信息认证">上游企业用户中心-企业信息认证</a></div><div class="collapse-content"><ul><li><a href="#上游企业用户中心-企业信息认证-企业信息认证-获取该用户的企业信息-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>企业信息认证-获取该用户的企业信息</a></li><li><a href="#上游企业用户中心-企业信息认证-企业信息认证-保存企业信息-post"><span class="badge post"><i class="fa fa-plus"></i></span>企业信息认证-保存企业信息</a></li><li><a href="#上游企业用户中心-企业信息认证-企业信息认证-提交企业信息审核-post"><span class="badge post"><i class="fa fa-plus"></i></span>企业信息认证-提交企业信息审核</a></li><li><a href="#上游企业用户中心-企业信息认证-更换企业管理员工-获取短信验证码-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>更换企业管理员工-获取短信验证码</a></li><li><a href="#上游企业用户中心-企业信息认证-更换企业管理员工-获取该企业的所有员工-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>更换企业管理员工-获取该企业的所有员工</a></li><li><a href="#上游企业用户中心-企业信息认证-更换企业管理员工提交-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>更换企业管理员工提交</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#平台用户中心-企业信息审核">平台用户中心-企业信息审核</a></div><div class="collapse-content"><ul><li><a href="#平台用户中心-企业信息审核-企业信息审核-获取企业信息列表-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>企业信息审核-获取企业信息列表</a></li><li><a href="#平台用户中心-企业信息审核-企业信息审核-获取企业基本信息-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>企业信息审核-获取企业基本信息</a></li><li><a href="#平台用户中心-企业信息审核-企业准入审核-获取企业准入信息-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>企业准入审核-获取企业准入信息</a></li><li><a href="#平台用户中心-企业信息审核-企业信息审核-审核通过-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>企业信息审核-审核通过企业信息初步审核</a></li><li><a href="#平台用户中心-企业信息审核-企业信息审核-审核不通过-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>企业信息审核-审核不通过</a></li><li><a href="#平台用户中心-企业信息审核-企业信息审核-审核不通过流程结束-post"><span class="badge post"><i class="fa fa-plus"></i></span>企业信息审核-审核不通过流程结束</a></li><li><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存企业资质-post"><span class="badge post"><i class="fa fa-plus"></i></span>企业准入审核-保存企业资质</a></li><li><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存工商注册信息-post"><span class="badge post"><i class="fa fa-plus"></i></span>企业准入审核-保存工商注册信息</a></li><li><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存企业股东-post"><span class="badge post"><i class="fa fa-plus"></i></span>企业准入审核-保存企业股东</a></li><li><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存实际控制人-post"><span class="badge post"><i class="fa fa-plus"></i></span>企业准入审核-保存实际控制人</a></li><li><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存实地调查-post"><span class="badge post"><i class="fa fa-plus"></i></span>企业准入审核-保存实地调查</a></li><li><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存合作记录-post"><span class="badge post"><i class="fa fa-plus"></i></span>企业准入审核-保存合作记录</a></li></ul></div></div><p style="text-align: center; word-wrap: break-word;"><a href="http://localhost:8080/api">http://localhost:8080/api</a></p></nav><div class="content"><header><h1 id="top">API 文档</h1></header><p>该API文档使用 API Blueprint 格式, 和Markdown类似.
+文档内容包括用户注册, 用户登陆, 获取用户信息等API接口.</p>
+<section id="字典数据" class="resource-group"><h2 class="group-heading">字典数据 <a href="#字典数据" class="permalink">&para;</a></h2><p>字典数据</p>
+<div id="字典数据-获取企业系统类型字典值" class="resource"><h3 class="resource-heading">获取企业系统类型字典值 <a href="#字典数据-获取企业系统类型字典值" class="permalink">&nbsp;&para;</a></h3><div id="字典数据-获取企业系统类型字典值-get" class="action get"><h4 class="action-heading"><div class="name">获取企业系统类型字典值</div><a href="#字典数据-获取企业系统类型字典值-get" class="method get">GET</a><code class="uri">/dict/systemType</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/dict/systemType</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"国有上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"国有上市企业绝对控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"国有上市企业相对控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"国有非上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">6</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">7</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营上市企业绝对控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">8</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">9</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营非上市企业"</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="字典数据-获取企业类型下拉框字典值" class="resource"><h3 class="resource-heading">获取企业类型下拉框字典值 <a href="#字典数据-获取企业类型下拉框字典值" class="permalink">&nbsp;&para;</a></h3><div id="字典数据-获取企业类型下拉框字典值-get" class="action get"><h4 class="action-heading"><div class="name">获取企业类型下拉框字典值</div><a href="#字典数据-获取企业类型下拉框字典值-get" class="method get">GET</a><code class="uri">/dict/companyType</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/dict/companyType</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"国有上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"国有上市企业绝对控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"国有上市企业相对控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"国有非上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">6</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">7</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营上市企业绝对控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">8</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营上市企业全资控股企业"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">9</span></span>,
+      "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"民营非上市企业"</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="字典数据-获取企业信息审核状态字典值" class="resource"><h3 class="resource-heading">获取企业信息审核状态字典值 <a href="#字典数据-获取企业信息审核状态字典值" class="permalink">&nbsp;&para;</a></h3><div id="字典数据-获取企业信息审核状态字典值-get" class="action get"><h4 class="action-heading"><div class="name">获取企业信息审核状态字典值</div><a href="#字典数据-获取企业信息审核状态字典值-get" class="method get">GET</a><code class="uri">/dict/companyStatus</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/dict/companyStatus</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="字典数据-获取业务审核状态字典值" class="resource"><h3 class="resource-heading">获取业务审核状态字典值 <a href="#字典数据-获取业务审核状态字典值" class="permalink">&nbsp;&para;</a></h3><div id="字典数据-获取业务审核状态字典值-get" class="action get"><h4 class="action-heading"><div class="name">获取业务审核状态字典值</div><a href="#字典数据-获取业务审核状态字典值-get" class="method get">GET</a><code class="uri">/dict/businessStatus</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/dict/businessStatus</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="字典数据-获取融资审核状态字典值" class="resource"><h3 class="resource-heading">获取融资审核状态字典值 <a href="#字典数据-获取融资审核状态字典值" class="permalink">&nbsp;&para;</a></h3><div id="字典数据-获取融资审核状态字典值-get" class="action get"><h4 class="action-heading"><div class="name">获取融资审核状态字典值</div><a href="#字典数据-获取融资审核状态字典值-get" class="method get">GET</a><code class="uri">/dict/financeStatus</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/dict/financeStatus</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="字典数据-获取支付方式字典值" class="resource"><h3 class="resource-heading">获取支付方式字典值 <a href="#字典数据-获取支付方式字典值" class="permalink">&nbsp;&para;</a></h3><div id="字典数据-获取支付方式字典值-get" class="action get"><h4 class="action-heading"><div class="name">获取支付方式字典值</div><a href="#字典数据-获取支付方式字典值-get" class="method get">GET</a><code class="uri">/dict/payMode</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/dict/payMode</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="字典数据-获取性别字典值" class="resource"><h3 class="resource-heading">获取性别字典值 <a href="#字典数据-获取性别字典值" class="permalink">&nbsp;&para;</a></h3><div id="字典数据-获取性别字典值-get" class="action get"><h4 class="action-heading"><div class="name">获取性别字典值</div><a href="#字典数据-获取性别字典值-get" class="method get">GET</a><code class="uri">/dict/sexType</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/dict/sexType</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="字典数据-获取用户角色类型字典值" class="resource"><h3 class="resource-heading">获取用户角色类型字典值 <a href="#字典数据-获取用户角色类型字典值" class="permalink">&nbsp;&para;</a></h3><div id="字典数据-获取用户角色类型字典值-get" class="action get"><h4 class="action-heading"><div class="name">获取用户角色类型字典值</div><a href="#字典数据-获取用户角色类型字典值-get" class="method get">GET</a><code class="uri">/dict/userType</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/dict/userType</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="字典数据-获取运输方式字典值" class="resource"><h3 class="resource-heading">获取运输方式字典值 <a href="#字典数据-获取运输方式字典值" class="permalink">&nbsp;&para;</a></h3><div id="字典数据-获取运输方式字典值-get" class="action get"><h4 class="action-heading"><div class="name">获取运输方式字典值</div><a href="#字典数据-获取运输方式字典值-get" class="method get">GET</a><code class="uri">/dict/trafficMode</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/dict/trafficMode</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="上传文件" class="resource-group"><h2 class="group-heading">上传文件 <a href="#上传文件" class="permalink">&para;</a></h2><div id="上传文件-上传文件-阿里云" class="resource"><h3 class="resource-heading">上传文件-阿里云 <a href="#上传文件-上传文件-阿里云" class="permalink">&nbsp;&para;</a></h3><div id="上传文件-上传文件-阿里云-get" class="action get"><h4 class="action-heading"><div class="name">上传文件-阿里云获取上传策略</div><a href="#上传文件-上传文件-阿里云-get" class="method get">GET</a><code class="uri">/asset/policy</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/asset/policy</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">dirName</span>": <span class="hljs-value"><span class="hljs-string">"593659f2d2349d1320efa77e"</span></span>,
+    "<span class="hljs-attribute">host</span>": <span class="hljs-value"><span class="hljs-string">"jfctest.oss-cn-shanghai.aliyuncs.com"</span></span>,
+    "<span class="hljs-attribute">signature</span>": <span class="hljs-value"><span class="hljs-string">"HBCPo9mA8AaQaj5UDOV5ad1UsSg="</span></span>,
+    "<span class="hljs-attribute">callback</span>": <span class="hljs-value"><span class="hljs-string">"CnsKImNhbGxiYWNrVXJsIjoiaHR0cDovL3p4eS55aW1laTE4MC5jb20vYXBpL2Fzc2V0L2NhbGxiYWNrIiwKImNhbGxiYWNrQm9keSI6ImZpbGVuYW1lPSR7b2JqZWN0fSZzaXplPSR7c2l6ZX0mbWltZVR5cGU9JHttaW1lVHlwZX0maGVpZ2h0PSR7aW1hZ2VJbmZvLmhlaWdodH0md2lkdGg9JHtpbWFnZUluZm8ud2lkdGh9IiwKImNhbGxiYWNrQm9keVR5cGUiOiJhcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQiCn0KICAgIA=="</span></span>,
+    "<span class="hljs-attribute">policy</span>": <span class="hljs-value"><span class="hljs-string">"CnsKImV4cGlyYXRpb24iOiAiMjEyMC0wMS0wMVQxMjowMDowMC4wMDBaIiwKImNvbmRpdGlvbnMiOiBbCiAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNzM3NDE4MjRdCl0KfQogICAg"</span></span>,
+    "<span class="hljs-attribute">OSSAccessKeyId</span>": <span class="hljs-value"><span class="hljs-string">"LhAwvJiOtf8BQxA0"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上传文件-上传文件-阿里云-1" class="resource"><h3 class="resource-heading">上传文件-阿里云 <a href="#上传文件-上传文件-阿里云-1" class="permalink">&nbsp;&para;</a></h3><div id="上传文件-上传文件-阿里云-post" class="action post"><h4 class="action-heading"><div class="name">上传文件-阿里云上传文件(注意严格按照给出示例参数的请求顺序)</div><a href="#上传文件-上传文件-阿里云-post" class="method post">POST</a><code class="uri">/aihost</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/aihost</span></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">multipart/form-data</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code><span class="hljs-string">"key"</span>:<span class="hljs-string">"aa.pdf"</span> ,
+   <span class="hljs-string">"policy"</span>:<span class="hljs-string">"xxxxxx"</span> ,
+   <span class="hljs-string">"callback"</span>:<span class="hljs-string">"xxxx"</span>,
+   <span class="hljs-string">"signature"</span>:<span class="hljs-string">"xxxa"</span>,
+   <span class="hljs-string">"OSSAccessKeyId"</span>:<span class="hljs-string">"xxxx"</span>,
+   <span class="hljs-string">"file"</span>:<span class="hljs-string">"文件域"</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+    "<span class="hljs-attribute">filename</span>": <span class="hljs-value"><span class="hljs-string">"werwer/bb.jpg"</span></span>,
+    "<span class="hljs-attribute">mimeType</span>": <span class="hljs-value"><span class="hljs-string">"image/jpeg"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="上游企业-用户注册" class="resource-group"><h2 class="group-heading">上游企业-用户注册 <a href="#上游企业-用户注册" class="permalink">&para;</a></h2><p>用户注册相关API.</p>
+<div id="上游企业-用户注册-用户注册" class="resource"><h3 class="resource-heading">用户注册 <a href="#上游企业-用户注册-用户注册" class="permalink">&nbsp;&para;</a></h3><div id="上游企业-用户注册-用户注册-get" class="action get"><h4 class="action-heading"><div class="name">新用户检查手机号是否存在</div><a href="#上游企业-用户注册-用户注册-get" class="method get">GET</a><code class="uri">/upstream/register/checkPhoneExists/{mobilePhone}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/register/checkPhoneExists/<span class="hljs-attribute" title="mobilePhone">mobilePhone</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>mobilePhone</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>手机号</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1000</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"手机号已经存在"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业-用户注册-获取注册短信验证码" class="resource"><h3 class="resource-heading">获取注册短信验证码 <a href="#上游企业-用户注册-获取注册短信验证码" class="permalink">&nbsp;&para;</a></h3><div id="上游企业-用户注册-获取注册短信验证码-get" class="action get"><h4 class="action-heading"><div class="name">获取注册短信验证码</div><a href="#上游企业-用户注册-获取注册短信验证码-get" class="method get">GET</a><code class="uri">/upstream/register/sms/{?mobilePhone,imgCode}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/register/sms/?<span class="hljs-attribute">mobilePhone=</span><span class="hljs-literal">red</span>&<span class="hljs-attribute">imgCode=</span><span class="hljs-literal"></span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>mobilePhone</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>red</span></span><p>手机号</p>
+<p class="choices"><strong>Choices:&nbsp;</strong><code>red</code> <code>blue</code> <code>green</code> <code>grey</code> </p></dd><dt>imgCode</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>图形验证码</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1005</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"图形验证码错误"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业-用户注册-验证用户名是否存在" class="resource"><h3 class="resource-heading">验证用户名是否存在 <a href="#上游企业-用户注册-验证用户名是否存在" class="permalink">&nbsp;&para;</a></h3><div id="上游企业-用户注册-验证用户名是否存在-post" class="action post"><h4 class="action-heading"><div class="name">验证用户名是否存在</div><a href="#上游企业-用户注册-验证用户名是否存在-post" class="method post">POST</a><code class="uri">/upstream/register/checkLoginNameExists/{loginName}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/register/checkLoginNameExists/<span class="hljs-attribute" title="loginName">loginName</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>loginName</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>登录名</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1001</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"登录名已被占用"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业-用户注册-获取图片验证码" class="resource"><h3 class="resource-heading">获取图片验证码 <a href="#上游企业-用户注册-获取图片验证码" class="permalink">&nbsp;&para;</a></h3><div id="上游企业-用户注册-获取图片验证码-get" class="action get"><h4 class="action-heading"><div class="name">获取图片验证码</div><a href="#上游企业-用户注册-获取图片验证码-get" class="method get">GET</a><code class="uri">/upstream/captcha/get</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/captcha/get</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/octet-stream</span></code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业-用户注册-验证图片验证码" class="resource"><h3 class="resource-heading">验证图片验证码 <a href="#上游企业-用户注册-验证图片验证码" class="permalink">&nbsp;&para;</a></h3><div id="上游企业-用户注册-验证图片验证码-get" class="action get"><h4 class="action-heading"><div class="name">校验获取图片验证码</div><a href="#上游企业-用户注册-验证图片验证码-get" class="method get">GET</a><code class="uri">/upstream/captcha/check/{imgCode}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/captcha/check/<span class="hljs-attribute" title="imgCode">imgCode</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>imgCode</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>图形验证码</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"图形验证码错误"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业-用户注册-上游企业用户注册" class="resource"><h3 class="resource-heading">上游企业用户注册 <a href="#上游企业-用户注册-上游企业用户注册" class="permalink">&nbsp;&para;</a></h3><div id="上游企业-用户注册-上游企业用户注册-post" class="action post"><h4 class="action-heading"><div class="name">上游企业用户注册</div><a href="#上游企业-用户注册-上游企业用户注册-post" class="method post">POST</a><code class="uri">/upstream/register/register</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/register/register</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">userName</span>": <span class="hljs-value"><span class="hljs-string">"aa"</span></span>,
+  "<span class="hljs-attribute">loginName</span>": <span class="hljs-value"><span class="hljs-string">"aa"</span></span>,
+  "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"aa"</span></span>,
+  "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"aa"</span></span>,
+  "<span class="hljs-attribute">smsCode</span>": <span class="hljs-value"><span class="hljs-string">"aa"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1000</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"手机号已经存在"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1001</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"登录名已经存在"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>402</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1002</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"注册手机验证码错误"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>403</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1003</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"所选系统类型不存在"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="上游企业-用户登录" class="resource-group"><h2 class="group-heading">上游企业-用户登录 <a href="#上游企业-用户登录" class="permalink">&para;</a></h2><div id="上游企业-用户登录-登录" class="resource"><h3 class="resource-heading">登录 <a href="#上游企业-用户登录-登录" class="permalink">&nbsp;&para;</a></h3><div id="上游企业-用户登录-登录-post" class="action post"><h4 class="action-heading"><div class="name">登录</div><a href="#上游企业-用户登录-登录-post" class="method post">POST</a><code class="uri">/upstream/login/jwt</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/login/jwt</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">username</span>":  <span class="hljs-value"><span class="hljs-string">"aa"</span></span>,
+    "<span class="hljs-attribute">password</span>":  <span class="hljs-value"><span class="hljs-string">"aa"</span></span>,
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-string">"werwer.werewr.werwe"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="上游企业用户中心-账户管理" class="resource-group"><h2 class="group-heading">上游企业用户中心-账户管理 <a href="#上游企业用户中心-账户管理" class="permalink">&para;</a></h2><p>用户登陆用进入用户中心，账户管理相关API.</p>
+<div id="上游企业用户中心-账户管理-更换手机号-给老手机发送验证码" class="resource"><h3 class="resource-heading">更换手机号-给老手机发送验证码 <a href="#上游企业用户中心-账户管理-更换手机号-给老手机发送验证码" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-账户管理-更换手机号-给老手机发送验证码-get" class="action get"><h4 class="action-heading"><div class="name">更换手机号-给老手机发送验证码</div><a href="#上游企业用户中心-账户管理-更换手机号-给老手机发送验证码-get" class="method get">GET</a><code class="uri">/upstream/security/sendOldPhoneSms{?imgCode}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/security/sendOldPhoneSms?<span class="hljs-attribute">imgCode=</span><span class="hljs-literal">11222</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>imgCode</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>11222</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1005</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"图形验证码错误"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-账户管理-更换手机号-验证老手机号验证码" class="resource"><h3 class="resource-heading">更换手机号-验证老手机号验证码 <a href="#上游企业用户中心-账户管理-更换手机号-验证老手机号验证码" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-账户管理-更换手机号-验证老手机号验证码-get" class="action get"><h4 class="action-heading"><div class="name">更换手机号-验证老手机号验证码</div><a href="#上游企业用户中心-账户管理-更换手机号-验证老手机号验证码-get" class="method get">GET</a><code class="uri">/upstream/security/validateOldPhoneSms{?smsCode}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/security/validateOldPhoneSms?<span class="hljs-attribute">smsCode=</span><span class="hljs-literal">11222</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>smsCode</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>11222</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">data</span>":<span class="hljs-value"><span class="hljs-literal">true</span>
+    <span class="hljs-string">"success"</span>:<span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1002</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"短信验证码错误"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-账户管理-更换手机号-给新手机号发送验证码" class="resource"><h3 class="resource-heading">更换手机号-给新手机号发送验证码 <a href="#上游企业用户中心-账户管理-更换手机号-给新手机号发送验证码" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-账户管理-更换手机号-给新手机号发送验证码-get" class="action get"><h4 class="action-heading"><div class="name">更换手机号-给新手机号发送验证码</div><a href="#上游企业用户中心-账户管理-更换手机号-给新手机号发送验证码-get" class="method get">GET</a><code class="uri">/upstream/security/sendNewPhoneSms{?imgCode,newPhone}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/security/sendNewPhoneSms?<span class="hljs-attribute">imgCode=</span><span class="hljs-literal">112222</span>&<span class="hljs-attribute">newPhone=</span><span class="hljs-literal">13939155835</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>imgCode</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>112222</span></span></dd><dt>newPhone</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13939155835</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1000</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"手机号已经存在"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1005</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"图片验证码错误"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">5000</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"操作非法,原手机号的验证码没有通过校验"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-账户管理-更换手机号-修改手机号" class="resource"><h3 class="resource-heading">更换手机号-修改手机号 <a href="#上游企业用户中心-账户管理-更换手机号-修改手机号" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-账户管理-更换手机号-修改手机号-get" class="action get"><h4 class="action-heading"><div class="name">更换手机号-修改为新手机号</div><a href="#上游企业用户中心-账户管理-更换手机号-修改手机号-get" class="method get">GET</a><code class="uri">/upstream/security/updatePhone{?smsCode,newPhone}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/security/updatePhone?<span class="hljs-attribute">smsCode=</span><span class="hljs-literal">112222</span>&<span class="hljs-attribute">newPhone=</span><span class="hljs-literal">13939155835</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>smsCode</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>112222</span></span></dd><dt>newPhone</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13939155835</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1000</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"手机号已经存在"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1002</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"短信验证码错误"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-账户管理-修改登录密码-给当前用户手机发送短信验证码" class="resource"><h3 class="resource-heading">修改登录密码-给当前用户手机发送短信验证码 <a href="#上游企业用户中心-账户管理-修改登录密码-给当前用户手机发送短信验证码" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-账户管理-修改登录密码-给当前用户手机发送短信验证码-get" class="action get"><h4 class="action-heading"><div class="name">修改登录密码-给当前用户手机发送短信验证码</div><a href="#上游企业用户中心-账户管理-修改登录密码-给当前用户手机发送短信验证码-get" class="method get">GET</a><code class="uri">/upstream/security/sendPasswordSms{?imgCode}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/security/sendPasswordSms?<span class="hljs-attribute">imgCode=</span><span class="hljs-literal">11222</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>imgCode</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>11222</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1005</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"图形验证码错误"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-账户管理-修改登录密码-验证原密码是否正确" class="resource"><h3 class="resource-heading">修改登录密码-验证原密码是否正确 <a href="#上游企业用户中心-账户管理-修改登录密码-验证原密码是否正确" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-账户管理-修改登录密码-验证原密码是否正确-get" class="action get"><h4 class="action-heading"><div class="name">修改登录密码-验证原密码是否正确</div><a href="#上游企业用户中心-账户管理-修改登录密码-验证原密码是否正确-get" class="method get">GET</a><code class="uri">/upstream/security/validateOldPwd{?oldPassword}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/security/validateOldPwd?<span class="hljs-attribute">oldPassword=</span><span class="hljs-literal">11222</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>oldPassword</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>11222</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1007</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"原密码不正确"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-账户管理-修改登录密码" class="resource"><h3 class="resource-heading">修改登录密码 <a href="#上游企业用户中心-账户管理-修改登录密码" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-账户管理-修改登录密码-get" class="action get"><h4 class="action-heading"><div class="name">修改登录密码</div><a href="#上游企业用户中心-账户管理-修改登录密码-get" class="method get">GET</a><code class="uri">/upstream/security/changePassword{?oldPassword,newPassword,smsCode}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/security/changePassword?<span class="hljs-attribute">oldPassword=</span><span class="hljs-literal">11222</span>&<span class="hljs-attribute">newPassword=</span><span class="hljs-literal">11222</span>&<span class="hljs-attribute">smsCode=</span><span class="hljs-literal">11222</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>oldPassword</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>11222</span></span></dd><dt>newPassword</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>11222</span></span></dd><dt>smsCode</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>11222</span></span></dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1002</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"短信验证码错误"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1007</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"原密码不正确"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1008</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"原密码和新密码相同"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="上游企业用户中心-用户信息" class="resource-group"><h2 class="group-heading">上游企业用户中心-用户信息 <a href="#上游企业用户中心-用户信息" class="permalink">&para;</a></h2><p>用户登陆后获取该用户信息</p>
+<div id="上游企业用户中心-用户信息-获取用户个人信息" class="resource"><h3 class="resource-heading">获取用户个人信息 <a href="#上游企业用户中心-用户信息-获取用户个人信息" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-用户信息-获取用户个人信息-get" class="action get"><h4 class="action-heading"><div class="name">获取用户个人信息</div><a href="#上游企业用户中心-用户信息-获取用户个人信息-get" class="method get">GET</a><code class="uri">/upstream/identify/getPersonalInfo</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/identify/getPersonalInfo</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">createDate</span>": <span class="hljs-value"><span class="hljs-string">"2017-06-04"</span></span>,
+    "<span class="hljs-attribute">role</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5933fe9c93c64396e6f490a8"</span></span>,
+    "<span class="hljs-attribute">systemId</span>": <span class="hljs-value"><span class="hljs-string">"upstream"</span></span>,
+    "<span class="hljs-attribute">disabled</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">loginName</span>": <span class="hljs-value"><span class="hljs-string">"zxy1"</span></span>,
+    "<span class="hljs-attribute">userName</span>": <span class="hljs-value"><span class="hljs-string">"zxy1"</span></span>,
+    "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"13939155835"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="上游企业用户中心-员工管理" class="resource-group"><h2 class="group-heading">上游企业用户中心-员工管理 <a href="#上游企业用户中心-员工管理" class="permalink">&para;</a></h2><p>上游企业的管理员才可以管理员工</p>
+<div id="上游企业用户中心-员工管理-获取该企业员工列表" class="resource"><h3 class="resource-heading">获取该企业员工列表 <a href="#上游企业用户中心-员工管理-获取该企业员工列表" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-员工管理-获取该企业员工列表-get" class="action get"><h4 class="action-heading"><div class="name">获取该企业员工列表</div><a href="#上游企业用户中心-员工管理-获取该企业员工列表-get" class="method get">GET</a><code class="uri">/upstream/employee/query{?phone,userName,pageSize,pageNum}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/employee/query?<span class="hljs-attribute">phone=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">userName=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">pageSize=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">pageNum=</span><span class="hljs-literal"></span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>phone</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>手机号码</p>
+</dd><dt>userName</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>用户名</p>
+</dd><dt>pageSize</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>分页大小(一页显示n条)</p>
+</dd><dt>pageNum</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>当前页码</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+   "<span class="hljs-attribute">data</span>":<span class="hljs-value">{
+    "<span class="hljs-attribute">pagination</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">curPage</span>":<span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">totalPage</span>":<span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">pageSize</span>":<span class="hljs-value"><span class="hljs-number">10</span></span>,
+        "<span class="hljs-attribute">totalCount</span>":<span class="hljs-value"><span class="hljs-number">0</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">items</span>":<span class="hljs-value">[
+
+           {
+                             "<span class="hljs-attribute">role</span>" : <span class="hljs-value"><span class="hljs-number">1</span></span>,
+                             "<span class="hljs-attribute">disabled</span>" : <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+                             "<span class="hljs-attribute">userName</span>" : <span class="hljs-value"><span class="hljs-string">"zxy4"</span></span>,
+                             "<span class="hljs-attribute">loginName</span>" : <span class="hljs-value"><span class="hljs-string">"zxy4"</span></span>,
+                             "<span class="hljs-attribute">systemId</span>" : <span class="hljs-value"><span class="hljs-string">"platform"</span></span>,
+                             "<span class="hljs-attribute">phone</span>" : <span class="hljs-value"><span class="hljs-string">"13939155832"</span></span>,
+                             "<span class="hljs-attribute">_id</span>" : <span class="hljs-value"><span class="hljs-string">"5938bc6a93c64332cefb1389"</span></span>,
+                             "<span class="hljs-attribute">createDate</span>" : <span class="hljs-value"><span class="hljs-string">"2017-06-08"</span></span>,
+                             "<span class="hljs-attribute">companyId</span>" : <span class="hljs-value"><span class="hljs-string">"5938bc9a93c64332cefb138a"</span>
+           </span>}
+
+    ]
+   </span>}
+   <span class="hljs-string">"success"</span>:  <span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-员工管理-创建该企业员工" class="resource"><h3 class="resource-heading">创建该企业员工 <a href="#上游企业用户中心-员工管理-创建该企业员工" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-员工管理-创建该企业员工-post" class="action post"><h4 class="action-heading"><div class="name">创建该企业员工</div><a href="#上游企业用户中心-员工管理-创建该企业员工-post" class="method post">POST</a><code class="uri">/upstream/employee/save</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/employee/save</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">loginName</span>": <span class="hljs-value"><span class="hljs-string">"aaaa"</span></span>,
+  "<span class="hljs-attribute">userName</span>": <span class="hljs-value"><span class="hljs-string">"aaa"</span></span>,
+  "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"343242343232"</span></span>,
+  "<span class="hljs-attribute">dept</span>": <span class="hljs-value"><span class="hljs-string">"财务部"</span></span>,
+  "<span class="hljs-attribute">userType</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-员工管理-获取该企业的某个员工详情" class="resource"><h3 class="resource-heading">获取该企业的某个员工详情 <a href="#上游企业用户中心-员工管理-获取该企业的某个员工详情" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-员工管理-获取该企业的某个员工详情-get" class="action get"><h4 class="action-heading"><div class="name">获取该企业的某个员工详情</div><a href="#上游企业用户中心-员工管理-获取该企业的某个员工详情-get" class="method get">GET</a><code class="uri">/upstream/employee/detail/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/employee/detail/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>员工id</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">loginName</span>": <span class="hljs-value"><span class="hljs-string">"aaaa"</span></span>,
+    "<span class="hljs-attribute">userName</span>": <span class="hljs-value"><span class="hljs-string">"aaa"</span></span>,
+    "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"343242343232"</span></span>,
+    "<span class="hljs-attribute">dept</span>": <span class="hljs-value"><span class="hljs-string">"财务部"</span></span>,
+    "<span class="hljs-attribute">userType</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-员工管理-编辑该企业的员工信息" class="resource"><h3 class="resource-heading">编辑该企业的员工信息 <a href="#上游企业用户中心-员工管理-编辑该企业的员工信息" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-员工管理-编辑该企业的员工信息-get" class="action get"><h4 class="action-heading"><div class="name">编辑该企业的员工信息</div><a href="#上游企业用户中心-员工管理-编辑该企业的员工信息-get" class="method get">GET</a><code class="uri">/upstream/employee/edit/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/employee/edit/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>员工id</p>
+</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">loginName</span>": <span class="hljs-value"><span class="hljs-string">"aaaa"</span></span>,
+  "<span class="hljs-attribute">userName</span>": <span class="hljs-value"><span class="hljs-string">"aaa"</span></span>,
+  "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"343242343232"</span></span>,
+  "<span class="hljs-attribute">dept</span>": <span class="hljs-value"><span class="hljs-string">"财务部"</span></span>,
+  "<span class="hljs-attribute">userType</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-员工管理-重置该企业的员工密码" class="resource"><h3 class="resource-heading">重置该企业的员工密码 <a href="#上游企业用户中心-员工管理-重置该企业的员工密码" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-员工管理-重置该企业的员工密码-get" class="action get"><h4 class="action-heading"><div class="name">重置该企业的员工密码</div><a href="#上游企业用户中心-员工管理-重置该企业的员工密码-get" class="method get">GET</a><code class="uri">/upstream/employee/resetEmployeePwd/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/employee/resetEmployeePwd/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>员工id</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-员工管理-停用该企业的员工账号" class="resource"><h3 class="resource-heading">停用该企业的员工账号 <a href="#上游企业用户中心-员工管理-停用该企业的员工账号" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-员工管理-停用该企业的员工账号-get" class="action get"><h4 class="action-heading"><div class="name">员工停用账号</div><a href="#上游企业用户中心-员工管理-停用该企业的员工账号-get" class="method get">GET</a><code class="uri">/upstream/employee/disabledAccount/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/employee/disabledAccount/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>员工id</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-员工管理-启用该企业的员工账号" class="resource"><h3 class="resource-heading">启用该企业的员工账号 <a href="#上游企业用户中心-员工管理-启用该企业的员工账号" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-员工管理-启用该企业的员工账号-get" class="action get"><h4 class="action-heading"><div class="name">启用该企业的员工账号</div><a href="#上游企业用户中心-员工管理-启用该企业的员工账号-get" class="method get">GET</a><code class="uri">/upstream/employee/enabledAccount/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/employee/enabledAccount/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>员工id</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="上游企业用户中心-企业信息认证" class="resource-group"><h2 class="group-heading">上游企业用户中心-企业信息认证 <a href="#上游企业用户中心-企业信息认证" class="permalink">&para;</a></h2><p>上游企业用户登陆后 查看企业信息认证的相关信息</p>
+<div id="上游企业用户中心-企业信息认证-企业信息认证-获取该用户的企业信息" class="resource"><h3 class="resource-heading">企业信息认证-获取该用户的企业信息 <a href="#上游企业用户中心-企业信息认证-企业信息认证-获取该用户的企业信息" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-企业信息认证-企业信息认证-获取该用户的企业信息-get" class="action get"><h4 class="action-heading"><div class="name">企业信息认证-获取该用户的企业信息</div><a href="#上游企业用户中心-企业信息认证-企业信息认证-获取该用户的企业信息-get" class="method get">GET</a><code class="uri">/upstream/identify/getCompanyInfo</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/identify/getCompanyInfo</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-string">"待定"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-企业信息认证-企业信息认证-保存企业信息" class="resource"><h3 class="resource-heading">企业信息认证-保存企业信息 <a href="#上游企业用户中心-企业信息认证-企业信息认证-保存企业信息" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-企业信息认证-企业信息认证-保存企业信息-post" class="action post"><h4 class="action-heading"><div class="name">企业信息认证-保存企业信息</div><a href="#上游企业用户中心-企业信息认证-企业信息认证-保存企业信息-post" class="method post">POST</a><code class="uri">/upstream/identify/saveCompany</code></h4><p>只有该企业的管理员才可以保存企业信息。</p>
+<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/identify/saveCompany</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">companyName</span>": <span class="hljs-value"><span class="hljs-string">"aaaa"</span></span>,
+  "<span class="hljs-attribute">companyType</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">registerCapital</span>": <span class="hljs-value"><span class="hljs-number">323233</span></span>,
+  "<span class="hljs-attribute">scope</span>": <span class="hljs-value"><span class="hljs-string">"xxxxxxx"</span></span>,
+  "<span class="hljs-attribute">founded</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-12"</span></span>,
+  "<span class="hljs-attribute">province</span>": <span class="hljs-value"><span class="hljs-string">"河南省"</span></span>,
+  "<span class="hljs-attribute">city</span>": <span class="hljs-value"><span class="hljs-string">"焦作市"</span></span>,
+  "<span class="hljs-attribute">district</span>": <span class="hljs-value"><span class="hljs-string">"孟州市"</span></span>,
+  "<span class="hljs-attribute">registerAddress</span>": <span class="hljs-value"><span class="hljs-string">"孟州市"</span></span>,
+  "<span class="hljs-attribute">license</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">operationType</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">operationBegin</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-12"</span></span>,
+    "<span class="hljs-attribute">operationEnd</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-12"</span></span>,
+    "<span class="hljs-attribute">lastCheck</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-12"</span></span>,
+    "<span class="hljs-attribute">registerOrgan</span>": <span class="hljs-value"><span class="hljs-string">"工商局"</span></span>,
+    "<span class="hljs-attribute">unionLicenseCode</span>": <span class="hljs-value"><span class="hljs-string">"23423424242342"</span></span>,
+    "<span class="hljs-attribute">operationLicensePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">organLicensePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">unionLicensePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">bankLicensePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}
+  </span>}</span>,
+  "<span class="hljs-attribute">legalPerson</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">legalPersonName</span>": <span class="hljs-value"><span class="hljs-string">"aaaa"</span></span>,
+    "<span class="hljs-attribute">legalPersonId</span>": <span class="hljs-value"><span class="hljs-string">"32324234"</span></span>,
+    "<span class="hljs-attribute">legalPersonPhone</span>": <span class="hljs-value"><span class="hljs-string">"2342343423424"</span></span>,
+    "<span class="hljs-attribute">legalPersonIdFrontSidePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">legalPersonIdReverseSidePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}
+  </span>}</span>,
+  "<span class="hljs-attribute">authPerson</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">authPersonName</span>": <span class="hljs-value"><span class="hljs-string">"aaaa"</span></span>,
+    "<span class="hljs-attribute">authPersonId</span>": <span class="hljs-value"><span class="hljs-string">"32324234"</span></span>,
+    "<span class="hljs-attribute">authPersonPhone</span>": <span class="hljs-value"><span class="hljs-string">"2342343423424"</span></span>,
+    "<span class="hljs-attribute">authDocumentPic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">authPersonIdFrontSidePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">authPersonIdReverseSidePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-string">"待定"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-企业信息认证-企业信息认证-提交企业信息审核" class="resource"><h3 class="resource-heading">企业信息认证-提交企业信息审核 <a href="#上游企业用户中心-企业信息认证-企业信息认证-提交企业信息审核" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-企业信息认证-企业信息认证-提交企业信息审核-post" class="action post"><h4 class="action-heading"><div class="name">企业信息认证-提交企业信息审核</div><a href="#上游企业用户中心-企业信息认证-企业信息认证-提交企业信息审核-post" class="method post">POST</a><code class="uri">/upstream/identify/submitCompany</code></h4><p>只有该企业的管理员才可以提交企业信息审核。 (Request发送内容与保存认证请求Body相同)</p>
+<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/identify/submitCompany</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">companyName</span>": <span class="hljs-value"><span class="hljs-string">"aaaa"</span></span>,
+  "<span class="hljs-attribute">companyType</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">registerCapital</span>": <span class="hljs-value"><span class="hljs-number">323233</span></span>,
+  "<span class="hljs-attribute">scope</span>": <span class="hljs-value"><span class="hljs-string">"xxxxxxx"</span></span>,
+  "<span class="hljs-attribute">founded</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-12"</span></span>,
+  "<span class="hljs-attribute">province</span>": <span class="hljs-value"><span class="hljs-string">"河南省"</span></span>,
+  "<span class="hljs-attribute">city</span>": <span class="hljs-value"><span class="hljs-string">"焦作市"</span></span>,
+  "<span class="hljs-attribute">district</span>": <span class="hljs-value"><span class="hljs-string">"孟州市"</span></span>,
+  "<span class="hljs-attribute">registerAddress</span>": <span class="hljs-value"><span class="hljs-string">"孟州市"</span></span>,
+  "<span class="hljs-attribute">license</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">operationType</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">operationBegin</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-12"</span></span>,
+    "<span class="hljs-attribute">operationEnd</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-12"</span></span>,
+    "<span class="hljs-attribute">lastCheck</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-12"</span></span>,
+    "<span class="hljs-attribute">registerOrgan</span>": <span class="hljs-value"><span class="hljs-string">"工商局"</span></span>,
+    "<span class="hljs-attribute">unionLicenseCode</span>": <span class="hljs-value"><span class="hljs-string">"23423424242342"</span></span>,
+    "<span class="hljs-attribute">operationLicensePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">organLicensePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">unionLicensePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">bankLicensePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}
+  </span>}</span>,
+  "<span class="hljs-attribute">legalPerson</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">legalPersonName</span>": <span class="hljs-value"><span class="hljs-string">"aaaa"</span></span>,
+    "<span class="hljs-attribute">legalPersonId</span>": <span class="hljs-value"><span class="hljs-string">"32324234"</span></span>,
+    "<span class="hljs-attribute">legalPersonPhone</span>": <span class="hljs-value"><span class="hljs-string">"2342343423424"</span></span>,
+    "<span class="hljs-attribute">legalPersonIdFrontSidePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">legalPersonIdReverseSidePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}
+  </span>}</span>,
+  "<span class="hljs-attribute">authPerson</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">authPersonName</span>": <span class="hljs-value"><span class="hljs-string">"aaaa"</span></span>,
+    "<span class="hljs-attribute">authPersonId</span>": <span class="hljs-value"><span class="hljs-string">"32324234"</span></span>,
+    "<span class="hljs-attribute">authPersonPhone</span>": <span class="hljs-value"><span class="hljs-string">"2342343423424"</span></span>,
+    "<span class="hljs-attribute">authDocumentPic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">authPersonIdFrontSidePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">authPersonIdReverseSidePic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">filePath</span>": <span class="hljs-value"><span class="hljs-string">"/werwerewrrwr"</span></span>,
+      "<span class="hljs-attribute">fileName</span>": <span class="hljs-value"><span class="hljs-string">"werwerewrrwr.pdf"</span></span>,
+      "<span class="hljs-attribute">fileExtName</span>": <span class="hljs-value"><span class="hljs-string">"pdf"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-企业信息认证-更换企业管理员工-获取短信验证码" class="resource"><h3 class="resource-heading">更换企业管理员工-获取短信验证码 <a href="#上游企业用户中心-企业信息认证-更换企业管理员工-获取短信验证码" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-企业信息认证-更换企业管理员工-获取短信验证码-get" class="action get"><h4 class="action-heading"><div class="name">更换企业管理员工-获取短信验证码</div><a href="#上游企业用户中心-企业信息认证-更换企业管理员工-获取短信验证码-get" class="method get">GET</a><code class="uri">/upstream/identify/sendOldAdminPhoneSmss/{?imgCode}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/identify/sendOldAdminPhoneSmss/?<span class="hljs-attribute">imgCode=</span><span class="hljs-literal"></span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>imgCode</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>图形验证码</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1005</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"图形验证码错误"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-企业信息认证-更换企业管理员工-获取该企业的所有员工" class="resource"><h3 class="resource-heading">更换企业管理员工-获取该企业的所有员工 <a href="#上游企业用户中心-企业信息认证-更换企业管理员工-获取该企业的所有员工" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-企业信息认证-更换企业管理员工-获取该企业的所有员工-get" class="action get"><h4 class="action-heading"><div class="name">更换企业管理员工-获取该企业的所有员工</div><a href="#上游企业用户中心-企业信息认证-更换企业管理员工-获取该企业的所有员工-get" class="method get">GET</a><code class="uri">/upstream/employee/all</code></h4><p>列出的员工列表中不包括当前的企业管理员</p>
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/employee/all</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">loginName</span>": <span class="hljs-value"><span class="hljs-string">"aaaa"</span></span>,
+      "<span class="hljs-attribute">userName</span>": <span class="hljs-value"><span class="hljs-string">"aaa"</span></span>,
+      "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"343242343232"</span></span>,
+      "<span class="hljs-attribute">dept</span>": <span class="hljs-value"><span class="hljs-string">"财务部"</span></span>,
+      "<span class="hljs-attribute">userType</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="上游企业用户中心-企业信息认证-更换企业管理员工提交" class="resource"><h3 class="resource-heading">更换企业管理员工提交 <a href="#上游企业用户中心-企业信息认证-更换企业管理员工提交" class="permalink">&nbsp;&para;</a></h3><div id="上游企业用户中心-企业信息认证-更换企业管理员工提交-get" class="action get"><h4 class="action-heading"><div class="name">更换企业管理员工提交</div><a href="#上游企业用户中心-企业信息认证-更换企业管理员工提交-get" class="method get">GET</a><code class="uri">/upstream/identify/changeAdmin/{?newAdminId,smsCode}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/upstream/identify/changeAdmin/?<span class="hljs-attribute">newAdminId=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">smsCode=</span><span class="hljs-literal"></span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>newAdminId</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>新的管理员ID</p>
+</dd><dt>smsCode</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>短信验证码</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">1002</span></span>,
+    "<span class="hljs-attribute">message:</span>": <span class="hljs-value"><span class="hljs-string">"短信验证码错误"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="平台用户中心-企业信息审核" class="resource-group"><h2 class="group-heading">平台用户中心-企业信息审核 <a href="#平台用户中心-企业信息审核" class="permalink">&para;</a></h2><p>平台管理员登陆后 查看企业信息并审核</p>
+<div id="平台用户中心-企业信息审核-企业信息审核-获取企业信息列表" class="resource"><h3 class="resource-heading">企业信息审核-获取企业信息列表 <a href="#平台用户中心-企业信息审核-企业信息审核-获取企业信息列表" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业信息审核-获取企业信息列表-get" class="action get"><h4 class="action-heading"><div class="name">企业信息审核-获取企业信息列表</div><a href="#平台用户中心-企业信息审核-企业信息审核-获取企业信息列表-get" class="method get">GET</a><code class="uri">/platform/company/companies?{pageNum,pageSize,companyStatus,companyName,systemId,unionLicenseCode}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/companies?<span class="hljs-attribute" title="pageNum">pageNum</span>&<span class="hljs-attribute" title="pageSize">pageSize</span>&<span class="hljs-attribute" title="companyStatus">companyStatus</span>&<span class="hljs-attribute" title="companyName">companyName</span>&<span class="hljs-attribute" title="systemId">systemId</span>&<span class="hljs-attribute" title="unionLicenseCode">unionLicenseCode</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>unionLicenseCode</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>公司社会统一号</p>
+</dd><dt>companyName</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>公司名称</p>
+</dd><dt>systemId</dt><dd><code>Int</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>参与方类型(1 核心企业 2 资金方 3 上游  4 平台方)</p>
+</dd><dt>companyStatus</dt><dd><code>Int</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>公司审核状态(0 草稿 1 待平台审核 2 审核不通过  3 审核不通过结束 4 审核通过)</p>
+</dd><dt>pageSize</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>分页大小(一页显示n条)</p>
+</dd><dt>pageNum</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>当前页码</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">items</span>": <span class="hljs-value">[]</span>,
+    "<span class="hljs-attribute">pagination</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">totalCount</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">totalPage</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">pageSize</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+      "<span class="hljs-attribute">curPage</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+    </span>}
+  </span>}</span>,
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="平台用户中心-企业信息审核-企业信息审核-获取企业基本信息" class="resource"><h3 class="resource-heading">企业信息审核-获取企业基本信息 <a href="#平台用户中心-企业信息审核-企业信息审核-获取企业基本信息" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业信息审核-获取企业基本信息-get" class="action get"><h4 class="action-heading"><div class="name">企业信息审核-获取企业基本信息</div><a href="#平台用户中心-企业信息审核-企业信息审核-获取企业基本信息-get" class="method get">GET</a><code class="uri">/platform/company/companyBasicDetaill/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/companyBasicDetaill/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>企业id</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="平台用户中心-企业信息审核-企业准入审核-获取企业准入信息" class="resource"><h3 class="resource-heading">企业准入审核-获取企业准入信息 <a href="#平台用户中心-企业信息审核-企业准入审核-获取企业准入信息" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业准入审核-获取企业准入信息-get" class="action get"><h4 class="action-heading"><div class="name">企业准入审核-获取企业准入信息</div><a href="#平台用户中心-企业信息审核-企业准入审核-获取企业准入信息-get" class="method get">GET</a><code class="uri">/platform/company/companySurveyDetail/</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/companySurveyDetail/</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="平台用户中心-企业信息审核-企业信息审核-审核通过" class="resource"><h3 class="resource-heading">企业信息审核-审核通过 <a href="#平台用户中心-企业信息审核-企业信息审核-审核通过" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业信息审核-审核通过-get" class="action get"><h4 class="action-heading"><div class="name">企业信息审核-审核通过企业信息初步审核</div><a href="#平台用户中心-企业信息审核-企业信息审核-审核通过-get" class="method get">GET</a><code class="uri">/platform/company/auditSuccess/{id}/{?auditContent}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/auditSuccess/<span class="hljs-attribute" title="id">id</span>/?<span class="hljs-attribute">auditContent=</span><span class="hljs-literal"></span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>公司id</p>
+</dd><dt>auditContent</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>企业id</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="平台用户中心-企业信息审核-企业信息审核-审核不通过" class="resource"><h3 class="resource-heading">企业信息审核-审核不通过 <a href="#平台用户中心-企业信息审核-企业信息审核-审核不通过" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业信息审核-审核不通过-get" class="action get"><h4 class="action-heading"><div class="name">企业信息审核-审核不通过</div><a href="#平台用户中心-企业信息审核-企业信息审核-审核不通过-get" class="method get">GET</a><code class="uri">/platform/company/auditFail/{id}/{?auditContent}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/auditFail/<span class="hljs-attribute" title="id">id</span>/?<span class="hljs-attribute">auditContent=</span><span class="hljs-literal"></span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>公司id</p>
+</dd><dt>auditContent</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>企业id</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="平台用户中心-企业信息审核-企业信息审核-审核不通过流程结束" class="resource"><h3 class="resource-heading">企业信息审核-审核不通过流程结束 <a href="#平台用户中心-企业信息审核-企业信息审核-审核不通过流程结束" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业信息审核-审核不通过流程结束-post" class="action post"><h4 class="action-heading"><div class="name">企业信息审核-审核不通过流程结束</div><a href="#平台用户中心-企业信息审核-企业信息审核-审核不通过流程结束-post" class="method post">POST</a><code class="uri">/platform/company/auditFailEnd/{id}/{?auditContent}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/auditFailEnd/<span class="hljs-attribute" title="id">id</span>/?<span class="hljs-attribute">auditContent=</span><span class="hljs-literal"></span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>公司id</p>
+</dd><dt>auditContent</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>企业id</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存企业资质" class="resource"><h3 class="resource-heading">企业信息审核-企业准入审核信息-保存企业资质 <a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存企业资质" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存企业资质-post" class="action post"><h4 class="action-heading"><div class="name">企业准入审核-保存企业资质</div><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存企业资质-post" class="method post">POST</a><code class="uri">/platform/company/saveLicenseSurveyDocument/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/saveLicenseSurveyDocument/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>企业id</p>
+</dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">operationLicensePicChecked</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">organLicensePicChecked</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">unionLicensePicChecked</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">bankLicensePicChecked</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">legalPersonIdFrontSidePicChecked</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">legalPersonIdReverseSidePicChecked</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">authPersonIdFrontSidePicChecked</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">authPersonIdReverseSidePicChecked</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">authDocumentPicChecked</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">licenseAuditOpinion</span>": <span class="hljs-value"><span class="hljs-string">"审核意见"</span></span>,
+  "<span class="hljs-attribute">otherLicenseAuditOpinion</span>": <span class="hljs-value"><span class="hljs-string">"其他审核意见"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存工商注册信息" class="resource"><h3 class="resource-heading">企业信息审核-企业准入审核信息-保存工商注册信息 <a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存工商注册信息" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存工商注册信息-post" class="action post"><h4 class="action-heading"><div class="name">企业准入审核-保存工商注册信息</div><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存工商注册信息-post" class="method post">POST</a><code class="uri">/platform/company/saveBusinessRegisterSurvey/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/saveBusinessRegisterSurvey/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>企业id</p>
+</dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">registerAuditOpinion</span>": <span class="hljs-value"><span class="hljs-string">"意见"</span></span>,
+  "<span class="hljs-attribute">scopeAuditOpinion</span>": <span class="hljs-value"><span class="hljs-string">"意见"</span></span>,
+  "<span class="hljs-attribute">registerCapital</span>": <span class="hljs-value"><span class="hljs-number">1000</span></span>,
+  "<span class="hljs-attribute">registerCapitalAuditOpinion</span>": <span class="hljs-value"><span class="hljs-string">"意见"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存企业股东" class="resource"><h3 class="resource-heading">企业信息审核-企业准入审核信息-保存企业股东 <a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存企业股东" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存企业股东-post" class="action post"><h4 class="action-heading"><div class="name">企业准入审核-保存企业股东</div><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存企业股东-post" class="method post">POST</a><code class="uri">/platform/company/saveShareHolderSurvey/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/saveShareHolderSurvey/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>企业id</p>
+</dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"executiveDirector"</span>: <span class="hljs-string">"股东"</span>,
+    <span class="hljs-string">"supervisors"</span>: <span class="hljs-string">"股东"</span>,
+    <span class="hljs-string">"manager"</span>: <span class="hljs-string">"股东"</span>,
+    <span class="hljs-string">"auditOpinion"</span>: <span class="hljs-string">"股东"</span>,
+    <span class="hljs-string">"shareHolderList"</span>: [
+        {
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"String"</span>, <span class="hljs-comment">//股东构成姓名    录入    　    　    　</span>
+            <span class="hljs-string">"ratio"</span>: <span class="hljs-number">1000</span>, <span class="hljs-comment">//出资比例    录入    　    　    　</span>
+            <span class="hljs-string">"subscribedAmount"</span>: <span class="hljs-number">1000</span>, <span class="hljs-comment">//认缴金额</span>
+            <span class="hljs-string">"actualSubscribedAmount"</span>:<span class="hljs-number">1100</span>, <span class="hljs-comment">//实际认缴金额</span>
+            <span class="hljs-string">"type"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">//股东类型</span>
+            <span class="hljs-string">"subscribedAmountDate"</span>: <span class="hljs-built_in">Date</span>, <span class="hljs-comment">//认缴出资日期</span>
+            <span class="hljs-string">"remark"</span>: <span class="hljs-string">""</span> <span class="hljs-comment">//备注</span>
+        }
+    ]
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存实际控制人" class="resource"><h3 class="resource-heading">企业信息审核-企业准入审核信息-保存实际控制人 <a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存实际控制人" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存实际控制人-post" class="action post"><h4 class="action-heading"><div class="name">企业准入审核-保存实际控制人</div><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存实际控制人-post" class="method post">POST</a><code class="uri">/platform/company/saveControlPerson/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/saveControlPerson/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>企业id</p>
+</dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">//  姓名    录入    　    　    　</span>
+    <span class="hljs-string">"age"</span>: <span class="hljs-number">10</span>, <span class="hljs-comment">//  年龄    录入    　    　    　</span>
+    <span class="hljs-string">"sex"</span>: <span class="hljs-number">10</span>, <span class="hljs-comment">//  性别    录入    　    　    　</span>
+    <span class="hljs-string">"phone"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">//  联系方式    录入    　    　    　</span>
+    <span class="hljs-string">"residence"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">//  现居住地    录入    　    　    　</span>
+    <span class="hljs-string">"family"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">//  家庭成员情况    录入    　    　    　</span>
+    <span class="hljs-string">"ownedCapital"</span>: <span class="hljs-number">1000</span>, <span class="hljs-comment">//  自有资金情况    录入    　    　    　</span>
+    <span class="hljs-string">"major"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">//  主业务情况    录入    　    　    　</span>
+    <span class="hljs-string">"minor"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">//  其他业务情况    录入    　    　    　</span>
+    <span class="hljs-string">"relatedCompany"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">//  关联企业情况    录入    　    　    　</span>
+    <span class="hljs-string">"badInfo"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">//  有无不良纠纷及诉讼或者长期账款    录入    　    　    　</span>
+    <span class="hljs-string">"otherInfo"</span>: <span class="hljs-string">""</span> <span class="hljs-comment">//  其他说明    录入</span>
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存实地调查" class="resource"><h3 class="resource-heading">企业信息审核-企业准入审核信息-保存实地调查 <a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存实地调查" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存实地调查-post" class="action post"><h4 class="action-heading"><div class="name">企业准入审核-保存实地调查</div><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存实地调查-post" class="method post">POST</a><code class="uri">/platform/company/saveFieldInvestigationSurvey/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/saveFieldInvestigationSurvey/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>企业id</p>
+</dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"person"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 实地尽职调查    被调查人    录入    　    　    　</span>
+    <span class="hljs-string">"title"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 职位    录入    　    　    　</span>
+    <span class="hljs-string">"phone"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 联系方式    录入    　    　    　</span>
+    <span class="hljs-string">"recordingFile"</span>: {}, <span class="hljs-comment">// 访谈录音文件</span>
+    <span class="hljs-string">"registerAddress"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 注册地址</span>
+    <span class="hljs-string">"operationAddress"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 经营地    选择+录入    　    　    　</span>
+    <span class="hljs-string">"operationProvince"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 省</span>
+    <span class="hljs-string">"operationCity"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 市</span>
+    <span class="hljs-string">"operationDistrict"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 区</span>
+    <span class="hljs-string">"businessFulfilAddress"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 业务实际履行地</span>
+    <span class="hljs-string">"supplementFile"</span>: {}, <span class="hljs-comment">//补充材料文件</span>
+    <span class="hljs-string">"auditOpinion"</span>: <span class="hljs-string">""</span> <span class="hljs-comment">//审核意见</span>
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-string">"待定"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存合作记录" class="resource"><h3 class="resource-heading">企业信息审核-企业准入审核信息-保存合作记录 <a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存合作记录" class="permalink">&nbsp;&para;</a></h3><div id="平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存合作记录-post" class="action post"><h4 class="action-heading"><div class="name">企业准入审核-保存合作记录</div><a href="#平台用户中心-企业信息审核-企业信息审核-企业准入审核信息-保存合作记录-post" class="method post">POST</a><code class="uri">/platform/company/saveCooperationSurvey/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8080/api</span>/platform/company/saveCooperationSurvey/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>String</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>企业id</p>
+</dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"time"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 合作时间</span>
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 合作单位</span>
+    <span class="hljs-string">"quantity"</span>: <span class="hljs-number">1000</span>, <span class="hljs-comment">// 合作量</span>
+    <span class="hljs-string">"bail"</span>: <span class="hljs-number">1000</span>, <span class="hljs-comment">// 保证金</span>
+    <span class="hljs-string">"completion"</span>: <span class="hljs-number">1000</span>, <span class="hljs-comment">// 完成量</span>
+    <span class="hljs-string">"traffic"</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">// 运输方式</span>
+    <span class="hljs-string">"settled"</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 是否结清</span>
+    <span class="hljs-string">"disputed"</span>: <span class="hljs-literal">true</span> <span class="hljs-comment">// 有无纠纷</span>
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 21 Jun 2017</p><script>/* eslint-env browser */
+/* eslint quotes: [2, "single"] */
+'use strict';
+
+/*
+  Determine if a string ends with another string.
+*/
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+/*
+  Get a list of direct child elements by class name.
+*/
+function childrenByClass(element, name) {
+  var filtered = [];
+
+  for (var i = 0; i < element.children.length; i++) {
+    var child = element.children[i];
+    var classNames = child.className.split(' ');
+    if (classNames.indexOf(name) !== -1) {
+      filtered.push(child);
+    }
+  }
+
+  return filtered;
+}
+
+/*
+  Get an array [width, height] of the window.
+*/
+function getWindowDimensions() {
+  var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.body,
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+  return [x, y];
+}
+
+/*
+  Collapse or show a request/response example.
+*/
+function toggleCollapseButton(event) {
+    var button = event.target.parentNode;
+    var content = button.parentNode.nextSibling;
+    var inner = content.children[0];
+
+    if (button.className.indexOf('collapse-button') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        // Currently showing, so let's hide it
+        button.className = 'collapse-button';
+        content.style.maxHeight = '0px';
+    } else {
+        // Currently hidden, so let's show it
+        button.className = 'collapse-button show';
+        content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+function toggleTabButton(event) {
+    var i, index;
+    var button = event.target;
+
+    // Get index of the current button.
+    var buttons = childrenByClass(button.parentNode, 'tab-button');
+    for (i = 0; i < buttons.length; i++) {
+        if (buttons[i] === button) {
+            index = i;
+            button.className = 'tab-button active';
+        } else {
+            buttons[i].className = 'tab-button';
+        }
+    }
+
+    // Hide other tabs and show this one.
+    var tabs = childrenByClass(button.parentNode.parentNode, 'tab');
+    for (i = 0; i < tabs.length; i++) {
+        if (i === index) {
+            tabs[i].style.display = 'block';
+        } else {
+            tabs[i].style.display = 'none';
+        }
+    }
+}
+
+/*
+  Collapse or show a navigation menu. It will not be hidden unless it
+  is currently selected or `force` has been passed.
+*/
+function toggleCollapseNav(event, force) {
+    var heading = event.target.parentNode;
+    var content = heading.nextSibling;
+    var inner = content.children[0];
+
+    if (heading.className.indexOf('heading') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+      // Currently showing, so let's hide it, but only if this nav item
+      // is already selected. This prevents newly selected items from
+      // collapsing in an annoying fashion.
+      if (force || window.location.hash && endsWith(event.target.href, window.location.hash)) {
+        content.style.maxHeight = '0px';
+      }
+    } else {
+      // Currently hidden, so let's show it
+      content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+/*
+  Refresh the page after a live update from the server. This only
+  works in live preview mode (using the `--server` parameter).
+*/
+function refresh(body) {
+    document.querySelector('body').className = 'preload';
+    document.body.innerHTML = body;
+
+    // Re-initialize the page
+    init();
+    autoCollapse();
+
+    document.querySelector('body').className = '';
+}
+
+/*
+  Determine which navigation items should be auto-collapsed to show as many
+  as possible on the screen, based on the current window height. This also
+  collapses them.
+*/
+function autoCollapse() {
+  var windowHeight = getWindowDimensions()[1];
+  var itemsHeight = 64; /* Account for some padding */
+  var itemsArray = Array.prototype.slice.call(
+    document.querySelectorAll('nav .resource-group .heading'));
+
+  // Get the total height of the navigation items
+  itemsArray.forEach(function (item) {
+    itemsHeight += item.parentNode.offsetHeight;
+  });
+
+  // Should we auto-collapse any nav items? Try to find the smallest item
+  // that can be collapsed to show all items on the screen. If not possible,
+  // then collapse the largest item and do it again. First, sort the items
+  // by height from smallest to largest.
+  var sortedItems = itemsArray.sort(function (a, b) {
+    return a.parentNode.offsetHeight - b.parentNode.offsetHeight;
+  });
+
+  while (sortedItems.length && itemsHeight > windowHeight) {
+    for (var i = 0; i < sortedItems.length; i++) {
+      // Will collapsing this item help?
+      var itemHeight = sortedItems[i].nextSibling.offsetHeight;
+      if ((itemsHeight - itemHeight <= windowHeight) || i === sortedItems.length - 1) {
+        // It will, so let's collapse it, remove its content height from
+        // our total and then remove it from our list of candidates
+        // that can be collapsed.
+        itemsHeight -= itemHeight;
+        toggleCollapseNav({target: sortedItems[i].children[0]}, true);
+        sortedItems.splice(i, 1);
+        break;
+      }
+    }
+  }
+}
+
+/*
+  Initialize the interactive functionality of the page.
+*/
+function init() {
+    var i, j;
+
+    // Make collapse buttons clickable
+    var buttons = document.querySelectorAll('.collapse-button');
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = toggleCollapseButton;
+
+        // Show by default? Then toggle now.
+        if (buttons[i].className.indexOf('show') !== -1) {
+            toggleCollapseButton({target: buttons[i].children[0]});
+        }
+    }
+
+    var responseCodes = document.querySelectorAll('.example-names');
+    for (i = 0; i < responseCodes.length; i++) {
+        var tabButtons = childrenByClass(responseCodes[i], 'tab-button');
+        for (j = 0; j < tabButtons.length; j++) {
+            tabButtons[j].onclick = toggleTabButton;
+
+            // Show by default?
+            if (j === 0) {
+                toggleTabButton({target: tabButtons[j]});
+            }
+        }
+    }
+
+    // Make nav items clickable to collapse/expand their content.
+    var navItems = document.querySelectorAll('nav .resource-group .heading');
+    for (i = 0; i < navItems.length; i++) {
+        navItems[i].onclick = toggleCollapseNav;
+
+        // Show all by default
+        toggleCollapseNav({target: navItems[i].children[0]});
+    }
+}
+
+// Initial call to set up buttons
+init();
+
+window.onload = function () {
+    autoCollapse();
+    // Remove the `preload` class to enable animations
+    document.querySelector('body').className = '';
+};
+</script></body></html>

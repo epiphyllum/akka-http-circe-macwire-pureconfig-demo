@@ -1,0 +1,4525 @@
+FORMAT: 1A
+HOST: http://localhost:8080/api
+
+# API 文档
+
+该API文档使用 API Blueprint 格式, 和Markdown类似.
+字典： 煤源产地，运输方式
+
+
+
+## Group 上游企业
+
+上游企业 发起业务申请
+
+## 上游企业业务-获取核心企业列表  [/dict/loadCompanies{?systemName}]
+
+### 上游企业业务-获取核心企业列表 [GET]
+
++ Parameters
+   + systemName:bridge或capital (String) 获取核心企业列表
+
++ Response 200 (application/json)
+
+        {
+          "data": [
+            {
+              "registerCapital": 22.0,
+              "city": "北京市",
+              "createDate": "2017-06-15",
+              "founded": "2017-06-01",
+              "_id": "5941f8cf4d2164182b5b60bf",
+              "scope": "核心企业经营范围",
+              "systemId": 1,
+              "companyStatus": 4,
+              "registerAddress": "核心企业地址",
+              "legalPerson": {
+                "legalPersonIdReverseSidePic": {
+                  "filePath": "593df6404d216462942aa28a/223ac8ec-3752-1bd6-b313-7e823c7fa66c.png",
+                  "fileName": "xxx.png",
+                  "fileExtName": "png"
+                },
+                "legalPersonPhone": "13012345678",
+                "legalPersonName": "核心企业法人",
+                "legalPersonId": "210134567890123",
+                "legalPersonIdFrontSidePic": {
+                  "filePath": "593df6404d216462942aa28a/901b5555-97f1-1aad-dfe6-0079ee340f48.png",
+                  "fileName": "bbb.png",
+                  "fileExtName": "png"
+                }
+              },
+              "auditList": [
+                {
+                  "createDate": "2017-06-15",
+                  "_id": "5941f9b84d2164182b5b60c0",
+                  "companyStatus": 4,
+                  "auditContent": "",
+                  "auditPerson": "platform"
+                }
+              ],
+              "license": {
+                "registerOrgan": "核心企业登记机关",
+                "lastCheck": "2017-06-03",
+                "unionLicenseCode": "123456789012345678",
+                "operationType": 1,
+                "operationBegin": "2017-06-01",
+                "bankLicensePic": {
+                  "filePath": "593df6404d216462942aa28a/2755f327-332b-2e97-ec6f-eb964d44533a.png",
+                  "fileName": "xxx.png",
+                  "fileExtName": "png"
+                },
+                "operationEnd": "2017-06-01",
+                "operationLicensePic": {
+                  "filePath": "593df6404d216462942aa28a/334fe6a4-6d07-bb34-9322-f05208154e64.png",
+                  "fileName": "bbb.png",
+                  "fileExtName": "png"
+                },
+                "organLicensePic": {
+                  "filePath": "593df6404d216462942aa28a/43db2af6-2f38-6ced-b6a4-df04bcdaea4e.png",
+                  "fileName": "xxx.png",
+                  "fileExtName": "png"
+                },
+                "unionLicensePic": {
+                  "filePath": "593df6404d216462942aa28a/11bc6269-cd92-175c-9f86-e6899a4a78ea.png",
+                  "fileName": "bbb.png",
+                  "fileExtName": "png"
+                }
+              },
+              "companyType": 0,
+              "createBy": "593df6414d216462942aa28b",
+              "companyName": "核心企业111",
+              "province": "北京市",
+              "district": "东城区",
+              "authPerson": {
+                "authPersonId": "210134567890123",
+                "authPersonIdFrontSidePic": {
+                  "filePath": "593df6404d216462942aa28a/ad30ba4c-e1d0-43f0-e8ca-40d534af7c62.png",
+                  "fileName": "bbb.png",
+                  "fileExtName": "png"
+                },
+                "authPersonPhone": "13012345678",
+                "authPersonIdReverseSidePic": {
+                  "filePath": "593df6404d216462942aa28a/fe8c285c-f5e6-85f4-8d46-f89d48d4635e.png",
+                  "fileName": "xxx.png",
+                  "fileExtName": "png"
+                },
+                "authDocumentPic": {
+                  "filePath": "593df6404d216462942aa28a/ca398025-e789-2e90-307f-2a601f3ce824.png",
+                  "fileName": "bbb.png",
+                  "fileExtName": "png"
+                },
+                "authPersonName": "核心企业委托人"
+              }
+            }
+          ],
+          "success": true
+        }
+
+
+## 上游企业业务-业务申请查询列表  [/upsteam/business/query]
+
+### 上游企业业务-业务申请查询列表 [POST]
+
++ Request (application/json)
+
+        {
+            "pager": {
+                "pageNum" : 1,
+                "pageSize" : 10
+            },
+            "status": 1,
+            "bridgeCompanyId: "5941f8cf4d2164182b5b60bf",
+            "upStreamCompanyId": "5941f8cf4d2164182b5b60bf",
+            "beginDate": "2017-01-03",
+            "endDate": "2017-01-03"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+              {
+                "createPersonId": "593df6404d216462942aa28a",
+                "createDate": "2017-06-15",
+                "upStreamBusiness": {
+                  "provider": [
+                    "上游业务申请"
+                  ],
+                  "coalIndex": {
+                    "FC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "AFT": {
+                      "begin": 900,
+                      "end": 1600
+                    },
+                    "RV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "TM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "YV": {
+                      "begin": 1,
+                      "end": 30
+                    },
+                    "CRC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "RS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "NCV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "ASH": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "coalPlace": {
+                      "province": "北京市",
+                      "city": "北京市"
+                    },
+                    "GV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "coalType": "烟煤",
+                    "HGI": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "IM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "PS": ""
+                  },
+                  "contractInfo": {
+                    "contractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                        "fileName": "icon2.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "otherContractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                        "fileName": "incon3.png",
+                        "fileExtName": "png"
+                      }
+                    ]
+                  },
+                  "businessId": "594208a64d2164182b5b60c5",
+                  "receiveCompanyId": "5941f8cf4d2164182b5b60bf",
+                  "payInfo": {
+                    "bankAccountNo": "1234567890",
+                    "paymentAmount": 10.0,
+                    "contractUnitPrice": 10.0,
+                    "depositAmount": 10.0,
+                    "hasDeposit": true,
+                    "payMode": 0,
+                    "payCertificatePic": {
+                      "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+                      "fileName": "icon1.png",
+                      "fileExtName": "png"
+                    },
+                    "openAccountBank": "上游开户行",
+                    "contractAmount": 1000.0,
+                    "payNode": "付款节点",
+                    "provisionAssess": "供货考核"
+                  },
+                  "receiveCompanyName": "核心企业111",
+                  "trafficInfo": {
+                    "otherMiscFee": 10.0,
+                    "freightPayer": "上游运费承担方",
+                    "deliveryBegin": "2017-06-01",
+                    "freightPrice": 10.0,
+                    "receiveStation": "上游交货站",
+                    "trafficMode": 0,
+                    "deliveryEnd": "2017-06-02",
+                    "sendStation": "上游发运站"
+                  }
+                },
+                "_id": "594208a64d2164182b5b60c5",
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "upStreamCompanyId": "593e30e94d216462942aa28e",
+                "version": 1,
+                "status": 1,
+                "upStreamCompanyName": "上游企业111"
+              },
+              {
+                "createPersonId": "593df6404d216462942aa28a",
+                "createDate": "2017-06-15",
+                "upStreamBusiness": {
+                  "provider": [
+                    "上游业务申请"
+                  ],
+                  "coalIndex": {
+                    "FC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "AFT": {
+                      "begin": 900,
+                      "end": 1600
+                    },
+                    "RV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "TM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "YV": {
+                      "begin": 1,
+                      "end": 30
+                    },
+                    "CRC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "RS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "NCV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "ASH": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "coalPlace": {
+                      "province": "北京市",
+                      "city": "北京市"
+                    },
+                    "GV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "coalType": "烟煤",
+                    "HGI": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "IM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "PS": ""
+                  },
+                  "contractInfo": {
+                    "contractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                        "fileName": "icon2.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "otherContractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                        "fileName": "incon3.png",
+                        "fileExtName": "png"
+                      }
+                    ]
+                  },
+                  "businessId": "594208fd4d2164182b5b60c6",
+                  "payInfo": {
+                    "bankAccountNo": "1234567890",
+                    "paymentAmount": 10.0,
+                    "contractUnitPrice": 10.0,
+                    "depositAmount": 10.0,
+                    "hasDeposit": true,
+                    "payMode": 0,
+                    "payCertificatePic": {
+                      "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+                      "fileName": "icon1.png",
+                      "fileExtName": "png"
+                    },
+                    "openAccountBank": "上游开户行",
+                    "contractAmount": 1000.0,
+                    "payNode": "付款节点",
+                    "provisionAssess": "供货考核"
+                  },
+                  "trafficInfo": {
+                    "otherMiscFee": 10.0,
+                    "freightPayer": "上游运费承担方",
+                    "deliveryBegin": "2017-06-01",
+                    "freightPrice": 10.0,
+                    "receiveStation": "上游交货站",
+                    "trafficMode": 0,
+                    "deliveryEnd": "2017-06-02",
+                    "sendStation": "上游发运站"
+                  }
+                },
+                "_id": "594208fd4d2164182b5b60c6",
+                "upStreamCompanyId": "593e30e94d216462942aa28e",
+                "version": 1,
+                "status": 1,
+                "upStreamCompanyName": "上游企业111"
+              },
+              {
+                "createPersonId": "593df6404d216462942aa28a",
+                "createDate": "2017-06-15",
+                "upStreamBusiness": {
+                  "provider": [
+                    "上游业务申请"
+                  ],
+                  "coalIndex": {
+                    "FC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "AFT": {
+                      "begin": 900,
+                      "end": 1600
+                    },
+                    "RV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "TM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "YV": {
+                      "begin": 1,
+                      "end": 30
+                    },
+                    "CRC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "RS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "NCV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "ASH": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "coalPlace": {
+                      "province": "北京市",
+                      "city": "北京市"
+                    },
+                    "GV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "coalType": "烟煤",
+                    "HGI": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "IM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "PS": ""
+                  },
+                  "contractInfo": {
+                    "contractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                        "fileName": "icon2.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "otherContractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                        "fileName": "incon3.png",
+                        "fileExtName": "png"
+                      }
+                    ]
+                  },
+                  "businessId": "594209264d2164182b5b60c7",
+                  "receiveCompanyId": "5941f8cf4d2164182b5b60bf",
+                  "payInfo": {
+                    "bankAccountNo": "1234567890",
+                    "paymentAmount": 10.0,
+                    "contractUnitPrice": 10.0,
+                    "depositAmount": 10.0,
+                    "hasDeposit": true,
+                    "payMode": 0,
+                    "payCertificatePic": {
+                      "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+                      "fileName": "icon1.png",
+                      "fileExtName": "png"
+                    },
+                    "openAccountBank": "上游开户行",
+                    "contractAmount": 1000.0,
+                    "payNode": "付款节点",
+                    "provisionAssess": "供货考核"
+                  },
+                  "receiveCompanyName": "核心企业111",
+                  "trafficInfo": {
+                    "otherMiscFee": 10.0,
+                    "freightPayer": "上游运费承担方",
+                    "deliveryBegin": "2017-06-01",
+                    "freightPrice": 10.0,
+                    "receiveStation": "上游交货站",
+                    "trafficMode": 0,
+                    "deliveryEnd": "2017-06-02",
+                    "sendStation": "上游发运站"
+                  }
+                },
+                "_id": "594209264d2164182b5b60c7",
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "upStreamCompanyId": "593e30e94d216462942aa28e",
+                "version": 1,
+                "status": 2,
+                "upStreamCompanyName": "上游企业111"
+              }
+            ],
+            "pagination": {
+              "totalCount": 3,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 上游企业业务-查看业务详情  [/upsteam/business/detail/{id}]
+
+### 上游企业业务-查看业务详情 [GET]
+
++ Parameters
+    + id (String) - 业务详情ID
+
++ Response 200 (application/json)
+
+        {
+            "data"       : {
+                "createPersonId"      : "593df6404d216462942aa28a",
+                "createDate"          : "2017-06-15",
+                "upStreamBusiness"    : {
+                    "provider"           : ["上游业务申请"],
+                    "coalIndex"          : {
+                        "FC"        : {"begin" : 10, "end" : 30},
+                        "AFT"       : {"begin" : 900, "end" : 1600},
+                        "RV"        : {"begin" : 10.0, "end" : 30.0},
+                        "ADS"       : {"begin" : 1.0, "end" : 10.0},
+                        "TM"        : {"begin" : 10.0, "end" : 30.0},
+                        "YV"        : {"begin" : 1, "end" : 30},
+                        "CRC"       : {"begin" : 10, "end" : 30},
+                        "RS"        : {"begin" : 1.0, "end" : 10.0},
+                        "NCV"       : {"begin" : 10, "end" : 30},
+                        "ASH"       : {"begin" : 10.0, "end" : 30.0},
+                        "ADV"       : {"begin" : 10.0, "end" : 30.0},
+                        "coalPlace" : {"province" : "北京市", "city" : "北京市"},
+                        "GV"        : {"begin" : 10, "end" : 30},
+                        "coalType"  : "烟煤",
+                        "HGI"       : {"begin" : 10, "end" : 30},
+                        "IM"        : {"begin" : 10.0, "end" : 30.0},
+                        "PS"        : ""
+                    },
+                    "contractInfo"       : {
+                        "contractFile"      : [{
+                            "filePath"    : "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                            "fileName"    : "icon2.png",
+                            "fileExtName" : "png"
+                        }],
+                        "otherContractFile" : [{
+                            "filePath"    : "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                            "fileName"    : "incon3.png",
+                            "fileExtName" : "png"
+                        }]
+                    },
+                    "businessId"         : "594209264d2164182b5b60c7",
+                    "receiveCompanyId"   : "5941f8cf4d2164182b5b60bf",
+                    "payInfo"            : {
+                        "bankAccountNo"     : "1234567890",
+                        "paymentAmount"     : 10.0,
+                        "contractUnitPrice" : 10.0,
+                        "depositAmount"     : 10.0,
+                        "hasDeposit"        : true,
+                        "payMode"           : 0,
+                        "payCertificatePic" : {
+                            "filePath"    : "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+                            "fileName"    : "icon1.png",
+                            "fileExtName" : "png"
+                        },
+                        "openAccountBank"   : "上游开户行",
+                        "contractAmount"    : 1000.0,
+                        "payNode"           : "付款节点",
+                        "provisionAssess"   : "供货考核"
+                    },
+                    "receiveCompanyName" : "核心企业111",
+                    "trafficInfo"        : {
+                        "otherMiscFee"   : 10.0,
+                        "freightPayer"   : "上游运费承担方",
+                        "deliveryBegin"  : "2017-06-01",
+                        "freightPrice"   : 10.0,
+                        "receiveStation" : "上游交货站",
+                        "trafficMode"    : 0,
+                        "deliveryEnd"    : "2017-06-02",
+                        "sendStation"    : "上游发运站"
+                    }
+                },
+                "_id"                 : "594209264d2164182b5b60c7",
+                "bridgeCompanyId"     : "5941f8cf4d2164182b5b60bf",
+                "upStreamCompanyId"   : "593e30e94d216462942aa28e",
+                "version"             : 1,
+                "status"              : 2,
+                "upStreamCompanyName" : "上游企业111"
+            },
+            "success" : true
+        }
+
+
+## 上游企业业务-查看业务详情里的审核记录  [/upsteam/business/auditList/{id}]
+
+### 上游企业业务-查看业务详情里的审核记录 [GET]
+
++ Parameters
+    + id (String) - 业务详情ID
+
++ Response 200 (application/json)
+
+        {
+        "data": [
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-15",
+        "systemId": 1,
+        "checkPersonName": "bridge12",
+        "opinion": "审核成功",
+        "checkPersonId": "593df6414d216462942aa28b"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-15",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "",
+        "checkPersonId": "593df6414d216462942aa28d"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-16",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "审核通过",
+        "checkPersonId": "593df6414d216462942aa28d"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-16",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "审核通过",
+        "checkPersonId": "593df6414d216462942aa28d"
+        },
+        {
+        "checkResult": 1,
+        "createDate": "2017-06-16",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "风险评估审核意见",
+        "checkPersonId": "593df6414d216462942aa28d"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-16",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "风险评估审核意见",
+        "checkPersonId": "593df6414d216462942aa28d"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-16",
+        "systemId": 2,
+        "checkPersonName": "capital1",
+        "opinion": "资金方审核通过",
+        "checkPersonId": "593df6414d216462942aa28c"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-16",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "平台审核补充融资协议审核通过",
+        "checkPersonId": "593df6414d216462942aa28d"
+        }
+        ],
+        "success": true
+        }
+
+
+## 上游企业业务-保存业务申请  [/upsteam/business/save]
+
+### 上游企业业务-保存业务申请 [POST]
+
++ Request (application/json)
+
+        {
+            "businessId" : "594208a64d2164182b5b60c5 不传该值为新增申请",
+            "receiveCompanyId" : "594208a64d2164182b5b60c5 核心企业ID",
+          "provider": [
+            "煤炭供货方一"
+          ],
+          "coalIndex": {
+            "coalType": "烟煤",
+            "coalPlace": {
+              "province": "北京市",
+              "city": "北京市"
+            },
+            "NCV": {
+              "begin": 10,
+              "end": 30
+            },
+            "ADV": {
+              "begin": 10,
+              "end": 30
+            },
+            "ASH": {
+              "begin": 10,
+              "end": 30
+            },
+            "RV": {
+              "begin": 10,
+              "end": 30
+            },
+            "TM": {
+              "begin": 10,
+              "end": 30
+            },
+            "RS": {
+              "begin": 1,
+              "end": 10
+            },
+            "IM": {
+              "begin": 10,
+              "end": 30
+            },
+            "ADS": {
+              "begin": 1,
+              "end": 10
+            },
+            "FC": {
+              "begin": 10,
+              "end": 30
+            },
+            "GV": {
+              "begin": 10,
+              "end": 30
+            },
+            "YV": {
+              "begin": 1,
+              "end": 30
+            },
+            "AFT": {
+              "begin": 900,
+              "end": 1600
+            },
+            "HGI": {
+              "begin": 10,
+              "end": 30
+            },
+            "PS": "",
+            "CRC": {
+              "begin": 10,
+              "end": 30
+            }
+          },
+          "trafficInfo": {
+            "trafficMode": 0,
+            "sendStation": "上游发运站",
+            "receiveStation": "上游交货站",
+            "freightPayer": "上游运费承担方",
+            "freightPrice": 10,
+            "otherMiscFee": 10,
+            "deliveryBegin": "2017-6-1",
+            "deliveryEnd": "2017-6-2"
+          },
+          "payInfo": {
+            "contractUnitPrice": 10,
+            "hasDeposit": true,
+            "depositAmount": 10,
+            "payMode": 0,
+            "paymentAmount": 10,
+            "payNode": "付款节点",
+            "provisionAssess": "供货考核",
+            "contractAmount": 1000,
+            "payCertificatePic": {
+              "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+              "fileName": "icon1.png",
+              "fileExtName": "png"
+            },
+            "openAccountBank": "上游开户行",
+            "bankAccountNo": "1234567890"
+          },
+          "contractInfo": {
+            "contractFile": [
+              {
+                "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                "fileName": "icon2.png",
+                "fileExtName": "png"
+              }
+            ],
+            "otherContractFile": [
+              {
+                "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                "fileName": "incon3.png",
+                "fileExtName": "png"
+              }
+            ]
+          }
+        }
+
++ Response 200 (application/json)
+
+        {
+            "data":true,
+            "success":true
+        }
+
+
+## 上游企业业务-发起业务申请  [/upsteam/business/submit]
+
+### 上游企业业务-发起业务申请 [POST]
+
++ Request (application/json)
+
+        {
+            "businessId" : "594208a64d2164182b5b60c5 不传该值为新增申请",
+            "receiveCompanyId" : "594208a64d2164182b5b60c5 核心企业ID",
+          "provider": [
+            "煤炭供货方一"
+          ],
+          "coalIndex": {
+            "coalType": "烟煤",
+            "coalPlace": {
+              "province": "北京市",
+              "city": "北京市"
+            },
+            "NCV": {
+              "begin": 10,
+              "end": 30
+            },
+            "ADV": {
+              "begin": 10,
+              "end": 30
+            },
+            "ASH": {
+              "begin": 10,
+              "end": 30
+            },
+            "RV": {
+              "begin": 10,
+              "end": 30
+            },
+            "TM": {
+              "begin": 10,
+              "end": 30
+            },
+            "RS": {
+              "begin": 1,
+              "end": 10
+            },
+            "IM": {
+              "begin": 10,
+              "end": 30
+            },
+            "ADS": {
+              "begin": 1,
+              "end": 10
+            },
+            "FC": {
+              "begin": 10,
+              "end": 30
+            },
+            "GV": {
+              "begin": 10,
+              "end": 30
+            },
+            "YV": {
+              "begin": 1,
+              "end": 30
+            },
+            "AFT": {
+              "begin": 900,
+              "end": 1600
+            },
+            "HGI": {
+              "begin": 10,
+              "end": 30
+            },
+            "PS": "",
+            "CRC": {
+              "begin": 10,
+              "end": 30
+            }
+          },
+          "trafficInfo": {
+            "trafficMode": 0,
+            "sendStation": "上游发运站",
+            "receiveStation": "上游交货站",
+            "freightPayer": "上游运费承担方",
+            "freightPrice": 10,
+            "otherMiscFee": 10,
+            "deliveryBegin": "2017-6-1",
+            "deliveryEnd": "2017-6-2"
+          },
+          "payInfo": {
+            "contractUnitPrice": 10,
+            "hasDeposit": true,
+            "depositAmount": 10,
+            "payMode": 0,
+            "paymentAmount": 10,
+            "payNode": "付款节点",
+            "provisionAssess": "供货考核",
+            "contractAmount": 1000,
+            "payCertificatePic": {
+              "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+              "fileName": "icon1.png",
+              "fileExtName": "png"
+            },
+            "openAccountBank": "上游开户行",
+            "bankAccountNo": "1234567890"
+          },
+          "contractInfo": {
+            "contractFile": [
+              {
+                "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                "fileName": "icon2.png",
+                "fileExtName": "png"
+              }
+            ],
+            "otherContractFile": [
+              {
+                "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                "fileName": "incon3.png",
+                "fileExtName": "png"
+              }
+            ]
+          }
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+## 上游企业融资-确认收款提交  [/upstream/financing/confirmReceiveMoney/{id}]
+
+### 上游企业融资-确认收款提交 [GET]
+
++ Parameters
+    + id (String) - 融资详情ID
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+
+
+
+## Group 核心企业
+
+核心企业 审核业务申请，补充下游信息。发起债权，融资和还款
+
+## 核心企业业务-业务申请查询列表  [/bridge/business/query]
+
+### 核心企业业务-上游业务申请查询列表 [POST]
+
++ Request (application/json)
+
+        {
+            "pager": {
+                "pageNum" : 1,
+                "pageSize" : 10
+            },
+            "status": 1,
+            "bridgeCompanyId: "5941f8cf4d2164182b5b60bf",
+            "upStreamCompanyId": "5941f8cf4d2164182b5b60bf",
+            "beginDate": "2017-01-03",
+            "endDate": "2017-01-03"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+              {
+                "createPersonId": "593df6404d216462942aa28a",
+                "createDate": "2017-06-15",
+                "upStreamBusiness": {
+                  "provider": [
+                    "上游业务申请"
+                  ],
+                  "coalIndex": {
+                    "FC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "AFT": {
+                      "begin": 900,
+                      "end": 1600
+                    },
+                    "RV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "TM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "YV": {
+                      "begin": 1,
+                      "end": 30
+                    },
+                    "CRC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "RS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "NCV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "ASH": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "coalPlace": {
+                      "province": "北京市",
+                      "city": "北京市"
+                    },
+                    "GV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "coalType": "烟煤",
+                    "HGI": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "IM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "PS": ""
+                  },
+                  "contractInfo": {
+                    "contractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                        "fileName": "icon2.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "otherContractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                        "fileName": "incon3.png",
+                        "fileExtName": "png"
+                      }
+                    ]
+                  },
+                  "businessId": "594208a64d2164182b5b60c5",
+                  "receiveCompanyId": "5941f8cf4d2164182b5b60bf",
+                  "payInfo": {
+                    "bankAccountNo": "1234567890",
+                    "paymentAmount": 10.0,
+                    "contractUnitPrice": 10.0,
+                    "depositAmount": 10.0,
+                    "hasDeposit": true,
+                    "payMode": 0,
+                    "payCertificatePic": {
+                      "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+                      "fileName": "icon1.png",
+                      "fileExtName": "png"
+                    },
+                    "openAccountBank": "上游开户行",
+                    "contractAmount": 1000.0,
+                    "payNode": "付款节点",
+                    "provisionAssess": "供货考核"
+                  },
+                  "receiveCompanyName": "核心企业111",
+                  "trafficInfo": {
+                    "otherMiscFee": 10.0,
+                    "freightPayer": "上游运费承担方",
+                    "deliveryBegin": "2017-06-01",
+                    "freightPrice": 10.0,
+                    "receiveStation": "上游交货站",
+                    "trafficMode": 0,
+                    "deliveryEnd": "2017-06-02",
+                    "sendStation": "上游发运站"
+                  }
+                },
+                "_id": "594208a64d2164182b5b60c5",
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "upStreamCompanyId": "593e30e94d216462942aa28e",
+                "version": 1,
+                "status": 1,
+                "upStreamCompanyName": "上游企业111"
+              },
+              {
+                "createPersonId": "593df6404d216462942aa28a",
+                "createDate": "2017-06-15",
+                "upStreamBusiness": {
+                  "provider": [
+                    "上游业务申请"
+                  ],
+                  "coalIndex": {
+                    "FC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "AFT": {
+                      "begin": 900,
+                      "end": 1600
+                    },
+                    "RV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "TM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "YV": {
+                      "begin": 1,
+                      "end": 30
+                    },
+                    "CRC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "RS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "NCV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "ASH": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "coalPlace": {
+                      "province": "北京市",
+                      "city": "北京市"
+                    },
+                    "GV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "coalType": "烟煤",
+                    "HGI": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "IM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "PS": ""
+                  },
+                  "contractInfo": {
+                    "contractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                        "fileName": "icon2.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "otherContractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                        "fileName": "incon3.png",
+                        "fileExtName": "png"
+                      }
+                    ]
+                  },
+                  "businessId": "594208fd4d2164182b5b60c6",
+                  "payInfo": {
+                    "bankAccountNo": "1234567890",
+                    "paymentAmount": 10.0,
+                    "contractUnitPrice": 10.0,
+                    "depositAmount": 10.0,
+                    "hasDeposit": true,
+                    "payMode": 0,
+                    "payCertificatePic": {
+                      "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+                      "fileName": "icon1.png",
+                      "fileExtName": "png"
+                    },
+                    "openAccountBank": "上游开户行",
+                    "contractAmount": 1000.0,
+                    "payNode": "付款节点",
+                    "provisionAssess": "供货考核"
+                  },
+                  "trafficInfo": {
+                    "otherMiscFee": 10.0,
+                    "freightPayer": "上游运费承担方",
+                    "deliveryBegin": "2017-06-01",
+                    "freightPrice": 10.0,
+                    "receiveStation": "上游交货站",
+                    "trafficMode": 0,
+                    "deliveryEnd": "2017-06-02",
+                    "sendStation": "上游发运站"
+                  }
+                },
+                "_id": "594208fd4d2164182b5b60c6",
+                "upStreamCompanyId": "593e30e94d216462942aa28e",
+                "version": 1,
+                "status": 1,
+                "upStreamCompanyName": "上游企业111"
+              },
+              {
+                "createPersonId": "593df6404d216462942aa28a",
+                "createDate": "2017-06-15",
+                "upStreamBusiness": {
+                  "provider": [
+                    "上游业务申请"
+                  ],
+                  "coalIndex": {
+                    "FC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "AFT": {
+                      "begin": 900,
+                      "end": 1600
+                    },
+                    "RV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "TM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "YV": {
+                      "begin": 1,
+                      "end": 30
+                    },
+                    "CRC": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "RS": {
+                      "begin": 1.0,
+                      "end": 10.0
+                    },
+                    "NCV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "ASH": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "ADV": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "coalPlace": {
+                      "province": "北京市",
+                      "city": "北京市"
+                    },
+                    "GV": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "coalType": "烟煤",
+                    "HGI": {
+                      "begin": 10,
+                      "end": 30
+                    },
+                    "IM": {
+                      "begin": 10.0,
+                      "end": 30.0
+                    },
+                    "PS": ""
+                  },
+                  "contractInfo": {
+                    "contractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                        "fileName": "icon2.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "otherContractFile": [
+                      {
+                        "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                        "fileName": "incon3.png",
+                        "fileExtName": "png"
+                      }
+                    ]
+                  },
+                  "businessId": "594209264d2164182b5b60c7",
+                  "receiveCompanyId": "5941f8cf4d2164182b5b60bf",
+                  "payInfo": {
+                    "bankAccountNo": "1234567890",
+                    "paymentAmount": 10.0,
+                    "contractUnitPrice": 10.0,
+                    "depositAmount": 10.0,
+                    "hasDeposit": true,
+                    "payMode": 0,
+                    "payCertificatePic": {
+                      "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+                      "fileName": "icon1.png",
+                      "fileExtName": "png"
+                    },
+                    "openAccountBank": "上游开户行",
+                    "contractAmount": 1000.0,
+                    "payNode": "付款节点",
+                    "provisionAssess": "供货考核"
+                  },
+                  "receiveCompanyName": "核心企业111",
+                  "trafficInfo": {
+                    "otherMiscFee": 10.0,
+                    "freightPayer": "上游运费承担方",
+                    "deliveryBegin": "2017-06-01",
+                    "freightPrice": 10.0,
+                    "receiveStation": "上游交货站",
+                    "trafficMode": 0,
+                    "deliveryEnd": "2017-06-02",
+                    "sendStation": "上游发运站"
+                  }
+                },
+                "_id": "594209264d2164182b5b60c7",
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "upStreamCompanyId": "593e30e94d216462942aa28e",
+                "version": 1,
+                "status": 2,
+                "upStreamCompanyName": "上游企业111"
+              }
+            ],
+            "pagination": {
+              "totalCount": 3,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 核心企业业务-查看业务详情  [/bridge/business/detail/{id}]
+
+### 核心企业业务-查看业务详情 [GET]
+
++ Parameters
+    + id : 594208a64d2164182b5b60c5 (String) - 业务详情ID
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "createPersonId": "593df6404d216462942aa28a",
+            "createDate": "2017-06-15",
+            "upStreamBusiness": {
+              "provider": [
+                "上游业务申请煤炭供货方一"
+              ],
+              "coalIndex": {
+                "FC": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "AFT": {
+                  "begin": 900,
+                  "end": 1600
+                },
+                "RV": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "ADS": {
+                  "begin": 1.0,
+                  "end": 10.0
+                },
+                "TM": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "YV": {
+                  "begin": 1,
+                  "end": 30
+                },
+                "CRC": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "RS": {
+                  "begin": 1.0,
+                  "end": 10.0
+                },
+                "NCV": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "ASH": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "ADV": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "coalPlace": {
+                  "province": "北京市",
+                  "city": "北京市"
+                },
+                "GV": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "coalType": "烟煤",
+                "HGI": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "IM": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "PS": ""
+              },
+              "contractInfo": {
+                "contractFile": [
+                  {
+                    "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                    "fileName": "icon2.png",
+                    "fileExtName": "png"
+                  }
+                ],
+                "otherContractFile": [
+                  {
+                    "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                    "fileName": "incon3.png",
+                    "fileExtName": "png"
+                  }
+                ]
+              },
+              "businessId": "594208a64d2164182b5b60c5",
+              "receiveCompanyId": "5941f8cf4d2164182b5b60bf",
+              "payInfo": {
+                "bankAccountNo": "1234567890",
+                "paymentAmount": 10.0,
+                "contractUnitPrice": 10.0,
+                "depositAmount": 10.0,
+                "hasDeposit": true,
+                "payMode": 0,
+                "payCertificatePic": {
+                  "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                },
+                "openAccountBank": "上游开户行",
+                "contractAmount": 1000.0,
+                "payNode": "付款节点",
+                "provisionAssess": "供货考核"
+              },
+              "receiveCompanyName": "核心企业111",
+              "trafficInfo": {
+                "otherMiscFee": 10.0,
+                "freightPayer": "上游运费承担方",
+                "deliveryBegin": "2017-06-01",
+                "freightPrice": 10.0,
+                "receiveStation": "上游交货站",
+                "trafficMode": 0,
+                "deliveryEnd": "2017-06-01",
+                "sendStation": "上游发运站"
+              }
+            },
+            "_id": "594208a64d2164182b5b60c5",
+            "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+            "upStreamCompanyId": "593e30e94d216462942aa28e",
+            "version": 1,
+            "status": 1,
+            "upStreamCompanyName": "上游企业111"
+          },
+          "success": true
+        }
+
+
+## 核心企业业务-查看业务详情里的审核记录  [/bridge/business/auditList/{id}]
+
+### 核心企业业务-查看业务详情里的审核记录 [GET]
+
++ Parameters
+    + id (String) - 业务详情ID
+
++ Response 200 (application/json)
+
+        {
+        "data": [
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-15",
+        "systemId": 1,
+        "checkPersonName": "bridge12",
+        "opinion": "审核成功",
+        "checkPersonId": "593df6414d216462942aa28b"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-15",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "",
+        "checkPersonId": "593df6414d216462942aa28d"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-16",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "审核通过",
+        "checkPersonId": "593df6414d216462942aa28d"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-16",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "审核通过",
+        "checkPersonId": "593df6414d216462942aa28d"
+        },
+        {
+        "checkResult": 1,
+        "createDate": "2017-06-16",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "风险评估审核意见",
+        "checkPersonId": "593df6414d216462942aa28d"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-16",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "风险评估审核意见",
+        "checkPersonId": "593df6414d216462942aa28d"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-16",
+        "systemId": 2,
+        "checkPersonName": "capital1",
+        "opinion": "资金方审核通过",
+        "checkPersonId": "593df6414d216462942aa28c"
+        },
+        {
+        "checkResult": 10,
+        "createDate": "2017-06-16",
+        "systemId": 4,
+        "checkPersonName": "platform",
+        "opinion": "平台审核补充融资协议审核通过",
+        "checkPersonId": "593df6414d216462942aa28d"
+        }
+        ],
+        "success": true
+        }
+
+
+
+
+## 核心企业业务-审核业务详情提交  [/bridge/business/auditUpstreamBusiness/{id}]
+
+### 核心企业业务-审核业务详情提交 [POST]
+
+checkResult 字段 10 为通过， 0为不通过结束，1为不通过打回
+
++ Parameters
+    + id : 594208a64d2164182b5b60c5 (String) - 业务详情ID
+
++ Request (application/json)
+
+        {
+        "checkResult": 10,
+        "opinion":"xxxxx"
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":[],
+        "success":true
+        }
+
+
+## 核心企业业务-获取资金方企业列表  [/dict/loadCompanies{?systemName2}]
+
+### 核心企业业务-获取资金方企业列表 [GET]
+
+获取资金方企业列表 与上游获取核心企业列表是同一个接口 systemName2 字段实际是 systemName 因为文档无法重复定义同url接口
+
++ Parameters
+   + systemName2:capital (String) 字段实际是 systemName
+
++ Response 200 (application/json)
+
+        {
+          "data": [
+            {
+              "registerCapital": 20.0,
+              "city": "天津市",
+              "createDate": "2017-06-15",
+              "founded": "2017-06-01",
+              "_id": "593f4c344d2164248b421168",
+              "scope": "资金方经营范围",
+              "systemId": 2,
+              "companyStatus": 4,
+              "registerAddress": "资金方注册地址",
+              "legalPerson": {
+                "legalPersonIdReverseSidePic": {
+                  "filePath": "593df6414d216462942aa28b/3ef77518-d25a-a92c-86b0-1e4070a3487f.png",
+                  "fileName": "icon2.png",
+                  "fileExtName": "png"
+                },
+                "legalPersonPhone": "13012345678",
+                "legalPersonName": "资金方法人代表",
+                "legalPersonId": "210123456789098",
+                "legalPersonIdFrontSidePic": {
+                  "filePath": "593df6414d216462942aa28b/8e16990b-53ee-6ebf-b713-6b42597f8a7a.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                }
+              },
+              "auditList": [
+                {
+                  "createDate": "2017-06-15",
+                  "_id": "59423d514d216430b2d8f5f4",
+                  "companyStatus": 4,
+                  "auditContent": "",
+                  "auditPerson": "platform"
+                }
+              ],
+              "license": {
+                "registerOrgan": "资金方登记机关",
+                "lastCheck": "2017-06-10",
+                "unionLicenseCode": "123456789012345678",
+                "operationType": 1,
+                "operationBegin": "2017-06-02",
+                "bankLicensePic": {
+                  "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                },
+                "operationEnd": "2017-06-01",
+                "operationLicensePic": {
+                  "filePath": "593df6414d216462942aa28b/bf8ccc7c-2351-eabe-7de4-2ad57e9d82cb.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                },
+                "organLicensePic": {
+                  "filePath": "593df6414d216462942aa28b/b12a4194-1ddb-3ad4-d24c-bcfc5213e07a.png",
+                  "fileName": "icon2.png",
+                  "fileExtName": "png"
+                },
+                "unionLicensePic": {
+                  "filePath": "593df6414d216462942aa28b/8034d668-a6fc-e462-96df-101f159bfb7e.png",
+                  "fileName": "icon3.png",
+                  "fileExtName": "png"
+                }
+              },
+              "companyType": 0,
+              "createBy": "593df6414d216462942aa28c",
+              "companyName": "资金方",
+              "province": "天津市",
+              "district": "和平区",
+              "authPerson": {
+                "authPersonId": "210123456789098",
+                "authPersonIdFrontSidePic": {
+                  "filePath": "593df6414d216462942aa28b/f1f64cc0-a100-a6f1-79e6-c0b7260d7664.png",
+                  "fileName": "icon3.png",
+                  "fileExtName": "png"
+                },
+                "authPersonPhone": "13012345678",
+                "authPersonIdReverseSidePic": {
+                  "filePath": "593df6414d216462942aa28b/a56a00fc-8a94-e78f-68bf-ac2b1b3dd751.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                },
+                "authDocumentPic": {
+                  "filePath": "593df6414d216462942aa28b/bb3daa3a-1d06-87f3-f515-2d1eb3f931c1.png",
+                  "fileName": "icon2.png",
+                  "fileExtName": "png"
+                },
+                "authPersonName": "资金方委托人姓名"
+              }
+            }
+          ],
+          "success": true
+        }
+
+
+## 核心企业业务-获取下游企业列表  [/dict/getAllDSCompanies]
+
+### 核心企业业务-获取下游企业列表 [GET]
+
++ Response 200 (application/json)
+
+        {
+        "data": [
+            {
+            "_id": "593bb26a607eb82762bd8623",
+            "department": "华能",
+            "companies": [
+            "中国华能集团燃料有限公司",
+            "华能国际电力股份有限公司井冈山电厂",
+            "华能国际电力股份有限公司南通电厂",
+            "华能国际电力股份有限公司营口电厂",
+            "华能国际电力股份有限公司玉环电厂",
+            "华能国际电力股份有限公司汕头电厂",
+            "华能国际电力股份有限公司福州电厂",
+            "华能国际电力股份有限公司长兴电厂",
+            "华能国际电力股份有限公司大连电厂",
+            "华能国际电力股份有限公司济宁电厂",
+            "华能瑞金发电有限责任公司",
+            "华能武汉发电有限责任公司",
+            "华能安源发电有限责任公司",
+            "华能南京金陵发电有限公司",
+            "华能海南发电股份有限公司",
+            "华能苏州热电有限责任公司",
+            "山东日照发电有限公司",
+            "上海时代航运有限公司",
+            "上海瑞宁航运有限公司",
+            "华能沁北发电有限责任公司",
+            "华能洛阳发电有限责任公司",
+            "华新水泥(桑植)有限公司",
+            "华能西宁热电有限责任公司",
+            "华能陕西秦岭发电有限公司",
+            "华能新疆阜康热电有限责任公司",
+            "华能新疆能源开发有限公司轮台热电分公司",
+            "华能（苏州工业园区）发电有限责任公司"
+            ]
+            }
+        ],
+        "success":true
+        }
+
+
+## 核心企业业务-保存补充下游信息业务申请  [/bridge/business/saveDownstreamBusiness]
+
+### 核心企业业务-保存补充下游信息业务申请 [POST]
+
++ Request (application/json)
+
+        {
+          "businessId": "594279d94d21645521548cb4",
+          "downstreamCompanyName": "中国华能集团燃料有限公司",
+          "capitalCompanyId": "593f4c344d2164248b421168",
+          "contractAmount": 1000,
+          "contractUnitPrice": 10,
+          "deliveryBegin": "2017-6-1",
+          "deliveryEnd": "2017-6-11",
+          "returnedMoneyPeriod": 12,
+          "detectionOrganization": "补充下游信息检测机构",
+          "hasDeposit": true,
+          "depositAmount": 10,
+          "numberInspection": "补充下游信息数量考核",
+          "qualityInspection": "补充下游信息质量考核",
+          "contractFiles": [
+            {
+              "filePath": "593df6414d216462942aa28b/111a6eaf-fb95-5d26-e9d1-f410bd1a7c3b.png",
+              "fileName": "icon2.png",
+              "fileExtName": "png"
+            }
+          ],
+          "depositPayCertificatePic": {
+            "filePath": "593df6414d216462942aa28b/994bf8f6-d1b5-82a9-cdf3-528fb32f6600.png",
+            "fileName": "icon1.png",
+            "fileExtName": "png"
+          }
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+## 核心企业业务-提交补充下游信息业务申请  [/bridge/business/submitDownstreamBusiness]
+
+### 核心企业业务-提交补充下游信息业务申请 [POST]
+
++ Request (application/json)
+
+        {
+          "businessId": "594279d94d21645521548cb4",
+          "downstreamCompanyName": "中国华能集团燃料有限公司",
+          "capitalCompanyId": "593f4c344d2164248b421168",
+          "contractAmount": 1000,
+          "contractUnitPrice": 10,
+          "deliveryBegin": "2017-6-1",
+          "deliveryEnd": "2017-6-11",
+          "returnedMoneyPeriod": 12,
+          "detectionOrganization": "补充下游信息检测机构",
+          "hasDeposit": true,
+          "depositAmount": 10,
+          "numberInspection": "补充下游信息数量考核",
+          "qualityInspection": "补充下游信息质量考核",
+          "contractFiles": [
+            {
+              "filePath": "593df6414d216462942aa28b/111a6eaf-fb95-5d26-e9d1-f410bd1a7c3b.png",
+              "fileName": "icon2.png",
+              "fileExtName": "png"
+            }
+          ],
+          "depositPayCertificatePic": {
+            "filePath": "593df6414d216462942aa28b/994bf8f6-d1b5-82a9-cdf3-528fb32f6600.png",
+            "fileName": "icon1.png",
+            "fileExtName": "png"
+          }
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+
+## 核心企业业务-保存补充代还款协议业务申请  [/bridge/business/saveFinancingProtocol]
+
+### 核心企业业务-保存补充代还款协议业务申请 [POST]
+
++ Request (application/json)
+
+        {
+          "businessId": "594279d94d21645521548cb4",
+          "financingProtocolPic": [
+            {
+              "filePath": "593df6414d216462942aa28b/111a6eaf-fb95-5d26-e9d1-f410bd1a7c3b.png",
+              "fileName": "icon2.png",
+              "fileExtName": "png"
+            }
+          ],
+          "repayProtocolPic": [
+            {
+              "filePath": "593df6414d216462942aa28b/111a6eaf-fb95-5d26-e9d1-f410bd1a7c3b.png",
+              "fileName": "icon2.png",
+              "fileExtName": "png"
+            }
+          ]
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+## 核心企业业务-提交补充代还款协议业务申请  [/bridge/business/submitFinancingProtocol]
+
+### 核心企业业务-提交补充代还款协议业务申请 [POST]
+
++ Request (application/json)
+
+        {
+          "businessId": "594279d94d21645521548cb4",
+          "financingProtocolPic": [
+            {
+              "filePath": "593df6414d216462942aa28b/111a6eaf-fb95-5d26-e9d1-f410bd1a7c3b.png",
+              "fileName": "icon2.png",
+              "fileExtName": "png"
+            }
+          ],
+          "repayProtocolPic": [
+            {
+              "filePath": "593df6414d216462942aa28b/111a6eaf-fb95-5d26-e9d1-f410bd1a7c3b.png",
+              "fileName": "icon2.png",
+              "fileExtName": "png"
+            }
+          ]
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+
+## 核心企业债权-创建新债权  [/bridge/debt/submit]
+
+### 核心企业债权-创建新债权 [POST]
+
++ Request (application/json)
+
+        {
+          "businessId": "594279d94d21645521548cb4",
+          "status": 0,
+          "evaluationAmount": 10,
+          "totalQuantity": 10
+          "quantity": [
+            {
+              "receiptsNo": "X1111",
+              "receiptsDate": "2017-06-18",
+              "carNo": "30001",
+              "receiptAmount": 10,
+              "receiptFile": [
+                {
+                  "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                }
+              ]
+            }
+          ],
+          "quality": [
+            {
+              "receiptsNo": "X1112",
+              "receiptsDate": "2017-06-18",
+              "carAmount": 10,
+              "calculateAmount": 10,
+              "checkAmount": 10,
+              "coalIndex": {
+                "coalType": "烟煤",
+                "coalPlace": {
+                  "province": "北京市",
+                  "city": "北京市"
+                },
+                "NCV": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "ADV": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "ASH": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "RV": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "TM": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "RS": {
+                  "begin": 1,
+                  "end": 10
+                },
+                "IM": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "ADS": {
+                  "begin": 1,
+                  "end": 10
+                },
+                "FC": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "GV": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "YV": {
+                  "begin": 1,
+                  "end": 30
+                },
+                "AFT": {
+                  "begin": 900,
+                  "end": 1600
+                },
+                "HGI": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "PS": "",
+                "CRC": {
+                  "begin": 10,
+                  "end": 30
+                }
+              },
+              "receiptFile": [
+                {
+                  "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                }
+              ]
+            }
+          ]
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+## 核心企业债权-查询所有债权列表  [/bridge/debt/query]
+
+### 核心企业债权-查询所有债权列表 [POST]
+
++ Request (application/json)
+
+        {
+          "pager": {
+            "pageNum": 1,
+            "pageSize": 10
+          },
+          "businessId": "",
+          "upstreamCompanyName": "",
+          "status": 1,
+          "capitalRaiseId": "",
+          "beginDate": "2017-06-18",
+          "endDate": "2017-06-18"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+              {
+                "quality": [
+                  {
+                    "carAmount": 10,
+                    "receiptsDate": "2017-06-18",
+                    "receiptFile": [
+                      {
+                        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                        "fileName": "icon1.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "calculateAmount": 10.0,
+                    "coalIndex": {
+                      "coalType": "太原"
+                    },
+                    "checkAmount": 10.0,
+                    "receiptsNo": "X1112"
+                  }
+                ],
+                "bridgeCompanyName": "核心企业111",
+                "quantity": [
+                  {
+                    "receiptsDate": "2017-06-18",
+                    "receiptFile": [
+                      {
+                        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                        "fileName": "icon1.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "carNo": "30001",
+                    "receiptsNo": "X1111",
+                    "receiptAmount": 10.0
+                  }
+                ],
+                "createDate": "2017-06-19",
+                "_id": "594778d80ef606e58a00405f",
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "businessId": "594279d94d21645521548cb4",
+                "status": 0,
+                "upstreamCompanyId": "593e30e94d216462942aa28e",
+                "upstreamCompanyName": "上游企业111"
+              }
+            ],
+            "pagination": {
+              "totalCount": 1,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 核心企业债权-查询某个业务下的债权列表  [/bridge/debt/businessAllDebts/{?businessId}]
+
+### 核心企业债权-查询某个业务下的债权列表 [GET]
+
++ Parameters
+    + businessId (String) - 业务详情ID
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+              {
+                "quality": [
+                  {
+                    "carAmount": 10,
+                    "receiptsDate": "2017-06-18",
+                    "receiptFile": [
+                      {
+                        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                        "fileName": "icon1.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "calculateAmount": 10.0,
+                    "coalIndex": {
+                      "coalType": "太原"
+                    },
+                    "checkAmount": 10.0,
+                    "receiptsNo": "X1112"
+                  }
+                ],
+                "bridgeCompanyName": "核心企业111",
+                "quantity": [
+                  {
+                    "receiptsDate": "2017-06-18",
+                    "receiptFile": [
+                      {
+                        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                        "fileName": "icon1.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "carNo": "30001",
+                    "receiptsNo": "X1111",
+                    "receiptAmount": 10.0
+                  }
+                ],
+                "createDate": "2017-06-19",
+                "_id": "594778d80ef606e58a00405f",
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "businessId": "594279d94d21645521548cb4",
+                "status": 0,
+                "upstreamCompanyId": "593e30e94d216462942aa28e",
+                "upstreamCompanyName": "上游企业111"
+              }
+            ],
+            "pagination": {
+              "totalCount": 1,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 核心企业债权-查询债权详情  [/bridge/debt/detail/{id}]
+
+### 核心企业债权-查询债权详情 [GET]
+
++ Parameters
+    + id (String) - 债权详情ID
+
++ Response 200 (application/json)
+
+        {
+        "data":{},
+        "success":true
+        }
+
+
+## 核心企业融资-发起融资  [/bridge/financing/submit]
+
+### 核心企业融资-发起融资 [POST]
+
++ Request (application/json)
+
+        {
+          "debtIds": [
+            "594778d80ef606e58a00405f"
+          ],
+          "businessId": "594279d94d21645521548cb4",
+          "status": 0,
+          "capitalRaisingAmount": 10,
+          "debtActualValue": 10,
+          "capitalRaisingBegin": "2017-06-12",
+          "capitalRaisingEnd": "2017-06-19",
+          "receiptAcquired": false,
+          "invoiced": false,
+          "invoiceNo": "xxxxxxx",
+          "invoiceAmount": 1000,
+          "invoicePic": [
+            {
+              "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+              "fileName": "icon1.png",
+              "fileExtName": "png"
+            }
+          ],
+          "goodTransferPic": [
+            {
+              "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+              "fileName": "icon1.png",
+              "fileExtName": "png"
+            }
+          ]
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+## 核心企业融资-查询融资申请列表  [/bridge/financing/query]
+
+### 核心企业融资-查询融资申请列表 [POST]
+
++ Request (application/json)
+
+        {
+            "pager":{
+                "pageNum":1,
+                "pageSize":10
+            },
+            "businessId":"594279d94d21645521548cb4"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+              {
+                "debtIds": [
+                  "594778d80ef606e58a00405f"
+                ],
+                "bridgeCompanyName": "核心企业111",
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "capitalRaisingEnd": "2017-06-19",
+                "createDate": "2017-06-19",
+                "_id": "59478da20ef606e58a0045be",
+                "capitalRaisingAmount": 10.0,
+                "invoiceNo": "xxxxxxx",
+                "invoiceAmount": 1000.0,
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "businessId": "594279d94d21645521548cb4",
+                "invoiced": false,
+                "invoicePic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ],
+                "status": 14,
+                "capitalCompanyName": "资金方",
+                "capitalRaisingBegin": "2017-06-12",
+                "debtActualValue": 10.0,
+                "upstreamCompanyId": "593e30e94d216462942aa28e",
+                "receiptAcquired": false,
+                "upstreamCompanyName": "上游企业111",
+                "goodTransferPic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ]
+              },
+              {
+                "debtIds": [
+                  "594778d80ef606e58a00405f"
+                ],
+                "bridgeCompanyName": "核心企业111",
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "capitalRaisingEnd": "2017-06-19",
+                "createDate": "2017-06-19",
+                "_id": "59478da90ef606e58a0045c4",
+                "capitalRaisingAmount": 10.0,
+                "invoiceNo": "xxxxxxx",
+                "invoiceAmount": 1000.0,
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "businessId": "594279d94d21645521548cb4",
+                "invoiced": false,
+                "invoicePic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ],
+                "status": 14,
+                "capitalCompanyName": "资金方",
+                "capitalRaisingBegin": "2017-06-12",
+                "debtActualValue": 10.0,
+                "upstreamCompanyId": "593e30e94d216462942aa28e",
+                "receiptAcquired": false,
+                "upstreamCompanyName": "上游企业111",
+                "goodTransferPic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ]
+              }
+            ],
+            "pagination": {
+              "totalCount": 2,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 核心企业融资-查看融资申请详情  [/bridge/financing/detail/{id}]
+
+### 核心企业融资-查看融资申请详情 [GET]
+
++ Parameters
+    + id (String) - 融资详情ID
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "capitalRaise": {
+              "debtIds": [
+                "594778d80ef606e58a00405f"
+              ],
+              "bridgeCompanyName": "核心企业111",
+              "capitalCompanyId": "593f4c344d2164248b421168",
+              "capitalRaisingEnd": "2017-06-19",
+              "createDate": "2017-06-19",
+              "_id": "59478da20ef606e58a0045be",
+              "capitalRaisingAmount": 10.0,
+              "invoiceNo": "xxxxxxx",
+              "auditList": [
+                {
+                  "checkResult": 10,
+                  "infoCollectChannel": "获取渠道",
+                  "createDate": "2017-06-19",
+                  "systemId": 4,
+                  "dataDeviation": "数据偏差",
+                  "checkPersonName": "platform",
+                  "opinion": "平台审核补充融资协议审核通过",
+                  "checkPersonId": "593df6414d216462942aa28d"
+                },
+                {
+                  "checkResult": 10,
+                  "createDate": "2017-06-19",
+                  "systemId": 2,
+                  "checkPersonName": "capital1",
+                  "opinion": "资金方审核融资审核通过",
+                  "checkPersonId": "593df6414d216462942aa28c"
+                }
+              ],
+              "invoiceAmount": 1000.0,
+              "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+              "businessId": "594279d94d21645521548cb4",
+              "invoiced": false,
+              "invoicePic": [
+                {
+                  "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                }
+              ],
+              "status": 8,
+              "capitalCompanyName": "资金方",
+              "capitalRaisingBegin": "2017-06-12",
+              "debtActualValue": 10.0,
+              "upstreamCompanyId": "593e30e94d216462942aa28e",
+              "receiptAcquired": false,
+              "upstreamCompanyName": "上游企业111",
+              "goodTransferPic": [
+                {
+                  "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                }
+              ]
+            },
+            "debtList": [
+              {
+                "quality": [
+                  {
+                    "carAmount": 10,
+                    "receiptsDate": "2017-06-18",
+                    "receiptFile": [
+                      {
+                        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                        "fileName": "icon1.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "calculateAmount": 10.0,
+                    "coalIndex": {
+                      "coalType": "太原"
+                    },
+                    "checkAmount": 10.0,
+                    "receiptsNo": "X1112"
+                  }
+                ],
+                "bridgeCompanyName": "核心企业111",
+                "quantity": [
+                  {
+                    "receiptsDate": "2017-06-18",
+                    "receiptFile": [
+                      {
+                        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                        "fileName": "icon1.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "carNo": "30001",
+                    "receiptsNo": "X1111",
+                    "receiptAmount": 10.0
+                  }
+                ],
+                "createDate": "2017-06-19",
+                "_id": "594778d80ef606e58a00405f",
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "businessId": "594279d94d21645521548cb4",
+                "status": 0,
+                "upstreamCompanyId": "593e30e94d216462942aa28e",
+                "upstreamCompanyName": "上游企业111"
+              }
+            ]
+          },
+          "success": true
+        }
+
+
+## 核心企业还款-发起还款  [/bridge/financingRepayment/submit]
+
+### 核心企业还款-发起还款 [POST]
+
++ Request (application/json)
+
+        {
+          "businessId": "594279d94d21645521548cb4",
+          "capitalRaiseIds": [
+            "59478da20ef606e58a0045be"
+          ],
+          "capitalCompanyId": "593f4c344d2164248b421168",
+          "payInfo": {
+            "payAmount": 100,
+            "payDate": "2017-06-30",
+            "payCompanyName": "资金方放款公司",
+            "payMode": 0,
+            "payAccount": "资金方名称",
+            "payCertificatePic": {
+              "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+              "fileName": "icon1.png",
+              "fileExtName": "png"
+            },
+            "payCompanyBankProvince": "北京市",
+            "payCompanyBankCity": "北京市",
+            "payCompanyBankDistrict": "北京市",
+            "payCompanyBankName": "付款银行名称"
+          },
+          "recvInfo": {
+            "recvCompanyName": "收款公司",
+            "recvBankProvince": "北京市",
+            "recvBankCity": "北京市",
+            "recvBankDistrict": "北京市",
+            "recvBankName": "收款银行名称",
+            "recvBankAddr": "收款银行地址",
+            "recvAccount": "收款银行账号",
+            "recvAmount": 100
+          }
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+## 核心企业还款-还款申请查询列表  [/bridge/financingRepayment/query]
+
+### 核心企业还款-还款申请查询列表 [POST]
+
++ Request (application/json)
+
+        {
+          "pager": {
+            "pageNum": 1,
+            "pageSize": 10
+          },
+          "businessId": "594279d94d21645521548cb4",
+          "status": 1,
+          "beginDate": "2017-01-02",
+          "endDate": "2017-01-03"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948d8eb0ef606e58a0084ba",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              },
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948e3440ef606e58a0085cc",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              },
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948e3530ef606e58a0085d3",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              },
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948e3540ef606e58a0085d8",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              }
+            ],
+            "pagination": {
+              "totalCount": 4,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 核心企业还款-查看还款申请详情  [/bridge/financingRepayment/detail/{id}]
+
+### 核心企业还款-查看还款申请详情 [GET]
+
++ Parameters
+    + id (String) - 还款详情ID
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "capitalCompanyId": "593f4c344d2164248b421168",
+            "_id": "5948d8eb0ef606e58a0084ba",
+            "capitalRaiseIds": [
+              "59478da20ef606e58a0045be"
+            ],
+            "businessId": "594279d94d21645521548cb4",
+            "payInfo": {
+              "payCompanyBankCity": "北京市",
+              "payCompanyBankDistrict": "北京市",
+              "payDate": "2017-06-30",
+              "payCompanyName": "资金方放款公司",
+              "payCompanyBankProvince": "北京市",
+              "payMode": 0,
+              "payCertificatePic": {
+                "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                "fileName": "icon1.png",
+                "fileExtName": "png"
+              },
+              "payAmount": 100.0,
+              "payAccount": "资金方名称",
+              "payCompanyBankName": "付款银行名称"
+            },
+            "status": 8,
+            "recvInfo": {
+              "recvBankDistrict": "北京市",
+              "recvCompanyName": "收款公司",
+              "recvAccount": "收款银行账号",
+              "recvBankName": "收款银行名称",
+              "recvAmount": 100.0,
+              "recvBankCity": "北京市",
+              "recvBankAddr": "收款银行地址",
+              "recvBankProvince": "北京市"
+            }
+          },
+          "success": true
+        }
+
+
+## 核心企业下游回款-发起下游回款  [/bridge/downstreamRepayment/submit]
+
+### 核心企业下游回款-发起下游回款 [POST]
+
++ Request (application/json)
+
+        {
+        "businessId": "594279d94d21645521548cb4",
+        "payAmount": 100,
+        "payDate": "2017-06-30",
+        "payCompanyName": "资金方放款公司",
+        "payMode": 0,
+        "payAccount": "资金方名称",
+        "payCertificatePic": {
+        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+        "fileName": "icon1.png",
+        "fileExtName": "png"
+        },
+        "payCompanyBankProvince": "北京市",
+        "payCompanyBankCity": "北京市",
+        "payCompanyBankDistrict": "北京市",
+        "payCompanyBankName": "付款银行名称",
+        "recvCompanyName": "收款公司",
+        "recvBankProvince": "北京市",
+        "recvBankCity": "北京市",
+        "recvBankDistrict": "北京市",
+        "recvBankName": "收款银行名称",
+        "recvBankAddr": "收款银行地址",
+        "recvAccount": "收款银行账号",
+        "recvAmount": 100
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+
+## 核心企业下游回款-下游回款查询列表  [/bridge/downstreamRepayment/query]
+
+### 核心企业下游回款-下游回款查询列表 [POST]
+
++ Request (application/json)
+
+        {
+          "pager": {
+            "pageNum": 1,
+            "pageSize": 10
+          },
+          "businessId": "594279d94d21645521548cb4"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+              {
+                "recvBankDistrict": "北京市",
+                "payCompanyBankCity": "北京市",
+                "payCompanyBankDistrict": "北京市",
+                "recvCompanyName": "收款公司",
+                "_id": "5949e5b591f66fe1170a5a7b",
+                "recvAccount": "收款银行账号",
+                "payDate": "2017-06-30",
+                "recvBankName": "收款银行名称",
+                "payCompanyName": "资金方放款公司",
+                "payCompanyBankProvince": "北京市",
+                "businessId": "594279d94d21645521548cb4",
+                "recvAmount": 100.0,
+                "recvBankCity": "北京市",
+                "recvBankAddr": "收款银行地址",
+                "payMode": 0,
+                "payCertificatePic": {
+                  "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                },
+                "recvBankProvince": "北京市",
+                "payAmount": 100.0,
+                "payAccount": "资金方名称",
+                "payCompanyBankName": "付款银行名称"
+              }
+            ],
+            "pagination": {
+              "totalCount": 1,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 核心企业下游回款-查看下游回款详情  [/bridge/downstreamRepayment/detail/{id}]
+
+### 核心企业下游回款-查看下游回款详情 [GET]
+
++ Parameters
+    + id (String) - 下游回款详情ID
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "recvBankDistrict": "北京市",
+            "payCompanyBankCity": "北京市",
+            "payCompanyBankDistrict": "北京市",
+            "recvCompanyName": "收款公司",
+            "_id": "5949e5b591f66fe1170a5a7b",
+            "recvAccount": "收款银行账号",
+            "payDate": "2017-06-30",
+            "recvBankName": "收款银行名称",
+            "payCompanyName": "资金方放款公司",
+            "payCompanyBankProvince": "北京市",
+            "businessId": "594279d94d21645521548cb4",
+            "recvAmount": 100.0,
+            "recvBankCity": "北京市",
+            "recvBankAddr": "收款银行地址",
+            "payMode": 0,
+            "payCertificatePic": {
+              "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+              "fileName": "icon1.png",
+              "fileExtName": "png"
+            },
+            "recvBankProvince": "北京市",
+            "payAmount": 100.0,
+            "payAccount": "资金方名称",
+            "payCompanyBankName": "付款银行名称"
+          },
+          "success": true
+        }
+
+
+
+
+## Group 平台
+
+平台管理 业务审核，融资审核
+
+
+## 平台业务-业务申请查询列表  [/platform/business/query]
+
+### 平台业务-业务申请查询列表 [POST]
+
++ Request (application/json)
+
+        {
+            "pager": {
+                "pageNum" : 1,
+                "pageSize" : 10
+            },
+            "status": 1,
+            "bridgeCompanyId: "5941f8cf4d2164182b5b60bf",
+            "upStreamCompanyId": "5941f8cf4d2164182b5b60bf",
+            "beginDate": "2017-01-03",
+            "endDate": "2017-01-03"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+            {
+              "createPersonId": "593df6404d216462942aa28a",
+              "createDate": "2017-06-15",
+              "_id": "594279d94d21645521548cb4",
+              "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+              "version": 1,
+              "upstreamBusiness": {
+                "provider": [
+                  "上游业务申请煤炭供货方一",
+                  "上游业务申请煤炭供货方二"
+                ],
+                "auditList": [
+                  {
+                    "checkResult": 10,
+                    "createDate": "2017-06-15",
+                    "systemId": 1,
+                    "checkPersonName": "bridge12",
+                    "opinion": "审核成功",
+                    "checkPersonId": "593df6414d216462942aa28b"
+                  },
+                  {
+                    "checkResult": 10,
+                    "createDate": "2017-06-15",
+                    "systemId": 4,
+                    "checkPersonName": "platform",
+                    "opinion": "",
+                    "checkPersonId": "593df6414d216462942aa28d"
+                  }
+                ],
+                "coalIndex": {
+                  "FC": {
+                    "begin": 10,
+                    "end": 30
+                  },
+                  "AFT": {
+                    "begin": 900,
+                    "end": 1600
+                  },
+                  "RV": {
+                    "begin": 10.0,
+                    "end": 30.0
+                  },
+                  "ADS": {
+                    "begin": 1.0,
+                    "end": 10.0
+                  },
+                  "TM": {
+                    "begin": 10.0,
+                    "end": 30.0
+                  },
+                  "YV": {
+                    "begin": 1,
+                    "end": 30
+                  },
+                  "CRC": {
+                    "begin": 10,
+                    "end": 30
+                  },
+                  "RS": {
+                    "begin": 1.0,
+                    "end": 10.0
+                  },
+                  "NCV": {
+                    "begin": 10,
+                    "end": 30
+                  },
+                  "ASH": {
+                    "begin": 10.0,
+                    "end": 30.0
+                  },
+                  "ADV": {
+                    "begin": 10.0,
+                    "end": 30.0
+                  },
+                  "coalPlace": {
+                    "province": "北京市",
+                    "city": "北京市"
+                  },
+                  "GV": {
+                    "begin": 10,
+                    "end": 30
+                  },
+                  "coalType": "烟煤",
+                  "HGI": {
+                    "begin": 10,
+                    "end": 30
+                  },
+                  "IM": {
+                    "begin": 10.0,
+                    "end": 30.0
+                  },
+                  "PS": "100"
+                },
+                "contractInfo": {
+                  "contractFile": [
+                    {
+                      "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                      "fileName": "icon2.png",
+                      "fileExtName": "png"
+                    }
+                  ],
+                  "otherContractFile": [
+                    {
+                      "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                      "fileName": "incon3.png",
+                      "fileExtName": "png"
+                    }
+                  ]
+                },
+                "businessId": "594279d94d21645521548cb4",
+                "receiveCompanyId": "5941f8cf4d2164182b5b60bf",
+                "payInfo": {
+                  "bankAccountNo": "1234567890",
+                  "paymentAmount": 10.0,
+                  "contractUnitPrice": 10.0,
+                  "depositAmount": 10.0,
+                  "hasDeposit": true,
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "openAccountBank": "上游开户行",
+                  "contractAmount": 1000.0,
+                  "payNode": "付款节点",
+                  "provisionAssess": "供货考核"
+                },
+                "receiveCompanyName": "核心企业111",
+                "trafficInfo": {
+                  "otherMiscFee": 10.0,
+                  "freightPayer": "上游运费承担方",
+                  "deliveryBegin": "2017-06-01",
+                  "freightPrice": 10.0,
+                  "receiveStation": "上游交货站",
+                  "trafficMode": 0,
+                  "deliveryEnd": "2017-06-01",
+                  "sendStation": "上游发运站"
+                }
+              },
+              "status": 5,
+              "upstreamCompanyId": "593e30e94d216462942aa28e",
+              "upstreamCompanyName": "上游企业111"
+            }
+            ],
+            "pagination": {
+              "totalCount": 3,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 平台业务-查看业务详情  [/platform/business/detail/{id}]
+
+### 平台业务-查看业务详情 [GET]
+
++ Parameters
+    + id (String) - 业务详情ID
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "createPersonId": "593df6404d216462942aa28a",
+            "createDate": "2017-06-15",
+            "_id": "594279d94d21645521548cb4",
+            "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+            "version": 1,
+            "upstreamBusiness": {
+              "provider": [
+                "上游业务申请煤炭供货方一",
+                "上游业务申请煤炭供货方二"
+              ],
+              "auditList": [
+                {
+                  "checkResult": 10,
+                  "createDate": "2017-06-15",
+                  "systemId": 1,
+                  "checkPersonName": "bridge12",
+                  "opinion": "审核成功",
+                  "checkPersonId": "593df6414d216462942aa28b"
+                },
+                {
+                  "checkResult": 10,
+                  "createDate": "2017-06-15",
+                  "systemId": 4,
+                  "checkPersonName": "platform",
+                  "opinion": "",
+                  "checkPersonId": "593df6414d216462942aa28d"
+                }
+              ],
+              "coalIndex": {
+                "FC": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "AFT": {
+                  "begin": 900,
+                  "end": 1600
+                },
+                "RV": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "ADS": {
+                  "begin": 1.0,
+                  "end": 10.0
+                },
+                "TM": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "YV": {
+                  "begin": 1,
+                  "end": 30
+                },
+                "CRC": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "RS": {
+                  "begin": 1.0,
+                  "end": 10.0
+                },
+                "NCV": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "ASH": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "ADV": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "coalPlace": {
+                  "province": "北京市",
+                  "city": "北京市"
+                },
+                "GV": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "coalType": "烟煤",
+                "HGI": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "IM": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "PS": "100"
+              },
+              "contractInfo": {
+                "contractFile": [
+                  {
+                    "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                    "fileName": "icon2.png",
+                    "fileExtName": "png"
+                  }
+                ],
+                "otherContractFile": [
+                  {
+                    "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                    "fileName": "incon3.png",
+                    "fileExtName": "png"
+                  }
+                ]
+              },
+              "businessId": "594279d94d21645521548cb4",
+              "receiveCompanyId": "5941f8cf4d2164182b5b60bf",
+              "payInfo": {
+                "bankAccountNo": "1234567890",
+                "paymentAmount": 10.0,
+                "contractUnitPrice": 10.0,
+                "depositAmount": 10.0,
+                "hasDeposit": true,
+                "payMode": 0,
+                "payCertificatePic": {
+                  "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                },
+                "openAccountBank": "上游开户行",
+                "contractAmount": 1000.0,
+                "payNode": "付款节点",
+                "provisionAssess": "供货考核"
+              },
+              "receiveCompanyName": "核心企业111",
+              "trafficInfo": {
+                "otherMiscFee": 10.0,
+                "freightPayer": "上游运费承担方",
+                "deliveryBegin": "2017-06-01",
+                "freightPrice": 10.0,
+                "receiveStation": "上游交货站",
+                "trafficMode": 0,
+                "deliveryEnd": "2017-06-01",
+                "sendStation": "上游发运站"
+              }
+            },
+            "status": 5,
+            "upstreamCompanyId": "593e30e94d216462942aa28e",
+            "upstreamCompanyName": "上游企业111"
+          },
+          "success": true
+        }
+
+
+## 平台业务-审核业务详情提交  [/platform/business/auditUpstreamBusiness/{id}]
+
+### 平台业务-审核业务详情提交 [POST]
+
+checkResult 字段 10 为通过， 0为不通过结束，1为不通过打回
+
++ Request (application/json)
+
+        {
+        "checkResult": 10,
+        "opinion":"xxxxx"
+        }
+
++ Parameters
+    + id (String) - 业务详情ID
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+## 平台业务-审核核心企业补充下游信息提交  [/platform/business/auditDownstreamBusiness/{id}]
+
+### 平台业务-审核核心企业补充下游信息提交 [POST]
+
++ Request (application/json)
+
+        {
+          "checkResult": 10,
+          "opinion": "审核通过",
+          "auditFile": {
+            "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+            "fileName": "incon3.png",
+            "fileExtName": "png"
+          }
+        }
+
++ Parameters
+    + id (String) - 业务详情ID
+
++ Response 200 (application/json)
+
+        {
+        "data":[],
+        "success":true
+        }
+
+
+## 平台业务-审核核心企业补充代还款协议提交  [/platform/business/auditBridgeFinancingProtocol/{id}]
+
+### 平台业务-审核核心企业补充代还款协议提交 [POST]
+
+checkResult 字段 10 为通过， 0为不通过结束，1为不通过打回
+
++ Request (application/json)
+
+        {
+        "checkResult": 10,
+        "opinion":"xxxxx"
+        }
+
++ Parameters
+    + id (String) - 业务详情ID
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+## 平台融资-融资申请查询列表  [/platform/financing/query]
+
+### 平台融资-融资申请查询列表 [GET]
+
++ Request (application/json)
+
+        {
+            "pager":{
+                "pageNum":1,
+                "pageSize":10
+            },
+            "businessId":"594279d94d21645521548cb4"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+              {
+                "debtIds": [
+                  "594778d80ef606e58a00405f"
+                ],
+                "bridgeCompanyName": "核心企业111",
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "capitalRaisingEnd": "2017-06-19",
+                "createDate": "2017-06-19",
+                "_id": "59478da20ef606e58a0045be",
+                "capitalRaisingAmount": 10.0,
+                "invoiceNo": "xxxxxxx",
+                "invoiceAmount": 1000.0,
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "businessId": "594279d94d21645521548cb4",
+                "invoiced": false,
+                "invoicePic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ],
+                "status": 14,
+                "capitalCompanyName": "资金方",
+                "capitalRaisingBegin": "2017-06-12",
+                "debtActualValue": 10.0,
+                "upstreamCompanyId": "593e30e94d216462942aa28e",
+                "receiptAcquired": false,
+                "upstreamCompanyName": "上游企业111",
+                "goodTransferPic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ]
+              },
+              {
+                "debtIds": [
+                  "594778d80ef606e58a00405f"
+                ],
+                "bridgeCompanyName": "核心企业111",
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "capitalRaisingEnd": "2017-06-19",
+                "createDate": "2017-06-19",
+                "_id": "59478da90ef606e58a0045c4",
+                "capitalRaisingAmount": 10.0,
+                "invoiceNo": "xxxxxxx",
+                "invoiceAmount": 1000.0,
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "businessId": "594279d94d21645521548cb4",
+                "invoiced": false,
+                "invoicePic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ],
+                "status": 14,
+                "capitalCompanyName": "资金方",
+                "capitalRaisingBegin": "2017-06-12",
+                "debtActualValue": 10.0,
+                "upstreamCompanyId": "593e30e94d216462942aa28e",
+                "receiptAcquired": false,
+                "upstreamCompanyName": "上游企业111",
+                "goodTransferPic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ]
+              }
+            ],
+            "pagination": {
+              "totalCount": 2,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 平台融资-查看融资申请详情  [/platform/financing/detail/{id}]
+
+### 平台融资-查看融资申请详情 [GET]
+
++ Parameters
+    + id (String) - 融资详情ID
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "capitalRaise": {
+              "debtIds": [
+                "594778d80ef606e58a00405f"
+              ],
+              "bridgeCompanyName": "核心企业111",
+              "capitalCompanyId": "593f4c344d2164248b421168",
+              "capitalRaisingEnd": "2017-06-19",
+              "createDate": "2017-06-19",
+              "_id": "59478da20ef606e58a0045be",
+              "capitalRaisingAmount": 10.0,
+              "invoiceNo": "xxxxxxx",
+              "auditList": [
+                {
+                  "checkResult": 10,
+                  "infoCollectChannel": "获取渠道",
+                  "createDate": "2017-06-19",
+                  "systemId": 4,
+                  "dataDeviation": "数据偏差",
+                  "checkPersonName": "platform",
+                  "opinion": "平台审核补充融资协议审核通过",
+                  "checkPersonId": "593df6414d216462942aa28d"
+                },
+                {
+                  "checkResult": 10,
+                  "createDate": "2017-06-19",
+                  "systemId": 2,
+                  "checkPersonName": "capital1",
+                  "opinion": "资金方审核融资审核通过",
+                  "checkPersonId": "593df6414d216462942aa28c"
+                }
+              ],
+              "invoiceAmount": 1000.0,
+              "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+              "businessId": "594279d94d21645521548cb4",
+              "invoiced": false,
+              "invoicePic": [
+                {
+                  "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                }
+              ],
+              "status": 8,
+              "capitalCompanyName": "资金方",
+              "capitalRaisingBegin": "2017-06-12",
+              "debtActualValue": 10.0,
+              "upstreamCompanyId": "593e30e94d216462942aa28e",
+              "receiptAcquired": false,
+              "upstreamCompanyName": "上游企业111",
+              "goodTransferPic": [
+                {
+                  "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                }
+              ]
+            },
+            "debtList": [
+              {
+                "quality": [
+                  {
+                    "carAmount": 10,
+                    "receiptsDate": "2017-06-18",
+                    "receiptFile": [
+                      {
+                        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                        "fileName": "icon1.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "calculateAmount": 10.0,
+                    "coalIndex": {
+                      "coalType": "太原"
+                    },
+                    "checkAmount": 10.0,
+                    "receiptsNo": "X1112"
+                  }
+                ],
+                "bridgeCompanyName": "核心企业111",
+                "quantity": [
+                  {
+                    "receiptsDate": "2017-06-18",
+                    "receiptFile": [
+                      {
+                        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                        "fileName": "icon1.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "carNo": "30001",
+                    "receiptsNo": "X1111",
+                    "receiptAmount": 10.0
+                  }
+                ],
+                "createDate": "2017-06-19",
+                "_id": "594778d80ef606e58a00405f",
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "businessId": "594279d94d21645521548cb4",
+                "status": 0,
+                "upstreamCompanyId": "593e30e94d216462942aa28e",
+                "upstreamCompanyName": "上游企业111"
+              }
+            ]
+          },
+          "success": true
+        }
+
+
+## 平台融资-审核核心企业的融资申请提交  [/platform/financing/auditBridgeFinancing/{id}]
+
+### 平台融资-审核核心企业的融资申请提交 [POST]
+
++ Parameters
+    + id (String) - 融资详情ID
+
++ Request (application/json)
+
+        {
+          "checkResult": 10,
+          "opinion": "平台审核补充融资协议审核通过",
+          "infoCollectChannel": "获取渠道",
+          "dataDeviation": "数据偏差"
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+
+
+
+## Group 资金方
+
+资金方 业务审核，融资审核，放款，确认收到还款
+
+## 资金方业务-业务申请查询列表  [/capital/business/query]
+
+### 资金方业务-业务申请查询列表 [POST]
+
++ Request (application/json)
+
+        {
+            "pager": {
+                "pageNum" : 1,
+                "pageSize" : 10
+            },
+            "status": 1,
+            "bridgeCompanyId: "5941f8cf4d2164182b5b60bf",
+            "upStreamCompanyId": "5941f8cf4d2164182b5b60bf",
+            "beginDate": "2017-01-03",
+            "endDate": "2017-01-03"
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":[],
+        "success":true
+        }
+
+
+## 资金方业务-业务申请详情  [/capital/business/detail/{id}]
+
+### 资金方业务-业务申请详情 [GET]
+
++ Parameters
+    + id (String) - 业务详情ID
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "createPersonId": "593df6404d216462942aa28a",
+            "downstreamBusiness": {
+              "capitalCompanyId": "593f4c344d2164248b421168",
+              "qualityInspection": "补充下游信息质量考核",
+              "numberInspection": "补充下游信息数量考核",
+              "deliveryBegin": "2017-06-01",
+              "depositPayCertificatePic": {
+                "filePath": "593df6414d216462942aa28b/994bf8f6-d1b5-82a9-cdf3-528fb32f6600.png",
+                "fileName": "icon1.png",
+                "fileExtName": "png"
+              },
+              "auditList": [
+                {
+                  "checkResult": 10,
+                  "createDate": "2017-06-16",
+                  "systemId": 4,
+                  "checkPersonName": "platform",
+                  "opinion": "审核通过",
+                  "checkPersonId": "593df6414d216462942aa28d"
+                },
+                {
+                  "checkResult": 1,
+                  "createDate": "2017-06-16",
+                  "systemId": 4,
+                  "checkPersonName": "platform",
+                  "opinion": "风险评估审核意见",
+                  "checkPersonId": "593df6414d216462942aa28d"
+                },
+                {
+                  "checkResult": 10,
+                  "createDate": "2017-06-16",
+                  "systemId": 4,
+                  "checkPersonName": "platform",
+                  "opinion": "风险评估审核意见",
+                  "checkPersonId": "593df6414d216462942aa28d"
+                }
+              ],
+              "contractUnitPrice": 10.0,
+              "returnedMoneyPeriod": 12,
+              "businessId": "594279d94d21645521548cb4",
+              "depositAmount": 10.0,
+              "detectionOrganization": "补充下游信息检测机构",
+              "hasDeposit": true,
+              "capitalCompanyName": "资金方",
+              "contractAmount": 1000.0,
+              "contractFiles": [
+                {
+                  "filePath": "593df6414d216462942aa28b/111a6eaf-fb95-5d26-e9d1-f410bd1a7c3b.png",
+                  "fileName": "icon2.png",
+                  "fileExtName": "png"
+                }
+              ],
+              "downstreamCompanyName": "中国华能集团燃料有限公司",
+              "deliveryEnd": "2017-06-11"
+            },
+            "createDate": "2017-06-15",
+            "_id": "594279d94d21645521548cb4",
+            "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+            "version": 1,
+            "upstreamBusiness": {
+              "provider": [
+                "上游业务申请煤炭供货方一",
+                "上游业务申请煤炭供货方二"
+              ],
+              "auditList": [
+                {
+                  "checkResult": 10,
+                  "createDate": "2017-06-15",
+                  "systemId": 1,
+                  "checkPersonName": "bridge12",
+                  "opinion": "审核成功",
+                  "checkPersonId": "593df6414d216462942aa28b"
+                },
+                {
+                  "checkResult": 10,
+                  "createDate": "2017-06-15",
+                  "systemId": 4,
+                  "checkPersonName": "platform",
+                  "opinion": "",
+                  "checkPersonId": "593df6414d216462942aa28d"
+                },
+                {
+                  "checkResult": 10,
+                  "createDate": "2017-06-16",
+                  "systemId": 4,
+                  "checkPersonName": "platform",
+                  "opinion": "审核通过",
+                  "checkPersonId": "593df6414d216462942aa28d"
+                }
+              ],
+              "coalIndex": {
+                "FC": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "AFT": {
+                  "begin": 900,
+                  "end": 1600
+                },
+                "RV": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "ADS": {
+                  "begin": 1.0,
+                  "end": 10.0
+                },
+                "TM": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "YV": {
+                  "begin": 1,
+                  "end": 30
+                },
+                "CRC": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "RS": {
+                  "begin": 1.0,
+                  "end": 10.0
+                },
+                "NCV": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "ASH": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "ADV": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "coalPlace": {
+                  "province": "北京市",
+                  "city": "北京市"
+                },
+                "GV": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "coalType": "烟煤",
+                "HGI": {
+                  "begin": 10,
+                  "end": 30
+                },
+                "IM": {
+                  "begin": 10.0,
+                  "end": 30.0
+                },
+                "PS": "100"
+              },
+              "contractInfo": {
+                "contractFile": [
+                  {
+                    "filePath": "593df6404d216462942aa28a/bbdb5641-45d6-c609-b0e2-b4952355a1f5.png",
+                    "fileName": "icon2.png",
+                    "fileExtName": "png"
+                  }
+                ],
+                "otherContractFile": [
+                  {
+                    "filePath": "593df6404d216462942aa28a/377da522-510c-e1d2-5765-3e59c7951a1e.png",
+                    "fileName": "incon3.png",
+                    "fileExtName": "png"
+                  }
+                ]
+              },
+              "businessId": "594279d94d21645521548cb4",
+              "receiveCompanyId": "5941f8cf4d2164182b5b60bf",
+              "payInfo": {
+                "bankAccountNo": "1234567890",
+                "paymentAmount": 10.0,
+                "contractUnitPrice": 10.0,
+                "depositAmount": 10.0,
+                "hasDeposit": true,
+                "payMode": 0,
+                "payCertificatePic": {
+                  "filePath": "593df6404d216462942aa28a/1f2fa47d-6f49-cae7-1f5c-80947d05b5e8.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                },
+                "openAccountBank": "上游开户行",
+                "contractAmount": 1000.0,
+                "payNode": "付款节点",
+                "provisionAssess": "供货考核"
+              },
+              "receiveCompanyName": "核心企业111",
+              "trafficInfo": {
+                "otherMiscFee": 10.0,
+                "freightPayer": "上游运费承担方",
+                "deliveryBegin": "2017-06-01",
+                "freightPrice": 10.0,
+                "receiveStation": "上游交货站",
+                "trafficMode": 0,
+                "deliveryEnd": "2017-06-01",
+                "sendStation": "上游发运站"
+              }
+            },
+            "status": 8,
+            "upstreamCompanyId": "593e30e94d216462942aa28e",
+            "upstreamCompanyName": "上游企业111"
+          },
+          "success": true
+        }
+
+
+## 资金方业务-审核业务信息提交  [/capital/business/auditDownstreamBusiness/{id}]
+
+### 资金方业务-审核业务信息提交 [POST]
+
+checkResult 字段 10 为通过， 0为不通过结束，1为不通过打回
+
++ Request (application/json)
+
+        {
+        "checkResult": 10,
+        "opinion":"xxxxx"
+        }
+
++ Parameters
+    + id (String) - 业务详情ID
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+## 资金方融资-融资申请查询列表  [/capital/financing/query]
+
+### 资金方融资-融资申请查询列表 [GET]
+
++ Request (application/json)
+
+        {
+            "pager":{
+                "pageNum":1,
+                "pageSize":10
+            },
+            "businessId":"594279d94d21645521548cb4"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+              {
+                "debtIds": [
+                  "594778d80ef606e58a00405f"
+                ],
+                "bridgeCompanyName": "核心企业111",
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "capitalRaisingEnd": "2017-06-19",
+                "createDate": "2017-06-19",
+                "_id": "59478da20ef606e58a0045be",
+                "capitalRaisingAmount": 10.0,
+                "invoiceNo": "xxxxxxx",
+                "invoiceAmount": 1000.0,
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "businessId": "594279d94d21645521548cb4",
+                "invoiced": false,
+                "invoicePic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ],
+                "status": 14,
+                "capitalCompanyName": "资金方",
+                "capitalRaisingBegin": "2017-06-12",
+                "debtActualValue": 10.0,
+                "upstreamCompanyId": "593e30e94d216462942aa28e",
+                "receiptAcquired": false,
+                "upstreamCompanyName": "上游企业111",
+                "goodTransferPic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ]
+              },
+              {
+                "debtIds": [
+                  "594778d80ef606e58a00405f"
+                ],
+                "bridgeCompanyName": "核心企业111",
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "capitalRaisingEnd": "2017-06-19",
+                "createDate": "2017-06-19",
+                "_id": "59478da90ef606e58a0045c4",
+                "capitalRaisingAmount": 10.0,
+                "invoiceNo": "xxxxxxx",
+                "invoiceAmount": 1000.0,
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "businessId": "594279d94d21645521548cb4",
+                "invoiced": false,
+                "invoicePic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ],
+                "status": 14,
+                "capitalCompanyName": "资金方",
+                "capitalRaisingBegin": "2017-06-12",
+                "debtActualValue": 10.0,
+                "upstreamCompanyId": "593e30e94d216462942aa28e",
+                "receiptAcquired": false,
+                "upstreamCompanyName": "上游企业111",
+                "goodTransferPic": [
+                  {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  }
+                ]
+              }
+            ],
+            "pagination": {
+              "totalCount": 2,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 资金方融资-融资申请详情  [/capital/financing/detail/{id}]
+
+### 资金方融资-融资申请详情 [GET]
+
++ Parameters
+    + id (String) - 融资详情ID
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "capitalRaise": {
+              "debtIds": [
+                "594778d80ef606e58a00405f"
+              ],
+              "bridgeCompanyName": "核心企业111",
+              "capitalCompanyId": "593f4c344d2164248b421168",
+              "capitalRaisingEnd": "2017-06-19",
+              "createDate": "2017-06-19",
+              "_id": "59478da20ef606e58a0045be",
+              "capitalRaisingAmount": 10.0,
+              "invoiceNo": "xxxxxxx",
+              "auditList": [
+                {
+                  "checkResult": 10,
+                  "infoCollectChannel": "获取渠道",
+                  "createDate": "2017-06-19",
+                  "systemId": 4,
+                  "dataDeviation": "数据偏差",
+                  "checkPersonName": "platform",
+                  "opinion": "平台审核补充融资协议审核通过",
+                  "checkPersonId": "593df6414d216462942aa28d"
+                },
+                {
+                  "checkResult": 10,
+                  "createDate": "2017-06-19",
+                  "systemId": 2,
+                  "checkPersonName": "capital1",
+                  "opinion": "资金方审核融资审核通过",
+                  "checkPersonId": "593df6414d216462942aa28c"
+                }
+              ],
+              "invoiceAmount": 1000.0,
+              "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+              "businessId": "594279d94d21645521548cb4",
+              "invoiced": false,
+              "invoicePic": [
+                {
+                  "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                }
+              ],
+              "status": 8,
+              "capitalCompanyName": "资金方",
+              "capitalRaisingBegin": "2017-06-12",
+              "debtActualValue": 10.0,
+              "upstreamCompanyId": "593e30e94d216462942aa28e",
+              "receiptAcquired": false,
+              "upstreamCompanyName": "上游企业111",
+              "goodTransferPic": [
+                {
+                  "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                  "fileName": "icon1.png",
+                  "fileExtName": "png"
+                }
+              ]
+            },
+            "debtList": [
+              {
+                "quality": [
+                  {
+                    "carAmount": 10,
+                    "receiptsDate": "2017-06-18",
+                    "receiptFile": [
+                      {
+                        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                        "fileName": "icon1.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "calculateAmount": 10.0,
+                    "coalIndex": {
+                      "coalType": "太原"
+                    },
+                    "checkAmount": 10.0,
+                    "receiptsNo": "X1112"
+                  }
+                ],
+                "bridgeCompanyName": "核心企业111",
+                "quantity": [
+                  {
+                    "receiptsDate": "2017-06-18",
+                    "receiptFile": [
+                      {
+                        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                        "fileName": "icon1.png",
+                        "fileExtName": "png"
+                      }
+                    ],
+                    "carNo": "30001",
+                    "receiptsNo": "X1111",
+                    "receiptAmount": 10.0
+                  }
+                ],
+                "createDate": "2017-06-19",
+                "_id": "594778d80ef606e58a00405f",
+                "bridgeCompanyId": "5941f8cf4d2164182b5b60bf",
+                "businessId": "594279d94d21645521548cb4",
+                "status": 0,
+                "upstreamCompanyId": "593e30e94d216462942aa28e",
+                "upstreamCompanyName": "上游企业111"
+              }
+            ]
+          },
+          "success": true
+        }
+
+
+## 资金方融资-审核并提交  [/capital/financing/auditBridgeFinancing/{id}]
+
+### 资金方融资-审核并提交 [POST]
+
++ Parameters
+    + id (String) - 融资详情ID
+
++ Request (application/json)
+
+        {
+          "checkResult": 10,
+          "opinion": "资金方审核融资审核通过"
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+
+## 资金方融资-放款提交  [/capital/financing/lending]
+
+### 资金方融资-放款提交 [POST]
+
++ Request (application/json)
+
+        {
+        "businessId": "594279d94d21645521548cb4",
+        "capitalRaiseId": "59478da20ef606e58a0045be",
+        "payAmount": 100,
+        "payDate": "2017-06-30",
+        "payCompanyName": "资金方放款公司",
+        "payMode": 0,
+        "payAccount": "资金方名称",
+        "payCertificatePic": {
+        "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+        "fileName": "icon1.png",
+        "fileExtName": "png"
+        },
+        "payCompanyBankProvince": "北京市",
+        "payCompanyBankCity": "北京市",
+        "payCompanyBankDistrict": "北京市",
+        "payCompanyBankName": "付款银行名称",
+        "recvCompanyName": "收款公司",
+        "recvBankProvince": "北京市",
+        "recvBankCity": "北京市",
+        "recvBankDistrict": "北京市",
+        "recvBankName": "收款银行名称",
+        "recvBankAddr": "收款银行地址",
+        "recvAccount": "收款银行账号",
+        "recvAmount": 100
+        }
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }
+
+
+
+## 资金方还款-获取所有业务下的还款列表  [/capital/financingRepaymentManager/query]
+
+### 资金方还款-获取所有业务下的还款列表 [POST]
+
++ Request (application/json)
+
+        {
+          "pager": {
+            "pageNum": 1,
+            "pageSize": 10
+          },
+          "status": 1,
+          "beginDate": "2017-01-02",
+          "endDate": "2017-01-03"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948d8eb0ef606e58a0084ba",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              },
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948e3440ef606e58a0085cc",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              },
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948e3530ef606e58a0085d3",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              },
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948e3540ef606e58a0085d8",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              }
+            ],
+            "pagination": {
+              "totalCount": 4,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 资金方还款-查询还款列表  [/capital/financingRepayment/query]
+
+### 资金方还款-查询还款列表 [POST]
+
++ Request (application/json)
+
+        {
+          "pager": {
+            "pageNum": 1,
+            "pageSize": 10
+          },
+          "businessId": "594279d94d21645521548cb4",
+          "status": 1,
+          "beginDate": "2017-01-02",
+          "endDate": "2017-01-03"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "items": [
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948d8eb0ef606e58a0084ba",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              },
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948e3440ef606e58a0085cc",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              },
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948e3530ef606e58a0085d3",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              },
+              {
+                "capitalCompanyId": "593f4c344d2164248b421168",
+                "_id": "5948e3540ef606e58a0085d8",
+                "capitalRaiseIds": [
+                  "59478da20ef606e58a0045be"
+                ],
+                "businessId": "594279d94d21645521548cb4",
+                "payInfo": {
+                  "payCompanyBankCity": "北京市",
+                  "payCompanyBankDistrict": "北京市",
+                  "payDate": "2017-06-30",
+                  "payCompanyName": "资金方放款公司",
+                  "payCompanyBankProvince": "北京市",
+                  "payMode": 0,
+                  "payCertificatePic": {
+                    "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                    "fileName": "icon1.png",
+                    "fileExtName": "png"
+                  },
+                  "payAmount": 100.0,
+                  "payAccount": "资金方名称",
+                  "payCompanyBankName": "付款银行名称"
+                },
+                "status": 8,
+                "recvInfo": {
+                  "recvBankDistrict": "北京市",
+                  "recvCompanyName": "收款公司",
+                  "recvAccount": "收款银行账号",
+                  "recvBankName": "收款银行名称",
+                  "recvAmount": 100.0,
+                  "recvBankCity": "北京市",
+                  "recvBankAddr": "收款银行地址",
+                  "recvBankProvince": "北京市"
+                }
+              }
+            ],
+            "pagination": {
+              "totalCount": 4,
+              "totalPage": 1,
+              "pageSize": 10,
+              "curPage": 1
+            }
+          },
+          "success": true
+        }
+
+
+## 资金方还款-查看还款申请详情  [/capital/financingRepayment/detail/{id}]
+
+### 资金方还款-查看还款申请详情 [GET]
+
++ Parameters
+    + id (String) - 还款详情ID
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "capitalCompanyId": "593f4c344d2164248b421168",
+            "_id": "5948d8eb0ef606e58a0084ba",
+            "capitalRaiseIds": [
+              "59478da20ef606e58a0045be"
+            ],
+            "businessId": "594279d94d21645521548cb4",
+            "payInfo": {
+              "payCompanyBankCity": "北京市",
+              "payCompanyBankDistrict": "北京市",
+              "payDate": "2017-06-30",
+              "payCompanyName": "资金方放款公司",
+              "payCompanyBankProvince": "北京市",
+              "payMode": 0,
+              "payCertificatePic": {
+                "filePath": "593df6414d216462942aa28b/07bfaee3-9957-50bd-f3a8-eb6a32a60dde.png",
+                "fileName": "icon1.png",
+                "fileExtName": "png"
+              },
+              "payAmount": 100.0,
+              "payAccount": "资金方名称",
+              "payCompanyBankName": "付款银行名称"
+            },
+            "status": 8,
+            "recvInfo": {
+              "recvBankDistrict": "北京市",
+              "recvCompanyName": "收款公司",
+              "recvAccount": "收款银行账号",
+              "recvBankName": "收款银行名称",
+              "recvAmount": 100.0,
+              "recvBankCity": "北京市",
+              "recvBankAddr": "收款银行地址",
+              "recvBankProvince": "北京市"
+            }
+          },
+          "success": true
+        }
+
+
+## 资金方还款-确认已收到还款  [/capital/financingRepayment/confirmReceiveMoney/{id}]
+
+### 资金方还款-确认已收到还款 [GET]
+
++ Parameters
+    + id (String) - 还款详情ID
+
++ Response 200 (application/json)
+
+        {
+        "data":true,
+        "success":true
+        }

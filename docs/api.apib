@@ -1,0 +1,1392 @@
+FORMAT: 1A
+HOST: http://localhost:8080/api
+
+# API 文档
+
+该API文档使用 API Blueprint 格式, 和Markdown类似.
+文档内容包括用户注册, 用户登陆, 获取用户信息等API接口.
+
+
+
+
+## Group 字典数据
+
+字典数据
+
+
+## 获取企业系统类型字典值  [/dict/systemType]
+
+### 获取企业系统类型字典值 [GET]
+
++ Response 200 (application/json)
+
+         {
+          "data":[
+             {"id":0,"value":"国有上市企业全资控股企业"},
+             {"id":1,"value":"国有上市企业绝对控股企业"},
+             {"id":2,"value":"国有上市企业相对控股企业"},
+             {"id":3,"value":"国有非上市企业全资控股企业"},
+             {"id":4,"value":"民营上市企业全资控股企业"},
+             {"id":5,"value":"民营上市企业全资控股企业"},
+             {"id":6,"value":"民营上市企业全资控股企业"},
+             {"id":7,"value":"民营上市企业绝对控股企业"},
+             {"id":8,"value":"民营上市企业全资控股企业"},
+             {"id":9,"value":"民营非上市企业"}
+             ],
+         "success":true
+         }
+
+
+## 获取企业类型下拉框字典值  [/dict/companyType]
+
+### 获取企业类型下拉框字典值 [GET]
+
++ Response 200 (application/json)
+
+         {
+          "data":[
+             {"id":0,"value":"国有上市企业全资控股企业"},
+             {"id":1,"value":"国有上市企业绝对控股企业"},
+             {"id":2,"value":"国有上市企业相对控股企业"},
+             {"id":3,"value":"国有非上市企业全资控股企业"},
+             {"id":4,"value":"民营上市企业全资控股企业"},
+             {"id":5,"value":"民营上市企业全资控股企业"},
+             {"id":6,"value":"民营上市企业全资控股企业"},
+             {"id":7,"value":"民营上市企业绝对控股企业"},
+             {"id":8,"value":"民营上市企业全资控股企业"},
+             {"id":9,"value":"民营非上市企业"}
+             ],
+         "success":true
+         }
+
+
+## 获取企业信息审核状态字典值  [/dict/companyStatus]
+
+### 获取企业信息审核状态字典值 [GET]
+
++ Response 200 (application/json)
+
+        {
+        "data":[],
+        "success":true
+        }
+
+
+## 获取业务审核状态字典值  [/dict/businessStatus]
+
+### 获取业务审核状态字典值 [GET]
+
++ Response 200 (application/json)
+
+        {
+        "data":[],
+        "success":true
+        }
+
+
+## 获取融资审核状态字典值  [/dict/financeStatus]
+
+### 获取融资审核状态字典值 [GET]
+
++ Response 200 (application/json)
+
+        {
+        "data":[],
+        "success":true
+        }
+
+
+## 获取支付方式字典值  [/dict/payMode]
+
+### 获取支付方式字典值 [GET]
+
++ Response 200 (application/json)
+
+        {
+        "data":[],
+        "success":true
+        }
+
+
+## 获取性别字典值  [/dict/sexType]
+
+### 获取性别字典值 [GET]
+
++ Response 200 (application/json)
+
+        {
+        "data":[],
+        "success":true
+        }
+
+
+## 获取用户角色类型字典值  [/dict/userType]
+
+### 获取用户角色类型字典值 [GET]
+
++ Response 200 (application/json)
+
+        {
+        "data":[],
+        "success":true
+        }
+
+
+## 获取运输方式字典值  [/dict/trafficMode]
+
+### 获取运输方式字典值 [GET]
+
++ Response 200 (application/json)
+
+        {
+        "data":[],
+        "success":true
+        }
+
+
+
+
+
+
+## Group 上传文件
+
+##  上传文件-阿里云  [/asset/policy]
+
+### 上传文件-阿里云获取上传策略 [GET]
+
++ Response 200 (application/json)
+
+		{
+		  "data": {
+			"dirName": "593659f2d2349d1320efa77e",
+			"host": "jfctest.oss-cn-shanghai.aliyuncs.com",
+			"signature": "HBCPo9mA8AaQaj5UDOV5ad1UsSg=",
+			"callback": "CnsKImNhbGxiYWNrVXJsIjoiaHR0cDovL3p4eS55aW1laTE4MC5jb20vYXBpL2Fzc2V0L2NhbGxiYWNrIiwKImNhbGxiYWNrQm9keSI6ImZpbGVuYW1lPSR7b2JqZWN0fSZzaXplPSR7c2l6ZX0mbWltZVR5cGU9JHttaW1lVHlwZX0maGVpZ2h0PSR7aW1hZ2VJbmZvLmhlaWdodH0md2lkdGg9JHtpbWFnZUluZm8ud2lkdGh9IiwKImNhbGxiYWNrQm9keVR5cGUiOiJhcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQiCn0KICAgIA==",
+			"policy": "CnsKImV4cGlyYXRpb24iOiAiMjEyMC0wMS0wMVQxMjowMDowMC4wMDBaIiwKImNvbmRpdGlvbnMiOiBbCiAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNzM3NDE4MjRdCl0KfQogICAg",
+			"OSSAccessKeyId": "LhAwvJiOtf8BQxA0"
+		  },
+		  "success": true
+		}
+
+
+##  上传文件-阿里云  [/aihost]
+
+### 上传文件-阿里云上传文件(注意严格按照给出示例参数的请求顺序) [POST]
+
++ Request 200 (multipart/form-data)
+
+           "key":"aa.pdf" ,
+           "policy":"xxxxxx" ,
+           "callback":"xxxx",
+           "signature":"xxxa",
+           "OSSAccessKeyId":"xxxx",
+           "file":"文件域"
+
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+         "success": true,
+         "filename": "werwer/bb.jpg",
+         "mimeType": "image/jpeg"
+            },
+          "success": true
+        }
+
+
+
+
+## Group 上游企业-用户注册
+
+用户注册相关API.
+
+
+## 用户注册 [/upstream/register/checkPhoneExists/{mobilePhone}]
+
+### 新用户检查手机号是否存在 [GET]
+
++ Parameters
+   + mobilePhone (String) - 手机号
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data": true
+        }
+
++ Response 400 (application/json)
+
+        {
+          "success": false,
+          "error": {
+            "code": 1000,
+            "message": "手机号已经存在"
+          }
+        }
+
+
+## 获取注册短信验证码 [/upstream/register/sms/{?mobilePhone,imgCode}]
+
+### 获取注册短信验证码 [GET]
+
++ Parameters
+   + mobilePhone: red (String) - 手机号
+       + Members
+               + red
+               + blue
+               + green
+               + grey
+   + imgCode(String) -  图形验证码
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data": true
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1005,
+                "message": "图形验证码错误"
+            }
+        }
+
+
+## 验证用户名是否存在 [/upstream/register/checkLoginNameExists/{loginName}]
+
+### 验证用户名是否存在 [POST]
+
++ Parameters
+   + loginName(String) -  登录名
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data": true
+        }
+
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1001,
+                "message": "登录名已被占用"
+            }
+        }
+
+
+##  获取图片验证码 [/upstream/captcha/get]
+
+### 获取图片验证码 [GET]
+
++ Response 200 (application/octet-stream)
+
+
+## 验证图片验证码 [/upstream/captcha/check/{imgCode}]
+
+### 校验获取图片验证码 [GET]
+
++ Parameters
+   + imgCode(String) - 图形验证码
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":  true
+        }
+
++ Response 400 (application/json)
+
+            {
+              "success": false,
+              "error": {
+                "code": 400,
+                "message": "图形验证码错误"
+              }
+            }
+
+
+## 上游企业用户注册 [/upstream/register/register]
+
+### 上游企业用户注册 [POST]
+
++ Request (application/json)
+
+        {
+            "userName":  "aa",
+            "loginName":  "aa",
+            "password":  "aa",
+            "phone":     "aa",
+            "smsCode":   "aa"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   true
+        }
+
++ Response 400 (application/json)
+
+        {
+          "success": false,
+          "error": {
+            "code": 1000,
+            "message": "手机号已经存在"
+          }
+        }
+
++ Response 401 (application/json)
+
+        {
+          "success": false,
+          "error": {
+            "code": 1001,
+            "message": "登录名已经存在"
+          }
+        }
+
++ Response 402 (application/json)
+
+        {
+          "success": false,
+          "error": {
+            "code": 1002,
+            "message": "注册手机验证码错误"
+          }
+        }
+
++ Response 403 (application/json)
+
+        {
+          "success": false,
+          "error": {
+            "code": 1003,
+            "message": "所选系统类型不存在"
+          }
+        }
+
+
+
+
+## Group 上游企业-用户登录
+
+## 登录 [/upstream/login/jwt]
+
+### 登录 [POST]
+
++ Request (application/json)
+
+        {
+            "username":  "aa",
+            "password":  "aa",
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   "werwer.werewr.werwe"
+        }
+
+
+
+
+
+## Group 上游企业用户中心-账户管理
+
+用户登陆用进入用户中心，账户管理相关API.
+
+
+## 更换手机号-给老手机发送验证码 [/upstream/security/sendOldPhoneSms{?imgCode}]
+
+### 更换手机号-给老手机发送验证码 [GET]
+
++ Parameters
+   + imgCode:11222 (String) 图片验证码
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   true
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1005,
+                "message": "图形验证码错误"
+            }
+        }
+
+
+## 更换手机号-验证老手机号验证码 [/upstream/security/validateOldPhoneSms{?smsCode}]
+
+### 更换手机号-验证老手机号验证码 [GET]
+
++ Parameters
+   + smsCode:11222 (String) 短信验证码
+
++ Request 200 (application/json)
+
+        {
+            "data":true
+            "success":true
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1002,
+                "message": "短信验证码错误"
+            }
+        }
+
+
+## 更换手机号-给新手机号发送验证码 [/upstream/security/sendNewPhoneSms{?imgCode,newPhone}]
+
+### 更换手机号-给新手机号发送验证码 [GET]
+
++ Parameters
+   + imgCode:112222 (String) 图片验证码
+   + newPhone:13939155835(String) 新手机号
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   true
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1000,
+                "message": "手机号已经存在"
+            }
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1005,
+                "message": "图片验证码错误"
+            }
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 5000,
+                "message": "操作非法,原手机号的验证码没有通过校验"
+            }
+        }
+
+
+## 更换手机号-修改手机号 [/upstream/security/updatePhone{?smsCode,newPhone}]
+
+### 更换手机号-修改为新手机号[GET]
+
++ Parameters
+   + smsCode:112222 (String) 短信验证码
+   + newPhone:13939155835(String) 新手机号
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   true
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1000,
+                "message": "手机号已经存在"
+            }
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1002,
+                "message": "短信验证码错误"
+            }
+        }
+
+
+## 修改登录密码-给当前用户手机发送短信验证码 [/upstream/security/sendPasswordSms{?imgCode}]
+
+### 修改登录密码-给当前用户手机发送短信验证码 [GET]
+
++ Parameters
+   + imgCode:11222 (String) 图片验证码
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   true
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1005,
+                "message": "图形验证码错误"
+            }
+        }
+
+
+## 修改登录密码-验证原密码是否正确 [/upstream/security/validateOldPwd{?oldPassword}]
+
+### 修改登录密码-验证原密码是否正确 [GET]
+
++ Parameters
+   + oldPassword:11222 (String) 原密码
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   true
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1007,
+                "message": "原密码不正确"
+            }
+        }
+
+
+## 修改登录密码 [/upstream/security/changePassword{?oldPassword,newPassword,smsCode}]
+
+### 修改登录密码  [GET]
+
++ Parameters
+   + oldPassword:11222 (String) 原密码
+   + newPassword:11222 (String) 新密码
+   + smsCode:11222 (String) 短信验证码
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   true
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1002,
+                "message": "短信验证码错误"
+            }
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1007,
+                "message": "原密码不正确"
+            }
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1008,
+                "message": "原密码和新密码相同"
+            }
+        }
+
+
+
+
+## Group 上游企业用户中心-用户信息
+
+用户登陆后获取该用户信息
+
+## 获取用户个人信息 [/upstream/identify/getPersonalInfo]
+
+### 获取用户个人信息 [GET]
+
++ Response 200 (application/json)
+
+         {
+            "success": true,
+            "data": {
+			"createDate": "2017-06-04",
+			"role": 1,
+			"_id": "5933fe9c93c64396e6f490a8",
+			"systemId": "upstream",
+			"disabled": false,
+			"loginName": "zxy1",
+			"userName": "zxy1",
+			"phone": "13939155835"
+		  }
+        }
+
+
+
+
+## Group 上游企业用户中心-员工管理
+
+上游企业的管理员才可以管理员工
+
+## 获取该企业员工列表  [/upstream/employee/query{?phone,userName,pageSize,pageNum}]
+
+###  获取该企业员工列表 [GET]
+
++ Parameters
+   + phone(String) -   手机号码
+   + userName(String) - 用户名
+   + pageSize(String) -  分页大小(一页显示n条)
+   + pageNum(String) -  当前页码
+
++ Response 200 (application/json)
+
+        {
+           "data":{
+            "pagination": {
+                "curPage":1,
+                "totalPage":0,
+                "pageSize":10,
+                "totalCount":0
+            },
+            "items":[
+
+                   {
+                                     "role" : 1,
+                                     "disabled" : true,
+                                     "userName" : "zxy4",
+                                     "loginName" : "zxy4",
+                                     "systemId" : "platform",
+                                     "phone" : "13939155832",
+                                     "_id" : "5938bc6a93c64332cefb1389",
+                                     "createDate" : "2017-06-08",
+                                     "companyId" : "5938bc9a93c64332cefb138a"
+                   }
+
+            ]
+           }
+           "success":  true
+        }
+
+
+## 创建该企业员工  [/upstream/employee/save]
+
+###  创建该企业员工  [POST]
+
++ Request (application/json)
+
+         {
+            "loginName" : "aaaa",
+            "userName"  : "aaa",
+            "phone"    :  "343242343232",
+            "dept"     : "财务部",
+            "userType" : 1
+         }
+
++ Response 200 (application/json)
+
+         {
+            "success": true,
+            "data": true
+         }
+
+
+## 获取该企业的某个员工详情  [/upstream/employee/detail/{id}]
+
+###  获取该企业的某个员工详情  [GET]
+
++ Parameters
+   + id(String) - 员工id
+
++ Response 200 (application/json)
+
+         {
+            "success": true,
+            "data":{
+            "loginName" : "aaaa",
+            "userName"  : "aaa",
+            "phone"    :  "343242343232",
+            "dept"     : "财务部",
+            "userType" : 1
+            }
+
+         }
+
+
+## 编辑该企业的员工信息 [/upstream/employee/edit/{id}]
+
+###  编辑该企业的员工信息 [GET]
+
+
++ Parameters
+   + id(String) - 员工id
+
++ Request (application/json)
+
+        {
+            "loginName" : "aaaa",
+            "userName"  : "aaa",
+            "phone"    :  "343242343232",
+            "dept"     : "财务部",
+            "userType" : 1
+        }
+
++ Response 200 (application/json)
+
+         {
+            "success": true,
+            "data": true
+         }
+
+
+## 重置该企业的员工密码 [/upstream/employee/resetEmployeePwd/{id}]
+
+###  重置该企业的员工密码 [GET]
+
++ Parameters
+   + id(String) - 员工id
+
++ Response 200 (application/json)
+
+         {
+            "success": true,
+            "data": true
+         }
+
+
+## 停用该企业的员工账号 [/upstream/employee/disabledAccount/{id}]
+
+###  员工停用账号 [GET]
+
+
++ Parameters
+   + id(String) - 员工id
+
++ Response 200 (application/json)
+
+         {
+            "success": true,
+             "data":true
+         }
+
+
+## 启用该企业的员工账号 [/upstream/employee/enabledAccount/{id}]
+
+### 启用该企业的员工账号 [GET]
+
+
++ Parameters
+   + id(String) - 员工id
+
++ Response 200 (application/json)
+
+         {
+            "success": true,
+             "data":true
+         }
+
+
+
+
+## Group 上游企业用户中心-企业信息认证
+
+上游企业用户登陆后 查看企业信息认证的相关信息
+
+## 企业信息认证-获取该用户的企业信息 [/upstream/identify/getCompanyInfo]
+
+### 企业信息认证-获取该用户的企业信息  [GET]
+
++ Response 200 (application/json)
+
+        {
+         "success": true,
+         "data":   "待定"
+        }
+
+
+## 企业信息认证-保存企业信息 [/upstream/identify/saveCompany]
+
+### 企业信息认证-保存企业信息 [POST]
+
+只有该企业的管理员才可以保存企业信息。
+
++ Request (application/json)
+
+        {
+                "companyName"         : "aaaa",
+                "companyType"         : 1,
+                "registerCapital"     : 323233,
+                "scope"               : "xxxxxxx",
+                "founded"             : "2017-12-12",
+                "province"            : "河南省",
+                "city"                : "焦作市",
+                "district"            : "孟州市",
+                "registerAddress"    : "孟州市",
+                "license":{
+                    "operationType"       : 1,
+                    "operationBegin"      : "2017-12-12",
+                    "operationEnd"        : "2017-12-12",
+                    "lastCheck"           : "2017-12-12",
+                    "registerOrgan"       : "工商局",
+                    "unionLicenseCode"    : "23423424242342",
+                    "operationLicensePic" : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "organLicensePic"     : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "unionLicensePic"     : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "bankLicensePic"      : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    }
+            },
+                "legalPerson"         : {
+                    "legalPersonName"             : "aaaa",
+                    "legalPersonId"               : "32324234",
+                    "legalPersonPhone"            : "2342343423424",
+                    "legalPersonIdFrontSidePic"   : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "legalPersonIdReverseSidePic" : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    }
+                },
+                "authPerson"          : {
+                    "authPersonName"             : "aaaa",
+                    "authPersonId"               : "32324234",
+                    "authPersonPhone"            : "2342343423424",
+                    "authDocumentPic"            : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "authPersonIdFrontSidePic"   : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "authPersonIdReverseSidePic" : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    }
+                }
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":    "待定"
+        }
+
+
+## 企业信息认证-提交企业信息审核 [/upstream/identify/submitCompany]
+
+### 企业信息认证-提交企业信息审核 [POST]
+
+只有该企业的管理员才可以提交企业信息审核。 (Request发送内容与保存认证请求Body相同)
+
++ Request (application/json)
+
+        {
+                "companyName"         : "aaaa",
+                "companyType"         : 1,
+                "registerCapital"     : 323233,
+                "scope"               : "xxxxxxx",
+                "founded"             : "2017-12-12",
+                "province"            : "河南省",
+                "city"                : "焦作市",
+                "district"            : "孟州市",
+                "registerAddress"    : "孟州市",
+                "license":{
+                    "operationType"       : 1,
+                    "operationBegin"      : "2017-12-12",
+                    "operationEnd"        : "2017-12-12",
+                    "lastCheck"           : "2017-12-12",
+                    "registerOrgan"       : "工商局",
+                    "unionLicenseCode"    : "23423424242342",
+                    "operationLicensePic" : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "organLicensePic"     : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "unionLicensePic"     : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "bankLicensePic"      : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    }
+            },
+                "legalPerson"         : {
+                    "legalPersonName"             : "aaaa",
+                    "legalPersonId"               : "32324234",
+                    "legalPersonPhone"            : "2342343423424",
+                    "legalPersonIdFrontSidePic"   : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "legalPersonIdReverseSidePic" : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    }
+                },
+                "authPerson"          : {
+                    "authPersonName"             : "aaaa",
+                    "authPersonId"               : "32324234",
+                    "authPersonPhone"            : "2342343423424",
+                    "authDocumentPic"            : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "authPersonIdFrontSidePic"   : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    },
+                    "authPersonIdReverseSidePic" : {
+                        "filePath"    : "/werwerewrrwr",
+                        "fileName"    : "werwerewrrwr.pdf",
+                        "fileExtName" : "pdf"
+                    }
+                }
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   true
+        }
+
+
+## 更换企业管理员工-获取短信验证码 [/upstream/identify/sendOldAdminPhoneSmss/{?imgCode}]
+
+### 更换企业管理员工-获取短信验证码 [GET]
+
++ Parameters
+   + imgCode(String) -  图形验证码
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data": true
+        }
+
++ Response 400 (application/json)
+
+        {
+            "success": false,
+            "error": {
+                "code": 1005,
+                "message": "图形验证码错误"
+            }
+        }
+
+
+## 更换企业管理员工-获取该企业的所有员工  [/upstream/employee/all]
+
+###  更换企业管理员工-获取该企业的所有员工  [GET]
+
+列出的员工列表中不包括当前的企业管理员
+
++ Response 200 (application/json)
+
+         {
+            "success": true,
+            "data":[{
+            "loginName" : "aaaa",
+            "userName"  : "aaa",
+            "phone"    :  "343242343232",
+            "dept"     : "财务部",
+            "userType" : 1
+            }]
+
+         }
+
+
+## 更换企业管理员工提交 [/upstream/identify/changeAdmin/{?newAdminId,smsCode}]
+
+### 更换企业管理员工提交 [GET]
+
++ Parameters
+   + newAdminId(String) -  新的管理员ID
+   + smsCode(String) -  短信验证码
+
++ Response 200 (application/json)
+
+         {
+            "success": true,
+            "data": true
+         }
+
++ Response 400 (application/json)
+
+         {
+            "success": false,
+            "error": {
+                "code": 1002,
+                "message:":"短信验证码错误"
+               }
+        }
+
+
+
+
+## Group 平台用户中心-企业信息审核
+
+平台管理员登陆后 查看企业信息并审核
+
+## 企业信息审核-获取企业信息列表 [/platform/company/companies?{pageNum,pageSize,companyStatus,companyName,systemId,unionLicenseCode}]
+
+### 企业信息审核-获取企业信息列表 [GET]
+
++ Parameters
+   + unionLicenseCode(String) -   公司社会统一号
+   + companyName(String) -   公司名称
+   + systemId(Int) -  参与方类型(1 核心企业 2 资金方 3 上游  4 平台方)
+   + companyStatus(Int) - 公司审核状态(0 草稿 1 待平台审核 2 审核不通过  3 审核不通过结束 4 审核通过)
+   + pageSize(String) -  分页大小(一页显示n条)
+   + pageNum(String) -  当前页码
+
++ Response 200 (application/json)
+
+            {
+            "data": {
+            "items": [],
+            "pagination": {
+                 "totalCount": 2,
+                 "totalPage": 1,
+                 "pageSize": 10,
+                 "curPage": 1
+             }
+            },
+            "success": true
+            }
+
+
+## 企业信息审核-获取企业基本信息 [/platform/company/companyBasicDetaill/{id}]
+
+### 企业信息审核-获取企业基本信息 [GET]
+
++ Parameters
+   + id(String) -  企业id
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   true
+        }
+
+
+## 企业准入审核-获取企业准入信息 [/platform/company/companySurveyDetail/{id}]
+
+### 企业准入审核-获取企业准入信息 [GET]
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":    true
+        }
+
+
+## 企业信息审核-审核通过  [/platform/company/auditSuccess/{id}/{?auditContent}]
+
+### 企业信息审核-审核通过企业信息初步审核 [GET]
+
++ Parameters
+   + id (String) -  公司id
+   + auditContent(String) -  企业id
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":    true
+        }
+
+
+## 企业信息审核-审核不通过  [/platform/company/auditFail/{id}/{?auditContent}]
+
+### 企业信息审核-审核不通过  [GET]
+
++ Parameters
+   + id (String) -  公司id
+   + auditContent(String) -  企业id
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":    true
+        }
+
+
+## 企业信息审核-审核不通过流程结束 [/platform/company/auditFailEnd/{id}/{?auditContent}]
+
+### 企业信息审核-审核不通过流程结束 [POST]
+
++ Parameters
+   + id (String) -  公司id
+   + auditContent(String) -  企业id
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":    true
+        }
+
+
+
+## 企业信息审核-企业准入审核信息-保存企业资质 [/platform/company/saveLicenseSurveyDocument/{id}]
+
+### 企业准入审核-保存企业资质 [POST]
+
++ Parameters
+   + id(String) -  企业id
+
++ Request 200 (application/json)
+
+        {
+            "operationLicensePicChecked": true,
+            "organLicensePicChecked": true,
+            "unionLicensePicChecked": true,
+            "bankLicensePicChecked": true,
+            "legalPersonIdFrontSidePicChecked": true,
+            "legalPersonIdReverseSidePicChecked": true,
+            "authPersonIdFrontSidePicChecked": true,
+            "authPersonIdReverseSidePicChecked": true,
+            "authDocumentPicChecked": true,
+            "licenseAuditOpinion": "审核意见",
+            "otherLicenseAuditOpinion": "其他审核意见"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   true
+        }
+
+
+## 企业信息审核-企业准入审核信息-保存工商注册信息 [/platform/company/saveBusinessRegisterSurvey/{id}]
+
+### 企业准入审核-保存工商注册信息 [POST]
+
++ Parameters
+   + id(String) -  企业id
+
++ Request 200 (application/json)
+
+        {
+            "registerAuditOpinion": "意见",
+            "scopeAuditOpinion": "意见",
+            "registerCapital": 1000,
+            "registerCapitalAuditOpinion": "意见"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":    true
+        }
+
+
+## 企业信息审核-企业准入审核信息-保存企业股东 [/platform/company/saveShareHolderSurvey/{id}]
+
+### 企业准入审核-保存企业股东 [POST]
+
++ Parameters
+   + id(String) -  企业id
+
++ Request 200 (application/json)
+
+        {
+            "executiveDirector": "股东",
+            "supervisors": "股东",
+            "manager": "股东",
+            "auditOpinion": "股东",
+            "shareHolderList": [
+                {
+                    "name": "String", //股东构成姓名	录入	　	　	　
+                    "ratio": 1000, //出资比例	录入	　	　	　
+                    "subscribedAmount": 1000, //认缴金额
+                    "actualSubscribedAmount":1100, //实际认缴金额
+                    "type": "", //股东类型
+                    "subscribedAmountDate": Date, //认缴出资日期
+                    "remark": "" //备注
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":    true
+        }
+
+
+## 企业信息审核-企业准入审核信息-保存实际控制人 [/platform/company/saveControlPerson/{id}]
+
+### 企业准入审核-保存实际控制人 [POST]
+
++ Parameters
+   + id(String) -  企业id
+
++ Request 200 (application/json)
+
+        {
+            "name": "", //  姓名	录入	　	　	　
+            "age": 10, //  年龄	录入	　	　	　
+            "sex": 10, //  性别	录入	　	　	　
+            "phone": "", //  联系方式	录入	　	　	　
+            "residence": "", //  现居住地	录入	　	　	　
+            "family": "", //  家庭成员情况	录入	　	　	　
+            "ownedCapital": 1000, //  自有资金情况	录入	　	　	　
+            "major": "", //  主业务情况	录入	　	　	　
+            "minor": "", //  其他业务情况	录入	　	　	　
+            "relatedCompany": "", //  关联企业情况	录入	　	　	　
+            "badInfo": "", //  有无不良纠纷及诉讼或者长期账款	录入	　	　	　
+            "otherInfo": "" //  其他说明	录入
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":    true
+        }
+
+
+## 企业信息审核-企业准入审核信息-保存实地调查 [/platform/company/saveFieldInvestigationSurvey/{id}]
+
+### 企业准入审核-保存实地调查 [POST]
+
++ Parameters
+   + id(String) -  企业id
+
++ Request 200 (application/json)
+
+        {
+            "person": "", // 实地尽职调查	被调查人	录入	　	　	　
+            "title": "", // 职位	录入	　	　	　
+            "phone": "", // 联系方式	录入	　	　	　
+            "recordingFile": {}, // 访谈录音文件
+            "registerAddress": "", // 注册地址
+            "operationAddress": "", // 经营地	选择+录入	　	　	　
+            "operationProvince": "", // 省
+            "operationCity": "", // 市
+            "operationDistrict": "", // 区
+            "businessFulfilAddress": "", // 业务实际履行地
+            "supplementFile": {}, //补充材料文件
+            "auditOpinion": "" //审核意见
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":    "待定"
+        }
+
+
+## 企业信息审核-企业准入审核信息-保存合作记录 [/platform/company/saveCooperationSurvey/{id}]
+
+### 企业准入审核-保存合作记录 [POST]
+
++ Parameters
+   + id(String) -  企业id
+
++ Request 200 (application/json)
+
+        {
+            "time": "", // 合作时间
+            "name": "", // 合作单位
+            "quantity": 1000, // 合作量
+            "bail": 1000, // 保证金
+            "completion": 1000, // 完成量
+            "traffic": 1, // 运输方式
+            "settled": true, // 是否结清
+            "disputed": true // 有无纠纷
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "data":   true
+        }

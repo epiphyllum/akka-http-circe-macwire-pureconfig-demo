@@ -1,0 +1,15 @@
+{
+  "name": "apidocument",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "aglio --theme-full-width -i api.apib -o api.html && aglio --theme-full-width -i api2.apib -o api2.html && aglio --theme-full-width -i page.apib -o page.html",
+    "server": "aglio --theme-full-width -i api.apib -o api.html -s"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aglio": "^2.3.0"
+  }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/static/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/page/page.css">
+
+    <base href="/web/platform/index">
+
+</head>
+
+<body>
+<div id="upstreamHeader">
+    <div class="subHeader">
+        <div class="upstreamSubHeader">
+            <span>客服热线：<b>400-960-1180</b></span>
+            <ul class="menuRight">
+                <li id="loginWrap"><a href="/web/upstream/login">登录</a></li>
+                <li id="quitWrap"><a id="quitBtn" href="javascript:void(0)" >退出</a></li>
+                <!--<li>-->
+                    <!--<img src="/static/assets/upstreamHeader/wxLogo.png" alt="">-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="mainHeader">
+        <div class="upstreamSubHeader">
+            <a href="/web/index">
+                <img src="/static/assets/upstreamHeader/upstreamHeader.png" alt="">
+            </a>
+            <ul class="menuRight">
+                <li>
+                    <a href="/web/index">首页</a>
+                </li>
+                <li>
+                    <a href="/web/financing" class="active">企业金融</a>
+                </li>
+                <li id="companyCenter">
+                    <a href="/web/upstream/index/accountHome" class="businessCenter">企业中心</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="pageFinance">
+    <div class="financePic1"></div>
+    <div class="financePic2"></div>
+    <div class="financePic3"></div>
+    <div class="financePic4"></div>
+    <div class="financePic5"></div>
+    <div class="financePic6"></div>
+    <div class="financePic7"></div>
+    <div class="financePic8"></div>
+</div>
+<div id="upstreamFooter">
+    <div class="upstreamFootWrap">
+        <ul>
+            <li class="borderR">© 2015-2017 易煤网 All rights reserved</li>
+            <li class="borderR">和略电子商务(上海)有限公司</li>
+            <li>和略电子商务(上海)沪ICP备14052754号</li>
+        </ul>
+    </div>
+</div>
+<script type="application/javascript">
+    var storageIdentity = localStorage.getItem('userIdentity'),
+        storageUserName = localStorage.getItem('userName');
+
+    if(storageIdentity !== null){
+        document.getElementById('loginWrap').innerHTML = "<a href='/web/upstream/index/accountHome'  class='haveLogin'>你好, " + storageUserName + "</a>"
+    }else{
+        document.getElementById('quitWrap').style.display = 'none';
+        document.getElementById('companyCenter').style.display = 'none';
+    }
+    // quit
+    document.getElementById("quitBtn").onclick = function() {
+        localStorage.clear();
+        window.location.href = '/web/index'
+
+    }
+    console.log('yourIdentity', storageIdentity)
+</script>
+<!--[if lte IE 8]>
+<script type="text/javascript">
+    var htmlStr = '<div id="isUpgrade">'+
+            '<p class="browsehappy">您的浏览器<strong class="red">版本过低</strong>。请<strong class="red">升级您的浏览器</strong>以获得更加的良好浏览体验。</p>'+
+            '<br/>'+
+            '<p class="browsehappy"><a href="http://dl.pconline.com.cn/download/51614.html">Google Chrome(谷歌浏览器)</strong></p>'+
+            '<p class="browsehappy">一款可让您更快速、轻松且安全地使用网络的浏览器，它的设计超级简洁，使用起来更加方便。</p>'+
+            '<br/>'+
+            '<p class="browsehappy"><a href="http://www.firefox.com.cn/">Mozilla Firefox(火狐浏览器)</a></p>'+
+            '<p class="browsehappy">开源并带有强大开发工具的免费浏览器。</p>'+
+            '<br/>'+
+            '<br/>'+
+            '<br/>'
+    '</div>';
+
+    window.onload=function(){
+        var $body = document.getElementsByTagName('body')[0];
+        $body.style.backgroundColor="#f3f1f0";
+        $body.innerHTML = '';
+        $body.innerHTML = htmlStr;
+    }
+
+</script>
+<![endif]-->
+</body>
+</html>
