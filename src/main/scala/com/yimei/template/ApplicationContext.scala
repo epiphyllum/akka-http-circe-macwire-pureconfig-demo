@@ -59,10 +59,10 @@ object ApplicationContext {
   println(appConfig)
 
   // redis
-  val redisClient = RedisClient(appConfig.redis.host, appConfig.redis.port)
+  lazy val redisClient = RedisClient(appConfig.redis.host, appConfig.redis.port)
 
   // mongodb
-  val mongoSupport: MongoSupport = new MongoSupport(MongoClient(appConfig.mongodb.uri), appConfig.mongodb)
+  lazy val mongoSupport: MongoSupport = new MongoSupport(MongoClient(appConfig.mongodb.uri), appConfig.mongodb)
 
   // assemble all the services
   lazy val helloService = wire[HelloService]

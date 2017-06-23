@@ -4,8 +4,8 @@ import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.{Directive, Directive1}
 import com.yimei.template.ApplicationContext.appConfig
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
-import io.circe.ObjectEncoder
 import io.circe.generic.auto._
+import io.circe.Encoder
 import io.circe.jawn.decode
 import pdi.jwt.exceptions.JwtValidationException
 import pdi.jwt.{Jwt, JwtAlgorithm}
@@ -15,8 +15,6 @@ import scala.util.Success
 import scala.util.control.NonFatal
 import scala.util.matching.Regex
 import com.yimei.template.ApplicationContext._
-
-
 
 /**
   * Created by hary on 2017/6/23.
@@ -39,8 +37,20 @@ object ExtensionDirectives {
   def ok[T](items: Seq[T], meta: Pagination): Result[PageItems[T]] = Result(Some(PageItems(items, meta)), success = true)
 
   // 指令, 将T, Future[T]包装为Result[T], Future[Result[T]] 并complete
-  def result[T:ObjectEncoder](t: T) = complete(ok(t))
-  def result[T:ObjectEncoder](tf: Future[T]) = complete(tf.map(ok(_)))
+  def result[T:Encoder](t: T) = complete(ok(t))
+  def result[T:Encoder](tf: Future[T]) = complete(tf.map(ok(_)))
+
+  // 指令 check
+  def check(t: (Boolean, String)) = validate(t._1, t._2)
+
+  // 为case class 生成validator
+  import com.wix.accord.{Failure => VFailure, Success => VSuccess, Validator, validate => kvalidate}
+  def genValidator[T: Validator](t: T) = {
+    kvalidate(t) match {
+      case VFailure(violations) => (false, violations.mkString(","))
+      case VSuccess => (true, "")
+    }
+  }
 
   // 指令 - 获取分页参数  Symbol
   def page(defaultPageSize: Int = 10): Directive[Tuple1[Pager]] =
