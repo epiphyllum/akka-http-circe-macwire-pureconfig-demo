@@ -9,6 +9,7 @@ import akka.http.scaladsl.server.directives.BasicDirectives._
 import akka.http.scaladsl.server.directives.RouteDirectives._
 import akka.http.scaladsl.server.directives.FutureDirectives._
 import com.yimei.template.http.ExtensionDirectives._
+import com.yimei.template.http.RejectionConfig.BusinessRejection
 import io.circe.syntax._
 import io.circe.generic.auto._
 
@@ -17,18 +18,29 @@ import io.circe.generic.auto._
   */
 object BusinessDirectives {
 
-  //验证公司状态
-  def companyAuth(session: JwtSession): Directive0 = {
-    // def mycheck(ctx: RequestContext): Future[Boolean] = companyIsVerifyed(session)
-    def mycheck(ctx: RequestContext): Future[Boolean] = Future.successful(true)
-
+  /**
+    *  依据业务检查T => Future[Boolean]结果产生rejection:
+    * @param check
+    * @param t
+    * @param code
+    * @param msg
+    * @tparam T
+    * @return
+    */
+  def authGen[T](check: (T => Future[Boolean]), t: T, code: Int, msg: String): Directive0 = {
+    def mycheck(ctx: RequestContext): Future[Boolean] = check(t)
     extractExecutionContext.flatMap { implicit ec ⇒
       extract(mycheck).flatMap[Unit] { fa ⇒
         onComplete(fa).flatMap {
           case Success(true) ⇒ pass
-          case _ ⇒ complete(HttpResponse(StatusCodes.BadRequest, entity = failed[String](4000, "公司状态异常").asJson.toString))
+          case _ ⇒  reject(BusinessRejection(code, msg))
         }
       }
     }
   }
+
+  // 验证公司状态
+  def companyIsVerified(session: JwtSession): Future[Boolean] = Future.successful(false)
+  def companyAuth(session: JwtSession): Directive0 = authGen(companyIsVerified, session, 9001, "公司检查失败")
+
 }

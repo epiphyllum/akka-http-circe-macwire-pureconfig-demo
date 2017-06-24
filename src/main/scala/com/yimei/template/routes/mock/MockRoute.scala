@@ -8,6 +8,7 @@ import com.yimei.template.http.ExtensionDirectives._
 import com.yimei.template.http.RejectionConfig.BusinessRejection
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 import io.circe.generic.auto._
+import com.yimei.template.BusinessDirectives._
 
 import scala.concurrent.Future
 
@@ -51,12 +52,22 @@ class MockRoute extends MockController {
         }
       } ~
       (path("controller") & post & entity(as[ControllerRequest])) { req =>
-        (check(req.validate()) & check(req.businessValidate())) {
+        (check(req.validate()) & check(req.businessValidate()) ) {
           complete(handlePost(req))
         }
       } ~
+      (path("authorizeAsync") & post & entity(as[ControllerRequest])) { req  =>
+        (authorizeAsync(req.authorize)) {
+          complete("authorizedAsync ok")
+        }
+      } ~
+      // 自定义rejection
       (path("rejection")) {
         reject(BusinessRejection(1000, "this is BusinessReject Message"))
+      } ~
+      // 自定义auth指令
+      (path("busiAuth") & companyAuth(null)) {
+        complete("busiAuth success")
       }
   }
 }

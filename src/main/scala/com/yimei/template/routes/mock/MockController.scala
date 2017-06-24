@@ -23,7 +23,13 @@ trait MockController {
     def businessValidate(): (Boolean, String) = {
       (false, "business validation failed")
     }
+
+    // 这是业务控制检查
+    def authorize = {
+      Future.successful(false)
+    }
   }
+
   case class ControllerResponse(message: String)
   def handlePost(req: ControllerRequest) = {
     fok(Future.successful(ControllerResponse(req.message + " echo back")))
