@@ -33,15 +33,6 @@ sudo cpan install UUID
 
 
 
-### 前端环境 
-
-进入frontend-admin 目录后 运行 ```npm install ```, 然后运行 ``` npm start ```
-
-### 前端环境编译
-
-``` npm run build ```
-
-
 ### 导入数据
 
 #### 导入用户数据
@@ -53,3 +44,22 @@ mongoexport -d test -c user  -o user.json
 
 #### 导入下游企业
 ``` mongoimport -d test -c downstreamCompany --file ./docs/downStreamCompany.json ```
+
+
+```scala
+
+trait Migration[A, B] {
+   def apply(a: A): B
+}
+
+implicit class MigrationOps[A](a: A) {
+  def migrateTo[B](implicit migration: Migration[A, B]) = migration(a)
+}
+
+case class From(a: Int, b: Int,         c: Option[Int], d: Int     )
+case class To(          b: Option[Int], c:Int,          d: Int, e: Int)
+val to = From(a = 1, b = 2, c = Some(3), d = 4).migrateTo[To]
+
+val toExp = To(b = Some(2), c = 3, d = 4, e = 0)
+
+```
