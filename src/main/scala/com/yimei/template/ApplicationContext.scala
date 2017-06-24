@@ -49,14 +49,13 @@ object ApplicationContext {
   def getLogger(obj: AnyRef) = Logging(system, obj.getClass)
 
   // 应用配置
-  val appConfig: AppConfig = loadConfig[AppConfig] match {
+  lazy val appConfig: AppConfig = loadConfig[AppConfig] match {
     case Right(b) => b
     case Left(e) =>
       getLogger(this.getClass).error(s"loadConfig error ${e.toString}")
       throw new Exception("loadConfig failed")
   }
-
-  println(appConfig)
+  // println(appConfig)
 
   // redis
   lazy val redisClient = RedisClient(appConfig.redis.host, appConfig.redis.port)

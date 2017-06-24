@@ -29,6 +29,20 @@ class MockRoute extends MockController {
     }
   }
 
+  case class CaseTest(name: String, age: Option[Int]) {
+
+    caseValidate(this) {
+      validator[CaseTest] { ct =>
+        ct.name must startWith("error")
+        ct.age must notEmpty
+        ct.age.getOrElse(1) must be >= 2
+      }
+    }
+
+    // require(name.startsWith("hello"), "must start with hello")
+    // require(age.nonEmpty, "age must be not empty")
+  }
+
   case class MockResponse[T](message: String, t: T) // , violations: List[Violation] = List())
 
   import ApplicationContext._
@@ -68,6 +82,10 @@ class MockRoute extends MockController {
       // 自定义auth指令
       (path("busiAuth") & companyAuth(null)) {
         complete("busiAuth success")
+      } ~
+      // case class validation and extraction
+      ((path("caseValid") & parameters("name", "age".as[Int].?)).as(CaseTest)) { ct =>
+        complete(ct)
       }
   }
 }

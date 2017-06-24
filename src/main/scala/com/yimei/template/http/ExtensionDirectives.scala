@@ -46,11 +46,17 @@ object ExtensionDirectives {
 
   // 为case class 生成validator
   import com.wix.accord.{Failure => VFailure, Success => VSuccess, Validator, validate => kvalidate}
-  def genValidator[T: Validator](t: T) = {
+  def genValidator[T:Validator](t: T) = {
     kvalidate(t) match {
       case VFailure(violations) => (false, violations.mkString(","))
       case VSuccess => (true, "")
     }
+  }
+
+  // 利用accord validation来validate -
+  def caseValidate[T](t: T)(implicit v: Validator[T]) = kvalidate(t)(v) match {
+    case VFailure(violations) => throw new IllegalArgumentException(violations.toString())
+    case VSuccess => true
   }
 
   // 指令 - 获取分页参数  Symbol
