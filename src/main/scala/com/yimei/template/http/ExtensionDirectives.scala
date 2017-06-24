@@ -35,6 +35,7 @@ object ExtensionDirectives {
   def failed[T](error: Error) = Result[T](None, false, Some(error))
   def ok[T](data: T): Result[T] = Result(Some(data), success = true)
   def ok[T](items: Seq[T], meta: Pagination): Result[PageItems[T]] = Result(Some(PageItems(items, meta)), success = true)
+  def fok[T](df: Future[T]) = df map (ok(_))
 
   // 指令, 将T, Future[T]包装为Result[T], Future[Result[T]] 并complete
   def result[T:Encoder](t: T) = complete(ok(t))

@@ -15,6 +15,9 @@ object RejectionConfig {
   import ExtensionDirectives._
   import com.yimei.template.ApplicationContext._
 
+
+  case class BusinessRejection(code: Int, message: String) extends Rejection
+
   val log = getLogger(this)
 
   private[this] def handle(errCode: Int, status: StatusCode, msg: String = "") = {
@@ -32,9 +35,10 @@ object RejectionConfig {
     case MissingCookieRejection(cookieName)       => handle(5001, BadRequest, s"cookie $cookieName needed")
     case MissingQueryParamRejection(name)         => handle(5002, BadRequest, s"missing request parameter $name")
     case AuthorizationFailedRejection             => handle(5003, Unauthorized, s"authorization failed")
-    case ValidationRejection(msg, _)              => handle(5004, BadRequest, s"validation: $msg")
+    case ValidationRejection(msg, _)              => handle(5004, BadRequest, msg)
     case MissingHeaderRejection(header)           => handle(5005, BadRequest, s"missing header $header")
     case MalformedRequestContentRejection(msg, _) => handle(5006, BadRequest, msg)
+    case BusinessRejection(code, msg)             => handle(code, BadRequest, msg)
   }
 
   implicit val myRejectionHandler =

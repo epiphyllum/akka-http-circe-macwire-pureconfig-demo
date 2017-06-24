@@ -2,23 +2,23 @@ package com.yimei.template.routes.mock
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import com.wix.accord.Descriptions.Description
-import com.wix.accord.{Failure, Success, Validator, Violation, validate => kvalidate}
 import com.wix.accord.dsl._
 import com.yimei.template.ApplicationContext
 import com.yimei.template.http.ExtensionDirectives._
+import com.yimei.template.http.RejectionConfig.BusinessRejection
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 import io.circe.generic.auto._
-import io.circe.syntax._
 
 import scala.concurrent.Future
 
 /**
   * Created by hary on 2017/5/15.
   */
-class MockRoute {
+class MockRoute extends MockController {
 
-  val log = ApplicationContext.getLogger(this)
+  import ApplicationContext._
+
+  val log = getLogger(this)
 
   case class MockRequest(message: String) {
     def validate() = genValidator(this) {
@@ -49,6 +49,14 @@ class MockRoute {
             MockResponse("ok", "100")
           })
         }
+      } ~
+      (path("controller") & post & entity(as[ControllerRequest])) { req =>
+        (check(req.validate()) & check(req.businessValidate())) {
+          complete(handlePost(req))
+        }
+      } ~
+      (path("rejection")) {
+        reject(BusinessRejection(1000, "this is BusinessReject Message"))
       }
   }
 }
