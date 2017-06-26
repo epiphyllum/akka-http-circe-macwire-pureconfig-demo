@@ -36,37 +36,13 @@ trait MockController extends DefaultInstrumented {
   }
 
   case class ControllerResponse(message: String)
-
   def handlePost(req: ControllerRequest) = {
     fok(Future.successful(ControllerResponse(req.message + " echo back")))
   }
 
 
   import com.yimei.template.dict.CompanyType._
-
-
-
-//  val (companyTypeEncoder, companyTypeDecoder) = {
-//    val vmap = CompanyType.values.toList.map { v => (v.id, v) }.toMap
-//    import cats.syntax.either._
-//
-//
-//    val encoder: Encoder[CompanyType.CompanyType] = new Encoder[CompanyType.CompanyType] {
-//      override final def apply(a: CompanyType.CompanyType): Json = Json.obj(
-//        ("id", Json.fromInt(a.id)),
-//        ("value", Json.fromString(a.toString))
-//      )
-//    }
-//
-//    val decoder: Decoder[CompanyType.CompanyType] = Decoder.decodeInt.emap { mid =>
-//      Either.catchNonFatal(vmap(mid)).leftMap(t => "companyType")
-//    }
-//    (encoder, decoder)
-//  }
-
   case class HasEnum(companyType: CompanyType, name: String)
-
-
   def handleEnum() = {
     ok(HasEnum(SOE_CAP_ABS, "hary"))
   }
