@@ -30,8 +30,8 @@ object Dependencies {
   private val commonsIO = "2.5"
   private val quicklens = "1.4.8"
 
-  private val camelJetty = "2.16.4"
-  private val camelQuartz = "2.16.4"
+  private val camelJetty = "2.19.1"
+  private val camelQuartz = "2.19.1"
 
   // private val scalapbRuntime = "0.5.34"
 
