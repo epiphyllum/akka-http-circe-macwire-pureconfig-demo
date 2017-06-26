@@ -1,17 +1,14 @@
-package com.yimei.template
+package com.yimei.template.http
 
-import akka.http.scaladsl.model.{HttpResponse, StatusCodes}
+import akka.http.scaladsl.server.directives.BasicDirectives._
+import akka.http.scaladsl.server.directives.FutureDirectives._
+import akka.http.scaladsl.server.directives.RouteDirectives._
 import akka.http.scaladsl.server.{Directive0, RequestContext}
+import com.yimei.template.http.ExtensionDirectives._
+import com.yimei.template.http.RejectionConfig.BusinessRejection
 
 import scala.concurrent.Future
 import scala.util.Success
-import akka.http.scaladsl.server.directives.BasicDirectives._
-import akka.http.scaladsl.server.directives.RouteDirectives._
-import akka.http.scaladsl.server.directives.FutureDirectives._
-import com.yimei.template.http.ExtensionDirectives._
-import com.yimei.template.http.RejectionConfig.BusinessRejection
-import io.circe.syntax._
-import io.circe.generic.auto._
 
 /**
   * Created by hary on 2017/6/22.

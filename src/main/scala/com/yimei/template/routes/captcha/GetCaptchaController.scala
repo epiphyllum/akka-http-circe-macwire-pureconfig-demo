@@ -18,7 +18,7 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait GetCaptchaController {
 
-  import com.yimei.template.ApplicationContext._
+  import com.yimei.template.context.Context._
 
   // val log = getLogger(this)
 

@@ -2,7 +2,7 @@ package com.yimei.template.http
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.{Directive, Directive1}
-import com.yimei.template.ApplicationContext.appConfig
+import com.yimei.template.context.Context.appConfig
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 import io.circe.generic.auto._
 import io.circe.Encoder
@@ -14,7 +14,7 @@ import scala.concurrent.Future
 import scala.util.Success
 import scala.util.control.NonFatal
 import scala.util.matching.Regex
-import com.yimei.template.ApplicationContext._
+import com.yimei.template.context.Context._
 
 /**
   * Created by hary on 2017/6/23.

@@ -9,7 +9,7 @@ import scala.concurrent.Future
   */
 trait FindCaptchaController {
 
-  import com.yimei.template.ApplicationContext._
+  import com.yimei.template.context.Context._
 
   // 获取图片验证码
   def findCaptcha(clientId: String): Future[Result[String]] = {

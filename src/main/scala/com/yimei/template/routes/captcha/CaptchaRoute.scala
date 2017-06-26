@@ -1,7 +1,7 @@
 package com.yimei.template.routes.captcha
 
 import akka.http.scaladsl.server.Directives._
-import com.yimei.template.ApplicationContext
+import com.yimei.template.context.Context
 import com.yimei.template.http.ExtensionDirectives._
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 import io.circe.generic.auto._
@@ -13,7 +13,7 @@ class CaptchaRoute(systemName: String) extends CheckCaptchaController
   with FindCaptchaController
   with GetCaptchaController {
 
-  val log = ApplicationContext.getLogger(this)
+  val log = Context.getLogger(this)
 
   def route = pathPrefix(systemName) {
     cookie(systemName) { cookie =>

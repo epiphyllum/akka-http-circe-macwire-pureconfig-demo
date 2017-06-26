@@ -1,6 +1,6 @@
 package com.yimei.template.routes.upstream
 
-import com.yimei.template.WithLog
+import com.yimei.template.context.Context._
 import com.yimei.template.http.ExtensionDirectives.{Result, ok}
 
 import scala.concurrent.Future
@@ -10,7 +10,7 @@ import scala.concurrent.Future
   */
 trait PostHelloController extends WithLog {
 
-  import com.yimei.template.ApplicationContext._
+  import com.yimei.template.context.Context._
   case class PostRequest(message: String)
   case class PostResponse(message: String)
   def handlePost(req: PostRequest): Future[Result[PostResponse]] = {

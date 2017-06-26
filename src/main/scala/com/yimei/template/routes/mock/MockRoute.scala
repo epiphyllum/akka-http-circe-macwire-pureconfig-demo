@@ -3,12 +3,12 @@ package com.yimei.template.routes.mock
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import com.wix.accord.dsl._
-import com.yimei.template.ApplicationContext
+import com.yimei.template.context.Context
 import com.yimei.template.http.ExtensionDirectives._
 import com.yimei.template.http.RejectionConfig.BusinessRejection
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 import io.circe.generic.auto._
-import com.yimei.template.BusinessDirectives._
+import com.yimei.template.http.BusinessDirectives._
 
 import scala.concurrent.Future
 
@@ -17,7 +17,7 @@ import scala.concurrent.Future
   */
 class MockRoute extends MockController {
 
-  import ApplicationContext._
+  import Context._
 
   val log = getLogger(this)
 
@@ -45,7 +45,7 @@ class MockRoute extends MockController {
 
   case class MockResponse[T](message: String, t: T) // , violations: List[Violation] = List())
 
-  import ApplicationContext._
+  import Context._
 
   def route: Route = pathPrefix("mock") {
     path("sms") {
@@ -87,7 +87,7 @@ class MockRoute extends MockController {
       ((path("caseValid") & parameters("name", "age".as[Int].?)).as(CaseTest)) { ct =>
         complete(ct)
       } ~
-    // worldService wired HelloService
+      // worldService wired HelloService
       (path("wiredHello")) {
         complete(worldService.getMergeCase)
       }

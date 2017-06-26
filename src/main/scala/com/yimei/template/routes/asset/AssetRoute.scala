@@ -10,7 +10,7 @@ import io.circe.generic.auto._
   */
 class AssetRoute() extends OssCallbackController with PolicyController {
 
-  import com.yimei.template.ApplicationContext._
+  import com.yimei.template.context.Context._
   val log = getLogger(this)
 
   def route = pathPrefix("asset") {

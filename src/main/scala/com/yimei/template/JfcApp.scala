@@ -21,7 +21,7 @@ import com.yimei.template.routes.mock.MockRoute
   */
 object JfcApp extends App {
 
-  import ApplicationContext._
+  import com.yimei.template.context.Context._
   val log = getLogger(this)
 
   // 准备路由

@@ -88,7 +88,6 @@ object Dependencies {
     //    // database: slick and flyway
     "com.typesafe.slick" %% "slick" % slick,
     "org.flywaydb" % "flyway-core" % flywayCore,
-    "com.zaxxer" % "HikariCP" % hikaricp,
     "mysql" % "mysql-connector-java" % mysqlConnectorJava,
 
     // test
@@ -107,7 +106,7 @@ object Dependencies {
     // neo4j
     //     "org.neo4j" % "neo4j" % neo4j,
     "commons-codec" % "commons-codec" % "1.10",
-    //    "org.anormcypher" %% "anormcypher" % "0.10.0",
+    "org.anormcypher" %% "anormcypher" % "0.10.0",
 
     // mongodb
     "org.mongodb.scala" %% "mongo-scala-driver" % mongodbScala,

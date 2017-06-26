@@ -7,7 +7,7 @@ import scala.concurrent.Future
   */
 trait CheckCaptchaController {
 
-  import com.yimei.template.ApplicationContext._
+  import com.yimei.template.context.Context._
 
   // 校验验证码
   def handleCheckCaptcha(clientId: String, code: String): Future[Boolean] = {

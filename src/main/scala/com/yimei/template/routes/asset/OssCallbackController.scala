@@ -1,6 +1,6 @@
 package com.yimei.template.routes.asset
 
-import com.yimei.template.WithLog
+import com.yimei.template.context.Context._
 
 import scala.concurrent.Future
 
@@ -9,7 +9,7 @@ import scala.concurrent.Future
   */
 trait OssCallbackController extends WithLog {
 
-  import com.yimei.template.ApplicationContext._
+  import com.yimei.template.context.Context._
   import com.yimei.template.http.ExtensionDirectives._
 
   case class OssCallbackResponse(success: Boolean, fileName: String, mimeType: String, realname: String)

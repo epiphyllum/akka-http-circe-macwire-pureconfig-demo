@@ -1,6 +1,6 @@
 package com.yimei.template.routes.upstream
 
-import com.yimei.template.WithLog
+import com.yimei.template.context.Context._
 import com.yimei.template.http.ExtensionDirectives.{Result, ok}
 import nl.grons.metrics.scala.DefaultInstrumented
 
@@ -14,7 +14,7 @@ trait GetHelloController extends WithLog with  DefaultInstrumented {
   case class GetRequest(message: String)
   case class GetResponse(message: String)
 
-  import com.yimei.template.ApplicationContext._
+  import com.yimei.template.context.Context._
   def handleGet(req: GetRequest): Future[Result[GetResponse]] = {
     Future {
       ok(GetResponse(req.message))

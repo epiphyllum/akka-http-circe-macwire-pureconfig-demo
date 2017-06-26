@@ -14,7 +14,7 @@ import scala.util.control.NonFatal
   */
 object ExceptionConfig {
 
-  import com.yimei.template.ApplicationContext._
+  import com.yimei.template.context.Context._
 
   val log = getLogger(this)
 

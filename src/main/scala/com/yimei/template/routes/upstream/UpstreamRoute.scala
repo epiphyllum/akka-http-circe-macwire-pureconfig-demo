@@ -2,7 +2,7 @@ package com.yimei.template.routes.upstream
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import com.yimei.template.ApplicationContext
+import com.yimei.template.context.Context
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 import io.circe.generic.auto._
 
@@ -13,7 +13,7 @@ import io.circe.generic.auto._
 class UpstreamRoute extends GetHelloController
   with PostHelloController {
 
-  val log = ApplicationContext.getLogger(this)
+  val log = Context.getLogger(this)
 
   def route: Route = pathPrefix("upstream") {
     // get hello 请求

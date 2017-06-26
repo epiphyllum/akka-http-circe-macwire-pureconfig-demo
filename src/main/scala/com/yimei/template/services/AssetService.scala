@@ -1,6 +1,6 @@
 package com.yimei.template.services
 
-import com.yimei.template.ApplicationContext
+import com.yimei.template.context.Context
 import com.yimei.template.mongo.MongoModels.OssAssetDocument
 import org.mongodb.scala.bson.ObjectId
 
@@ -10,8 +10,7 @@ import scala.concurrent.Future
   * Created by hary on 2017/6/22.
   */
 class AssetService {
-
-  import ApplicationContext._
+  import Context._
 
   val log = getLogger(this)
 

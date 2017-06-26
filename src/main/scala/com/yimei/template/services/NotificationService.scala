@@ -6,7 +6,7 @@ import java.util.{Comparator, HashMap => JHashMap, TreeMap => JTreeMap}
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
 import akka.util.ByteString
-import com.yimei.template.ApplicationContext._
+import com.yimei.template.context.Context._
 import io.circe.syntax._
 import org.apache.commons.codec.digest.DigestUtils
 
@@ -18,10 +18,7 @@ import scala.concurrent.duration._
   */
 class NotificationService {
 
-
   val log = getLogger(this)
-
-
   val smsConfig = appConfig.sendcloud.sms
 
   /**

@@ -6,14 +6,14 @@ import javax.crypto.spec.SecretKeySpec
 import com.yimei.template.http.ExtensionDirectives._
 import javax.xml.crypto.dsig.SignatureMethod.HMAC_SHA1
 
-import com.yimei.template.WithLog
+import com.yimei.template.context.Context._
 
 /**
   * Created by hary on 2017/6/23.
   */
 trait PolicyController extends WithLog {
 
-  import com.yimei.template.ApplicationContext._
+  import com.yimei.template.context.Context._
 
   // 获取上传文件签名
   def hmacSHA1(key: Array[Byte], data: Array[Byte]): String = {

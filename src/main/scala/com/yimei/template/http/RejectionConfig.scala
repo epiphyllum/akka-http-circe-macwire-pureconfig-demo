@@ -13,7 +13,7 @@ import io.circe.syntax._
 object RejectionConfig {
 
   import ExtensionDirectives._
-  import com.yimei.template.ApplicationContext._
+  import com.yimei.template.context.Context._
 
 
   case class BusinessRejection(code: Int, message: String) extends Rejection
