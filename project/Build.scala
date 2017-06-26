@@ -35,9 +35,9 @@ object Dependencies {
 
   // private val scalapbRuntime = "0.5.34"
 
-  private val logbackClassic = "1.1.3"
+  private val logbackClassic = "1.2.3"
 
-  private val scalaTest = "3.0.0"
+  private val scalaTest = "3.0.3"
 
   private val jacksonFormat = "2.7.6"
 
