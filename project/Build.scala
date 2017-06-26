@@ -7,8 +7,9 @@ object Resolvers {
 }
 
 object Dependencies {
-  private val akka = "2.4.17"
-  private val akkaHttp = "10.0.5"
+  // private val akka = "2.4.19"
+  private val akka = "2.5.3"
+  private val akkaHttp = "10.0.8"
 
   private val leveldb = "0.7"
   private val leveldbjniAll = "1.8"
@@ -32,7 +33,7 @@ object Dependencies {
   private val camelJetty = "2.16.4"
   private val camelQuartz = "2.16.4"
 
-  private val scalapbRuntime = "0.5.34"
+  // private val scalapbRuntime = "0.5.34"
 
   private val logbackClassic = "1.1.3"
 
@@ -81,8 +82,8 @@ object Dependencies {
     "org.fusesource.leveldbjni" % "leveldbjni-all" % leveldbjniAll,
 
     // compiler scalameta
-    "org.scala-lang" % "scala-reflect" % "2.11.8",
-    "org.scala-lang" % "scala-compiler" % "2.11.8" % "provided",
+    "org.scala-lang" % "scala-reflect" % "2.11.11",
+    "org.scala-lang" % "scala-compiler" % "2.11.11" % "provided",
     "org.scalameta" %% "scalameta" % "1.7.0" % "provided",
 
     //    // database: slick and flyway
@@ -106,7 +107,7 @@ object Dependencies {
     // neo4j
     //     "org.neo4j" % "neo4j" % neo4j,
     "commons-codec" % "commons-codec" % "1.10",
-    "org.anormcypher" %% "anormcypher" % "0.10.0",
+    // "org.anormcypher" %% "anormcypher" % "0.10.0",
 
     // mongodb
     "org.mongodb.scala" %% "mongo-scala-driver" % mongodbScala,
@@ -123,7 +124,7 @@ object Dependencies {
     "org.thymeleaf" % "thymeleaf" % thymeleaf,
 
     // scala protobuf
-    "com.trueaccord.scalapb" %% "scalapb-runtime" % scalapbRuntime % "protobuf",
+    // "com.trueaccord.scalapb" %% "scalapb-runtime" % scalapbRuntime % "protobuf",
 
     // redis client
     "com.github.etaty" %% "rediscala" % "1.8.0",
@@ -142,6 +143,7 @@ object Dependencies {
 
     // slick
     "com.typesafe.slick" %% "slick-hikaricp" % "3.2.0",
+    "io.underscore" %% "slickless"  % "0.3.2",
 
     // 识别文件类型
     "org.apache.tika" % "tika" % "1.14",
@@ -171,7 +173,7 @@ object BuildSettings {
   val buildOrganization = "com.yimei.jfc"
   val appName = "jfc"
   val buildVersion = "0.0.5"
-  val buildScalaVersion = "2.11.8"
+  val buildScalaVersion = "2.11.11"
   val buildScalaOptions = Seq("-unchecked", "-deprecation", "-feature", "-encoding", "utf8")
 
   // neo4j
