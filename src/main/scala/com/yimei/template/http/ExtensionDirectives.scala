@@ -46,7 +46,7 @@ object ExtensionDirectives {
 
   // 为case class 生成validator
   import com.wix.accord.{Failure => VFailure, Success => VSuccess, Validator, validate => kvalidate}
-  def genValidator[T:Validator](t: T) = {
+  def genValidator[T:Validator](t: T): (Boolean, String) = {
     kvalidate(t) match {
       case VFailure(violations) => (false, violations.mkString(","))
       case VSuccess => (true, "")
@@ -54,10 +54,11 @@ object ExtensionDirectives {
   }
 
   // 利用accord validation来validate -
-  def caseValidate[T](t: T)(implicit v: Validator[T]) = kvalidate(t)(v) match {
-    case VFailure(violations) => throw new IllegalArgumentException(violations.toString())
-    case VSuccess => true
-  }
+  def caseValidate[T](t: T)(implicit v: Validator[T]): Boolean =
+    kvalidate(t)(v) match {
+      case VFailure(violations) => throw new IllegalArgumentException(violations.toString())
+      case VSuccess => true
+    }
 
   // 指令 - 获取分页参数  Symbol
   def page(defaultPageSize: Int = 10): Directive[Tuple1[Pager]] =

@@ -66,7 +66,7 @@ class MockRoute extends MockController {
         }
       } ~
       (path("controller") & post & entity(as[ControllerRequest])) { req =>
-        (check(req.validate()) & check(req.businessValidate()) ) {
+        (check(req.validate()) & check(req.validate2()) ) {
           complete(handlePost(req))
         }
       } ~

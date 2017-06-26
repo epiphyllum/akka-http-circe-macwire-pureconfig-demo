@@ -21,7 +21,8 @@ trait MockController extends DefaultInstrumented {
     }
 
     // 这里是业务检查, 函数签名只有一个要求， boolean + string 的tuple
-    def businessValidate(): (Boolean, String) = {
+    def validate2(): (Boolean, String) = {
+      // 查询数据库， 检验用户情况 etc...
       (false, "business validation failed")
     }
 
