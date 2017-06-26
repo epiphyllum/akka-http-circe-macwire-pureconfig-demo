@@ -86,6 +86,10 @@ class MockRoute extends MockController {
       // case class validation and extraction
       ((path("caseValid") & parameters("name", "age".as[Int].?)).as(CaseTest)) { ct =>
         complete(ct)
+      } ~
+    // worldService wired HelloService
+      (path("wiredHello")) {
+        complete(worldService.getMergeCase)
       }
   }
 }

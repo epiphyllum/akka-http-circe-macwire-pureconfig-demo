@@ -19,7 +19,8 @@ import io.circe.generic.auto._
 object BusinessDirectives {
 
   /**
-    *  依据业务检查T => Future[Boolean]结果产生rejection:
+    * 依据业务检查T => Future[Boolean]结果产生rejection:
+    *
     * @param check
     * @param t
     * @param code
@@ -27,20 +28,23 @@ object BusinessDirectives {
     * @tparam T
     * @return
     */
-  def authGen[T](check: (T => Future[Boolean]), t: T, code: Int, msg: String): Directive0 = {
+  def authGen[T](t: T, code: Int, msg: String)(check: T => Future[Boolean]): Directive0 = {
     def mycheck(ctx: RequestContext): Future[Boolean] = check(t)
+
     extractExecutionContext.flatMap { implicit ec ⇒
       extract(mycheck).flatMap[Unit] { fa ⇒
         onComplete(fa).flatMap {
           case Success(true) ⇒ pass
-          case _ ⇒  reject(BusinessRejection(code, msg))
+          case _ ⇒ reject(BusinessRejection(code, msg))
         }
       }
     }
   }
 
   // 验证公司状态
-  def companyIsVerified(session: JwtSession): Future[Boolean] = Future.successful(false)
-  def companyAuth(session: JwtSession): Directive0 = authGen(companyIsVerified, session, 9001, "公司检查失败")
+  def companyAuth(session: JwtSession): Directive0 =
+    authGen(session, 9001, "公司检查失败") { session =>
+      Future.successful(false)
+    }
 
 }

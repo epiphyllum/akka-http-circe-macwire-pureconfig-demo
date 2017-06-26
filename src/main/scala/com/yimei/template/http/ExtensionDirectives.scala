@@ -73,7 +73,7 @@ object ExtensionDirectives {
       try {
         val regex: Regex = """Bearer (\S+)""".r
         val regex(token) = auth
-        Jwt.decode(token, appConfig.jwt.jwtSecret, Seq(JwtAlgorithm.HS256)).map { (claim: String) =>
+        Jwt.decode(token, appConfig.jwt.secret, Seq(JwtAlgorithm.HS256)).map { (claim: String) =>
           decode[JwtSession](claim) match {
             case Right(jwt) => jwt
             case _ => throw new JwtValidationException("token error")

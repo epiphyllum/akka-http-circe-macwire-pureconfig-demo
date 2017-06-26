@@ -2,13 +2,14 @@ package com.yimei.template.routes.mock
 
 import com.wix.accord.dsl._
 import com.yimei.template.http.ExtensionDirectives._
+import nl.grons.metrics.scala.DefaultInstrumented
 
 import scala.concurrent.Future
 
 /**
   * Created by hary on 2017/6/23.
   */
-trait MockController {
+trait MockController extends DefaultInstrumented {
 
   case class ControllerRequest(message: String) {
 

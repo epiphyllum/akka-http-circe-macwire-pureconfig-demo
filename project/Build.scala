@@ -19,7 +19,7 @@ object Dependencies {
   private val hikaricp = "2.4.5"
 
   private val accordCore = "0.6.1"
-  private val flywayCore = "3.2.1"
+  private val flywayCore = "4.2.0"
 
   private val freemarker = "2.3.23"
   private val thymeleaf = "3.0.2.RELEASE"
@@ -159,7 +159,9 @@ object Dependencies {
     "com.softwaremill.macwire" %% "util" % "2.3.0",
     "com.softwaremill.macwire" %% "proxy" % "2.3.0",
 
-    // shapeless
+    "nl.grons" %% "metrics-scala" % "3.5.8",
+
+  // shapeless
     "com.chuusai" %% "shapeless" % "2.3.2"
 
   )
