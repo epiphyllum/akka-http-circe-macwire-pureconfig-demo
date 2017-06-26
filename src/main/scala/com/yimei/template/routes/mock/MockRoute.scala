@@ -66,11 +66,11 @@ class MockRoute extends MockController {
         }
       } ~
       (path("controller") & post & entity(as[ControllerRequest])) { req =>
-        (check(req.validate()) & check(req.validate2()) ) {
+        (check(req.validate()) & check(req.validate2())) {
           complete(handlePost(req))
         }
       } ~
-      (path("authorizeAsync") & post & entity(as[ControllerRequest])) { req  =>
+      (path("authorizeAsync") & post & entity(as[ControllerRequest])) { req =>
         (authorizeAsync(req.authorize)) {
           complete("authorizedAsync ok")
         }
@@ -90,7 +90,25 @@ class MockRoute extends MockController {
       // worldService wired HelloService
       (path("wiredHello")) {
         complete(worldService.getMergeCase)
+      } ~
+      (path("hasEnum")) {
+        get {
+          complete(handleEnum)
+        } ~
+          (post & entity(as[HasEnum])) { he =>
+            log.warning(s"got a HasEnum = $he")
+            complete(he)
+          }
       }
+
+    //      (path("localdate")) {
+    //        import java.time.LocalDateTime
+    //        import java.util.Date
+    //        val d = new Date()
+    //        complete(ok(LocalDateTime.now()))
+    //        complete(ok(d))
+    //      }
+
   }
 }
 
