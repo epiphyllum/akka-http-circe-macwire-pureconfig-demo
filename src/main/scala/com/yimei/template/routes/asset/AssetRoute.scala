@@ -13,6 +13,19 @@ class AssetRoute() extends OssCallbackController with PolicyController {
   import com.yimei.template.context.Context._
   val log = getLogger(this)
 
+  /**
+    * 阿里云上传的客户端操作如下:
+    * --------------------------------------------------------------
+    * curl -XPOST
+    * -F "key=$resp->{dirName}/$uuid.jpg"
+    * -F "policy=$resp->{policy}"
+    * -F "callback=$resp->{callback}"
+    * -F "OSSAccessKeyId=$resp->{OSSAccessKeyId}"
+    * -F "signature=$resp->{signature}"
+    * -F "x:realname=myfilename.jpg"
+    * -F file="\@README.md"
+    * "$resp->{host}"
+    */
   def route = pathPrefix("asset") {
     // 获取上传策略
     (path("policy") & get & jwt) { jwtSession: JwtSession =>

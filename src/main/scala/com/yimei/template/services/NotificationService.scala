@@ -91,10 +91,8 @@ class NotificationService {
     } yield {
       val pattern = """.*"result":(true|false).*""".r
       val entityStr = entityBS.utf8String
-      println(s"got entityStr: $entityStr")
       val pattern(ok) = entityStr
-
-      println("got result: " + ok)
+      log.info("发送结果: {}", ok)
       if (ok == "true") true else false
     }
   }
