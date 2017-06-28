@@ -31,6 +31,9 @@ class MockRoute extends MockController {
 
   case class CaseTest(name: String, age: Option[Int]) {
 
+//    require(name.startsWith("hello"), "must start with hello")
+//    require(age.nonEmpty, "age must be not empty")
+
     caseValidate(this) {
       validator[CaseTest] { ct =>
         ct.name must startWith("error")
@@ -39,8 +42,6 @@ class MockRoute extends MockController {
       }
     }
 
-    // require(name.startsWith("hello"), "must start with hello")
-    // require(age.nonEmpty, "age must be not empty")
   }
 
   case class MockResponse[T](message: String, t: T) // , violations: List[Violation] = List())

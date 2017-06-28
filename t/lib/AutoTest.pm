@@ -1,5 +1,7 @@
 package AutoTest;
 
+use strict;
+use warnings;
 use JSON;
 use utf8 ':all';
 use Encode;

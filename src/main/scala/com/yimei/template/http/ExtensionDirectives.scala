@@ -25,10 +25,9 @@ object ExtensionDirectives {
   case class Pager(pageSize: Option[Int], pageNum: Option[Int]);
   case class Pagination(totalCount: Long = 0, totalPage: Long = 0, pageSize: Int = 10, curPage: Int = 1)
   case class Error(code: Int, message: String)
-  case class Result[T](data: Option[T] = None, success: Boolean, error: Option[Error] = None)
+  case class Result[T](data: Option[T] = None, success: Boolean, error: Option[Error] = None, formError: Option[Map[String, String]] = None)
   case class PageItems[T](items: Seq[T] = List(), pagination: Pagination)
   case class JwtSession(id: String, username: String, phone: String, roleType: Int, systemId: Int)
-
 
   // fail + success, 将一个T 包装成Result[T], 将一个Seq[T] + Pagination包装成Result[M]
   def failed[T](code: Int, message: String) = Result[T](None, false, Some(Error(code, message)))

@@ -24,8 +24,7 @@ $capital->register( "1300000002", "capital",  "capital",  "12345678");
 $platform->register("1300000003", "platform", "platform", "12345678");
 
 # 3. 各平台用户登录
-$upstream->login("1300000000", "123456
-78");
+$upstream->login("1300000000", "12345678");
 $bridge->login(  "1300000001", "12345678");
 $capital->login( "1300000002", "12345678");
 $platform->login("1300000003", "12345678");
