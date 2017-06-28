@@ -1,7 +1,6 @@
 package com.yimei.template.db
+import slick.collection.heterogeneous.HNil
 import slick.jdbc.MySQLProfile.api._
-import shapeless._
-import slickless._
 
 /**
   * Created by hary on 2017/6/26.
@@ -54,9 +53,9 @@ trait BigTable {
         q :: r :: s :: t ::
         u :: v :: w :: x ::
         y :: z :: HNil
-      ).mappedWith(Generic[BigEntity])
+      ).mapTo[BigEntity]
   }
 
-  val bigTable = TableQuery[BigTable]
+  val bigTables = TableQuery[BigTable]
 
 }

@@ -7,11 +7,11 @@ import slick.jdbc.MySQLProfile.api._
 trait CertificateTable {
 
   case class CertificateEntity(id:Option[Int],idType:Int,idName:String)
-  class Certificate(tag:Tag) extends Table[CertificateEntity](tag,"certificate"){
+  class CertificateTable(tag:Tag) extends Table[CertificateEntity](tag,"certificate"){
     def id = column[Option[Int]]("id", O.PrimaryKey, O.AutoInc)
     def idType = column[Int]("idType")
     def idName = column[String]("idName")
-    def * = (id, idType, idName) <> (CertificateEntity.tupled, CertificateEntity.unapply)
+    def * = (id, idType, idName).mapTo[CertificateEntity]
   }
-  protected val certificate = TableQuery[Certificate]
+  protected val certificates = TableQuery[CertificateTable]
 }
