@@ -19,10 +19,11 @@ object CirceEnumCodec {
         ("value", Json.fromString(a.toString))
       )
     }
-    val vmap =  enum.values.toList.map { v => (v.id, v.asInstanceOf[T]) }.toMap
+
+    // val vmap =  enum.values.toList.map { v => (v.id, v.asInstanceOf[T]) }.toMap
 
     val decoder : Decoder[T] = Decoder.decodeInt.emap { mid =>
-      Either.catchNonFatal(vmap(mid)).leftMap(t => enum.toString())
+      Either.catchNonFatal(enum(mid).asInstanceOf[T]).leftMap(t => enum.toString())
     }
 
     EnumCodec(encoder, decoder)
