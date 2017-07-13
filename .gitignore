@@ -3,6 +3,9 @@
 public
 /static
 
+.ensime
+.ensime_cache
+
 
 
 # Logs
